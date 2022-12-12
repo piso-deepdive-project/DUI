@@ -15,7 +15,7 @@ class App {
     const post = new Post().render();
 
     return `
-    ${post}
+      ${post}
     `;
   }
 }
