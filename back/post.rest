@@ -1,0 +1,25 @@
+GET http://localhost:6000/posts
+
+###
+
+POST   http://localhost:6000/post
+content-type: application/json
+
+{"id": 0, "title": "TEST POST TITLE", "author": { "id": "test123@gmail.com", "pwd": "utzazz12!!", "author": "Uta" }, "tags": [], "date": 23975203758}
+
+###
+
+GET http://localhost:6000/post/0
+
+
+###
+
+PATCH   http://localhost:6000/post
+content-type: application/json
+
+{"id": 0, "title": "TEST UPDATE TITLE", "author": { "id": "update123@gmail.com", "pwd": "utzazz12!!", "author": "Uta" }, "tags": [], "date": 23975203758}
+
+###
+
+DELETE  http://localhost:6000/post/0
+
