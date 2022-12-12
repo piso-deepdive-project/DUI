@@ -8,8 +8,8 @@ class Posts extends Component {
     const postList = new PostList().render();
 
     return `
-    ${postType}
-    ${postList}
+      ${postType}
+      ${postList}
     `;
   }
 }

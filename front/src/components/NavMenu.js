@@ -19,7 +19,7 @@ class NavMenu extends Component {
         <li class="text-base">메뉴 2</li>
         <li class="text-base">메뉴 3</li>
       </ul>
-`;
+    `;
   }
 }
 

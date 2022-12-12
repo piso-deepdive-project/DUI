@@ -1,8 +1,10 @@
-import Main from './pages/Main';
-import Signin from './pages/Signin';
-import Signup from './pages/Signup';
-import Edit from './pages/Edit';
-import Post from './pages/Post';
+import {
+  Main, //
+  Signin,
+  Signup,
+  Edit,
+  Post,
+} from './pages';
 
 class App {
   render() {
