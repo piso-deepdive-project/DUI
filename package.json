@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/memore2/DUI/issues"
   },
-  "homepage": "https://github.com/memore2/DUI#readme"
+  "homepage": "https://github.com/memore2/DUI#readme",
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
 }
