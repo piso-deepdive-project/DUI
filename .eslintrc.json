@@ -49,6 +49,7 @@
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true
       }
-    ] // prettier의 printWidth 옵션 대신 사용
+    ], // prettier의 printWidth 옵션 대신 사용
+    "linebreak-style": 0
   }
 }
