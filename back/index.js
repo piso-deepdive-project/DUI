@@ -1,5 +1,15 @@
 const express = require('express');
-const { getPosts, addPost, getPost, updatePost, deletePost } = require('./data');
+const {
+  getUser,
+  addUser,
+  updateUser,
+  deleteUser,
+  getPosts,
+  addPost,
+  getPost,
+  updatePost,
+  deletePost,
+} = require('./data');
 
 // const { Signin } = require('./api/sign/signin');
 
@@ -9,7 +19,34 @@ const PORT = 6000;
 server.use(express.static('public'));
 server.use(express.json());
 
-// Signin(server);
+// USER API
+/**
+ * signin
+ */
+server.post('/signin', (req, res) => {
+  res.send(getUser(req.body));
+});
+
+/**
+ * signup
+ */
+server.post('/signup', (req, res) => {
+  res.send(addUser(req.body));
+});
+
+/**
+ * 회원 수정
+ */
+server.patch('/user', (req, res) => {
+  res.send(updateUser(req.body));
+});
+
+/**
+ * 회원 삭제
+ */
+server.delete('/user/', (req, res) => {
+  res.send(deleteUser(req.body.id));
+});
 
 // POST API
 /**

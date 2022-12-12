@@ -1,4 +1,4 @@
-const users = [
+let users = [
   {
     id: 'test123@gmail.com',
     pwd: 'utzazz12!!',
@@ -16,6 +16,22 @@ let posts = [
   },
 ];
 
+// USER
+const getUser = user => users.find(_usr => _usr.id === user.id && _usr.pwd === user.pwd);
+
+const addUser = user => {
+  users = [...users, user];
+};
+
+const updateUser = user => {
+  users = users.map(_usr => (_usr.id === user.id ? user : _usr));
+};
+
+const deleteUser = id => {
+  users = users.filter(_usr => _usr.id !== id);
+  console.log(users);
+};
+
 // POST
 const getPosts = () => posts;
 
@@ -32,11 +48,14 @@ const updatePost = post => {
 
 const deletePost = id => {
   posts = posts.filter(post => post.id !== id);
-  console.log(posts);
   return getPost(id);
 };
 
 module.exports = {
+  getUser,
+  addUser,
+  updateUser,
+  deleteUser,
   getPosts,
   getPost,
   addPost,

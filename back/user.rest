@@ -1,0 +1,31 @@
+POST http://localhost:6000/signin
+content-type: application/json
+
+{ "id": "signin123@gmail.com", "pwd": "utzazz12!!" }
+
+###
+POST http://localhost:6000/signin
+content-type: application/json
+
+{ "id": "test123@gmail.com", "pwd": "utzazz12!!" }
+
+###
+POST http://localhost:6000/signup
+content-type: application/json
+
+{ "id": "signup123@gmail.com", "pwd": "utzazz12!!", "author": "Uta" }
+
+
+###
+PATCH   http://localhost:6000/user
+content-type: application/json
+
+{ "id": "test123@gmail.com", "pwd": "uefhef2!!" }
+
+###
+
+DELETE  http://localhost:6000/user/
+content-type: application/json
+
+{ "id": "test123@gmail.com"}
+
