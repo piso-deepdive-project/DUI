@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Component, render } from './common';
+import { createRoutes, findComponent } from './route';
 import {
   Main, //
   SignIn,
@@ -15,16 +16,7 @@ const routes = [
   { path: '/edit', component: Edit },
   { path: '/post/:id', component: Post },
 ];
-
-// prettier-ignore
-const findComponent = () => routes.find(({ path }) => {
-  const reg = '^'
-  + `${path.split('/').splice(0, 2).map(path => path).join('/')}`
-  + `${path.split('/')[2] ? '/[\\w]+' : ''}`
-  + '$';
-
-  return new RegExp(reg).test(window.location.pathname);
-}).component;
+createRoutes(routes);
 
 class App extends Component {
   render() {
