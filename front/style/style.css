@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import './post.css';
+@import './postcard.css';
 @import 'tailwindcss/utilities';
 
 @layer base {
