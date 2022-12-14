@@ -5,11 +5,15 @@ class NavList extends Component {
     return `
       <ul class="main-nav-list">
         <li><i class="bx bx-menu"></i></li>
-        <li>DUI</li>
-        <li>Posts</li>
+        <li class='logo'>DUI</li>
       </ul>
-      <button class="hover:bg-primary" onclick="location.href='/edit.html'">
-        <i class="bx bx-edit-alt"></i>
+      <!-- 로그인안한 유저 -->
+      <button class="edit-btn" onclick="location.href='/signin'">
+        Signin
+      </button>
+      <!-- 로그인한 유저 -->
+      <button class="edit-btn" onclick="location.href='/edit'">
+      <i class="bx bx-edit-alt"></i>
       </button>
     `;
   }

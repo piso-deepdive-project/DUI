@@ -15,6 +15,11 @@ class PostList extends Component {
       </div>
     `;
   }
+
+  // 포스트 카드 이벤트 위임
+  // addEventListener() {
+  //   return [{ type: 'submit', selector: '.post-card', handler: this.validationUser.bind(this) }];
+  // }
 }
 
 export default PostList;

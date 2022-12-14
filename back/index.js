@@ -14,7 +14,7 @@ const {
 // const { Signin } = require('./api/sign/signin');
 
 const server = express();
-const PORT = 6000;
+const PORT = 3000;
 
 server.use(express.static('public'));
 server.use(express.json());
