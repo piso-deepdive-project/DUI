@@ -100,7 +100,7 @@ class SignUp extends Component {
           <span class="errorMsg">${this.state.errMsgs[3]}</span>
           <button type="submit" class="signup-btn">회원가입</button>
           <div class="user-link">
-            <a href="/Signin">로그인</a>
+            <a href="/signin">로그인</a>
           </div>
         </div>
       </form>
