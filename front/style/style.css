@@ -1,7 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+
+@import './mainnav.css';
+
 @import './post.css';
 @import './postcard.css';
+@import './postlist.css';
+
 @import 'tailwindcss/utilities';
 
 @layer base {

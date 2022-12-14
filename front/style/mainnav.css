@@ -1,0 +1,20 @@
+@layer components {
+  .main-nav {
+    @apply flex flex-row justify-between items-center;
+  }
+  .main-nav-list {
+    @apply p-4 text-4xl
+    flex flex-row;
+  }
+  .bx-menu {
+    @apply text-primary;
+    text-shadow: 2px 2px #735e6f;
+  }
+  .logo {
+    @apply text-primary;
+    text-shadow: 2px 2px #735e6f;
+  }
+  .edit-btn {
+    @apply text-2xl;
+  }
+}
