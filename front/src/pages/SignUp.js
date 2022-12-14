@@ -35,9 +35,9 @@ class SignUp extends Component {
             minlength="5"
             placeholder="비밀번호 확인"
           />
-          <a href="/signin.html" class="signin-link">회원가입</a>
+          <a href="/signin" class="signin-link">회원가입</a>
           <div class="user-link">
-            <a href="/signin.html">로그인</a>
+            <a href="/signin">로그인</a>
           </div>
         </form>
       </article>
