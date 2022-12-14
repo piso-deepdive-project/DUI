@@ -13,21 +13,42 @@ const routes = [
   { path: '/signin', component: SignIn },
   { path: '/signup', component: SignUp },
   { path: '/edit', component: Edit },
-  { path: '/post', component: Post },
+  { path: '/post/:id', component: Post },
 ];
 
-const findComponent = pathname => routes.find(({ path }) => path === pathname).component;
+// prettier-ignore
+const findComponent = () => routes.find(({ path }) => {
+  const reg = '^'
+  + `${path.split('/').splice(0, 2).map(path => path).join('/')}`
+  + `${path.split('/')[2] ? '/[\\w]+' : ''}`
+  + '$';
+
+  return new RegExp(reg).test(window.location.pathname);
+}).component;
 
 class App extends Component {
   render() {
-    const RenderComponet = findComponent(window.location.pathname);
-    if (RenderComponet === Post) {
-      const post = new Post({ ...this.state, deletePost: this.deletePost.bind(this) }).render();
-      return `
-      ${post}
-    `;
+    let page;
+    const RenderComponet = findComponent();
+    if (RenderComponet === Main) {
+      page = new Main({ ...this.state }).render();
     }
-    const page = new RenderComponet().render();
+
+    if (RenderComponet === Post) {
+      page = new Post({ ...this.state, deletePost: this.deletePost.bind(this) }).render();
+    }
+
+    if (RenderComponet === Edit) {
+      page = new Edit().render();
+    }
+
+    if (RenderComponet === SignIn) {
+      page = new SignIn().render();
+    }
+
+    if (RenderComponet === SignUp) {
+      page = new SignUp().render();
+    }
 
     return `
       ${page}
@@ -43,7 +64,7 @@ class App extends Component {
   deletePost(e) {
     const id = +e.target.closest('article').id;
     const posts = this.state.posts.filter(post => post.id !== id);
-    // axios로 서버 posts 변경시키기
+    axios.delete(`/post/${id}`);
     this.setState({ posts });
   }
 
