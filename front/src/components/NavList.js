@@ -8,11 +8,11 @@ class NavList extends Component {
         <li class='logo'>DUI</li>
       </ul>
       <!-- 로그인안한 유저 -->
-      <button class="edit-btn" onclick="location.href='/signin'">
+      <button class="edit-btn route" data-route="/signin">
         Signin
       </button>
       <!-- 로그인한 유저 -->
-      <button class="edit-btn" onclick="location.href='/edit'">
+      <button class="edit-btn route" data-route="/edit">
       <i class="bx bx-edit-alt"></i>
       </button>
     `;
