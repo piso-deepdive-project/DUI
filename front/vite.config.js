@@ -1,12 +1,14 @@
 import { defineConfig } from 'vite';
 
+const PORT = 3000;
+
 export default defineConfig({
   server: {
     proxy: {
-      '/post': 'http://localhost:3000',
-      '/signin': 'http://localhost:3000',
-      '/signup': 'http://localhost:3000',
-      '/edit': 'http://localhost:3000',
+      '/post': `http://localhost:${PORT}`,
+      '/signin': `http://localhost:${PORT}`,
+      '/signup': `http://localhost:${PORT}`,
+      '/edit': `http://localhost:${PORT}`,
     },
   },
 });
