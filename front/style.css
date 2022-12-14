@@ -32,4 +32,81 @@
   .post-content {
     @apply text-2xl;
   }
+
+  /* signin */
+
+  .user-nav {
+    min-width: 400px;
+    @apply flex  items-center p-8 py-16 text-2xl  text-primary;
+  }
+
+  .signin-form {
+    width: 600px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    @apply flex flex-col m-auto py-4 px-8  border-solid h-96;
+  }
+
+  .signin-form .title {
+    @apply text-4xl text-center text-primary mb-12;
+  }
+
+  .signin-container {
+    @apply flex flex-col;
+  }
+
+  .signin-container input {
+    @apply h-14 pl-4;
+  }
+  .signin-container input:focus {
+    @apply outline-primary;
+  }
+
+  .signin-container input:first-child {
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 1px;
+  }
+
+  .signin-container input:nth-child(2) {
+    border-radius: 0 0 10px 10px;
+  }
+
+  .signin-btn {
+    @apply mt-10 h-12 text-2xl bg-primary rounded-md text-white;
+  }
+
+  .user-link {
+    @apply mt-3 text-sub;
+  }
+
+  /* signup */
+  .signup-form {
+    @apply flex flex-col m-auto py-4 px-8 max-w-2xl;
+  }
+  .signup-form .title {
+    @apply text-4xl text-center text-primary mb-12;
+  }
+
+  .signup-container {
+    @apply flex flex-col;
+  }
+
+  .signup-container label {
+    @apply text-sm font-semibold mb-2;
+  }
+
+  .signup-container input {
+    @apply h-12 pl-4;
+  }
+  .signup-container input:focus {
+    @apply outline-none;
+  }
+
+  .signup-btn {
+    @apply mt-2 h-12 text-2xl bg-primary rounded-md text-white;
+  }
+
+  .errorMsg {
+    @apply opacity-100 text-red-600 text-sm;
+  }
 }
