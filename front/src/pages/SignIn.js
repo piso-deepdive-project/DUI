@@ -36,7 +36,7 @@ class SignIn extends Component {
   render() {
     return `
       <nav class="user-nav">
-        <a href="/index.html">DUI POST</a>
+        <a href="/">DUI POST</a>
       </nav>
       <form class="signin-form">
         <h1 class="title">SIGNIN</h1>
