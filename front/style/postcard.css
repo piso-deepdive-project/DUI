@@ -1,0 +1,20 @@
+@layer components {
+  .post-card {
+    @apply p-2 mx-4 my-2 font-bold 
+    flex flex-row justify-between items-center
+    rounded-lg shadow-md;
+  }
+
+  .card-author {
+    @apply font-bold;
+  }
+
+  .card-date {
+    @apply text-xs text-sub align-sub
+    self-end basis-1/12;
+  }
+
+  .card-description {
+    @apply text-lg basis-8/12 text-ellipsis;
+  }
+}

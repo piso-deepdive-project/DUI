@@ -5,10 +5,10 @@ class PostType extends Component {
     return `
       <ul class="post-type">
         <li>
-          <i class="bx bx-list-ul bx-lg bg-txt text-main"></i>
+          <i class="bx bx-list-ul select bx-lg bg-txt text-main"></i>
         </li>
         <li>
-          <i class="bx bx-grid-alt bx-lg" onclick="location.href='/grid.html'"></i>
+          <i class="bx bx-grid-alt bx-lg"></i>
         </li>
       </ul>
     `;
