@@ -59,7 +59,7 @@ class SignIn extends Component {
           />
           <button type="submit"class="signin-btn">로그인</button>
           <div class="user-link">
-          <a href="/Signup">회원가입</a>
+          <a href="/signup">회원가입</a>
         </div>
         </div>
         </form>
@@ -79,8 +79,7 @@ class SignIn extends Component {
   setSigninValid(e) {
     // input값을 입력하고 submit 하면 해당 값이 조건에 맞는지 검사해야한다.
     [...e.target.querySelectorAll('.signin-container input')].forEach($input => {
-      if ($input.name === 'email') this.email = $input;
-      else this.password = $input;
+      this[$input.name] = $input;
 
       signinValid[$input.name].value = $input.value;
     });
@@ -93,7 +92,7 @@ class SignIn extends Component {
   }
 
   // 제대로 입력하지 않은 값이 존재하면 errorMsg가 출력된다.
-  whetherErrorMsg() {
+  editErrorMsg() {
     if (!signinValid.email.valid) return signinValid.email.error;
     if (!signinValid.password.valid) return signinValid.password.error;
     if (signinValid.valid) return '';
@@ -105,7 +104,7 @@ class SignIn extends Component {
     this.setSigninValid(e);
     this.setState({
       isValidationUser: signinValid.valid,
-      errMsg: this.whetherErrorMsg(),
+      errMsg: this.editErrorMsg(),
       emailValue: this.email.value,
     });
     this.moveFocus();
