@@ -9,28 +9,12 @@ class PostDetail extends Component {
       <article class="post" id="${id}">
         <h1 class="post-title">${title}</h1>
         <div class="post-buttons">
-          <button class="post-edit route" data-route="/edit">수정하기</button>
+          <button class="post-edit route" data-route="/edit/${id}">수정하기</button>
           <button class="post-remove route" data-route="/">삭제하기</button>
         </div>
         <span class="post-description">${author.author} · ${date}</span>
         <p class="post-content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, a soluta maiores amet
-          eius beatae debitis qui, ea at ratione exercitationem perferendis corrupti sapiente id
-          molestiae distinctio similique, recusandae omnis! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Consectetur, a soluta maiores amet eius beatae debitis qui, ea at ratione
-          exercitationem perferendis corrupti sapiente id molestiae distinctio similique, recusandae
-          omnis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, a soluta maiores
-          amet eius beatae debitis qui, ea at ratione exercitationem perferendis corrupti sapiente id
-          molestiae distinctio similique, recusandae omnis! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Consectetur, a soluta maiores amet eius beatae debitis qui, ea at ratione
-          exercitationem perferendis corrupti sapiente id molestiae distinctio similique, recusandae
-          omnis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, a soluta maiores
-          amet eius beatae debitis qui, ea at ratione exercitationem perferendis corrupti sapiente id
-          molestiae distinctio similique, recusandae omnis! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Consectetur, a soluta maiores amet eius beatae debitis qui, ea at ratione
-          exercitationem perferendis corrupti sapiente id molestiae distinctio similique, recusandae
-          omnis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, a soluta
-          maiores amet eius beatae debitis qui, ea at ratione exercitationem perferendis corrupti
+          ${content}
         </p>
       </article>
     `;

@@ -14,6 +14,7 @@ const routes = [
   { path: '/signin', component: SignIn },
   { path: '/signup', component: SignUp },
   { path: '/edit', component: Edit },
+  { path: '/edit/:id', component: Edit },
   { path: '/post/:id', component: Post },
 ];
 createRoutes(routes);
@@ -23,7 +24,7 @@ class App extends Component {
     let page;
     const RenderComponet = findComponent();
     if (RenderComponet === Main) {
-      page = new Main({ ...this.state }).render();
+      page = new Main({ ...this.state }).render(); // 로그인 되어있는지 확인해서 전달해야함, postType도 상태로 관리?
     }
 
     if (RenderComponet === Post) {
