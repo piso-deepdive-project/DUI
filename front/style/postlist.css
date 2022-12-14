@@ -1,4 +1,12 @@
 @layer components {
+  .post-type {
+    @apply flex flex-row justify-end;
+  }
+  .select {
+    @apply text-primary
+    bg-sub bg-opacity-60 rounded-xl;
+    text-shadow: 2px 2px #735e6f;
+  }
   .post-list {
     @apply p-2;
   }

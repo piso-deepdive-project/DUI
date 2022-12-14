@@ -6,6 +6,7 @@
 @import './post.css';
 @import './postcard.css';
 @import './postlist.css';
+@import './pagination.css';
 
 @import 'tailwindcss/utilities';
 
