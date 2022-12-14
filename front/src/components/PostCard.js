@@ -11,10 +11,6 @@ class PostCard extends Component {
       </div>
     `;
   }
-
-  // addEventListener() {
-  //   return [{ type: 'submit', selector: '.post-card', handler: this.validationUser.bind(this) }];
-  // }
 }
 
 export default PostCard;
