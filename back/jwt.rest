@@ -1,0 +1,19 @@
+# Cookie Parser가 필요한 이유
+# 쿠키를 키 밸류값으로 읽을 수 있게
+POST http://localhost:3000/jwt-cookie
+Authorization: token xxx
+Cookie: cookie_key = cookie_value
+
+###
+POST http://localhost:3000/jwt
+Authorization: token xxx
+Cookie: cookie_key = cookie_value
+
+###
+POST http://localhost:3000/signin
+content-type: application/json
+
+{ "id": "test123@gmail.com", "pwd": "utzazz12!!" }
+
+###
+GET http://localhost:3000/
