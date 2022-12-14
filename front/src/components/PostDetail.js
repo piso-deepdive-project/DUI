@@ -9,7 +9,7 @@ class PostDetail extends Component {
       <article class="post" id="${id}">
         <h1 class="post-title">${title}</h1>
         <div class="post-buttons">
-          <button class="post-edit route" data-route="/signin">수정하기</button>
+          <button class="post-edit route" data-route="/edit">수정하기</button>
           <button class="post-remove route" data-route="/">삭제하기</button>
         </div>
         <span class="post-description">${author.author} · ${date}</span>

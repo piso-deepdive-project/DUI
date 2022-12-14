@@ -4,8 +4,10 @@ import { Component } from '../common';
 
 class Posts extends Component {
   render() {
+    const { posts } = this.props;
+
     const postType = new PostType().render();
-    const postList = new PostList().render();
+    const postList = new PostList({ posts }).render();
 
     return `
       ${postType}
