@@ -6,6 +6,7 @@ export default defineConfig({
       '/post': 'http://localhost:3000',
       '/signin': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
+      '/edit': 'http://localhost:3000',
     },
   },
 });
