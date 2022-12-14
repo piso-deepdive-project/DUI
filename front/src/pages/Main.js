@@ -3,11 +3,13 @@ import { MainNav, Posts } from '../components';
 
 class Main extends Component {
   render() {
+    const { posts } = this.props;
+
     const nav = new MainNav().render();
-    const posts = new Posts().render();
+    const postsString = new Posts({ posts }).render();
     return `
       ${nav}
-      ${posts}
+      ${postsString}
     `;
   }
 }
