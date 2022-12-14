@@ -9,6 +9,8 @@
 /back/package-lock.json
 /front/package-lock.json
 
+/back/.env
+
 ### macOS ###
 # General
 .DS_Store
