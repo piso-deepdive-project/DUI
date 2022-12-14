@@ -1,0 +1,30 @@
+/* signup */
+.signup-form {
+  @apply flex flex-col m-auto py-4 px-8 max-w-2xl;
+}
+.signup-form .title {
+  @apply text-4xl text-center text-primary mb-12;
+}
+
+.signup-container {
+  @apply flex flex-col;
+}
+
+.signup-container label {
+  @apply text-sm font-semibold mb-2;
+}
+
+.signup-container input {
+  @apply h-12 pl-4;
+}
+.signup-container input:focus {
+  @apply outline-none;
+}
+
+.signup-btn {
+  @apply mt-2 h-12 text-2xl bg-primary rounded-md text-white;
+}
+
+.errorMsg {
+  @apply opacity-100 text-red-600 text-sm;
+}

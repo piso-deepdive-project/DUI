@@ -8,6 +8,9 @@
 @import './postlist.css';
 @import './pagination.css';
 
+@import './signin.css';
+@import './signup.css';
+
 @import 'tailwindcss/utilities';
 
 @layer base {

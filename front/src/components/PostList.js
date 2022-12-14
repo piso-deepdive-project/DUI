@@ -4,13 +4,13 @@ import Pagination from './Pagination';
 
 class PostList extends Component {
   render() {
-    const postCard = new PostCard().render();
+    const { posts } = this.props;
+    const postCard = posts?.map(post => new PostCard({ post }).render()).join('');
+
     const pagination = new Pagination().render();
     return `
       <div class="post-list">
-        ${postCard}
-        ${postCard}
-        ${postCard}
+        ${postCard}        
         ${pagination}
       </div>
     `;
