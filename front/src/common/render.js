@@ -36,7 +36,7 @@ const bindEventHandler = $root => {
  * root.render(element);
  */
 
-const render = (RootComponent, $container) => {
+const render = async (RootComponent, $container) => {
   /**
    * render는 initial rendering/re-rendering 시 호출된다.
    * initial rendering 시에는 root component인 RootComponent와 root container인 $container가 전달되지만 re-rendering 시에는 전달되지 않는다.
@@ -47,7 +47,7 @@ const render = (RootComponent, $container) => {
 
   // 컨테이너 노드를 변경하지 않는다. 컨테이너 노드를 변경하면 컨테이너 노드에 위임 등록된 이벤트 핸들러가 모두 제거된다.
   const $virtual = $root.cloneNode();
-  const domString = rootComponentInstance.render();
+  const domString = await rootComponentInstance.render();
   $virtual.innerHTML = domString;
 
   // diffing & Reconciliation
