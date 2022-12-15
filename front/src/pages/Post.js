@@ -7,8 +7,9 @@ class Post extends Component {
     const pathId = +window.location.pathname.split('/')[2];
 
     const post = await this.getPost(pathId);
+    const { data: isValidUser } = await axios.get('/validUser');
 
-    const mainNav = new MainNav().render();
+    const mainNav = new MainNav({ isValidUser }).render();
     const postDetail = new PostDetail({ post, deletePost: this.deletePost }).render();
 
     return `
