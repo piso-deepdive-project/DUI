@@ -9,8 +9,8 @@ let users = [
 let posts = [
   {
     id: 0,
-    title: 'TEST POST TITLE',
-    author: { id: 'test123@gmail.com', pwd: 'utzazz12!!', author: 'Uta' },
+    title: 'NAS - Nas Is Like',
+    author: { id: 'eastking@gmail.com', pwd: 'utzazz12!!', author: 'Nas' },
     tags: [],
     content: `Freedom or jail, clip's inserted, a baby's being born
     Same time a man is murdered, the beginning and end
