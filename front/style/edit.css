@@ -9,20 +9,22 @@
     font-weight: 700;
     @apply text-2xl;
   }
-  .category {
+
+  .tag {
     @apply flex items-center flex-wrap bg-white overflow-x-auto  whitespace-nowrap mt-8;
   }
-  .category-box {
+
+  .tag-box {
     @apply flex justify-center items-center bg-primary text-sm text-white m-1 h-14 py-1 px-3 rounded-md cursor-pointer;
   }
 
-  .edit-category {
+  .edit-tag {
     font-size: 1rem;
     padding: 1rem;
 
     @apply outline-none bg-transparent w-2/5 text-xs md:text-lg;
   }
-  .edit-category-description {
+  .edit-tag-description {
     @apply absolute flex flex-col invisible top-1/3 p-4 text-white bg-black;
   }
 

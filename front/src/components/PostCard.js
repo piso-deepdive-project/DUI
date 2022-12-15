@@ -10,7 +10,7 @@ class PostCard extends Component {
         <h3 class="card-author">${author.author}</h3>
         <span class="card-date">${date}</span>
         <span class="card-description">${title}</span>
-        <img class="thumbnail" src="./thumbnail.svg" alt="" />
+        <img class="thumbnail" src="/assets/thumbnail.svg" alt="" />
       </div>
     `;
   }

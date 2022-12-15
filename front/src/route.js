@@ -1,3 +1,5 @@
+import { NotFound } from './pages';
+
 let _routes;
 /**
  * route 객체({path: string, component: Function})들로 이루어진 routes 배열을 전달받아
@@ -31,6 +33,6 @@ const createRoutes = routes => {
 };
 
 // prettier-ignore
-const findComponent = () => _routes.find(({ matcher }) => matcher.test(window.location.pathname)).component;
+const findComponent = () => _routes.find(({ matcher }) => matcher.test(window.location.pathname))?.component ?? NotFound;
 
 export { createRoutes, findComponent };

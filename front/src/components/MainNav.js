@@ -4,7 +4,9 @@ import NavMenu from './NavMenu';
 
 class MainNav extends Component {
   render() {
-    const navList = new NavList().render();
+    const { isValidUser } = this.props;
+
+    const navList = new NavList({ isValidUser }).render();
     const navMenu = new NavMenu().render();
     return `
       <nav class="main-nav">

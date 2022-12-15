@@ -9,11 +9,12 @@ class Main extends Component {
    */
 
   async render() {
-    const nav = new MainNav().render();
+    const { data: isValidUser } = await axios.get('/validUser');
+    const nav = new MainNav({ isValidUser }).render();
     const postsString = await new Posts({
       fetchPosts: this.fetchPosts.bind(this),
       setPostType: this.setPostType.bind(this),
-      ...this.state,
+      currentPostType: this.state.currentPostType,
     }).render();
     return `
       ${nav}

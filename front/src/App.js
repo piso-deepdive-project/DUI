@@ -6,6 +6,7 @@ import {
   SignUp,
   Edit,
   Post,
+  NotFound,
 } from './pages';
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
   { path: '/edit', component: Edit },
   { path: '/edit/:id', component: Edit },
   { path: '/post/:id', component: Post },
+  { path: '/*', component: NotFound },
 ];
 createRoutes(routes);
 
