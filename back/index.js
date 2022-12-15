@@ -40,6 +40,25 @@ const auth = (req, res, next) => {
   }
 };
 
+const isUser = (req, res, next) => {
+  // cookie나 헤더 auth로 들어오는지 확인 jwt.rest 참조
+  const accessToken = req.headers.authorization || req.cookies.accessToken;
+
+  try {
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    console.log('😀 사용자 인증 성공', decoded);
+    // 다음 웨어나 마지막 함수를 실행
+    next();
+  } catch (e) {
+    console.error('😱 사용자 인증 실패..', e);
+    return res.send(true);
+  }
+};
+
+server.get('/validUser', isUser, (req, res) => {
+  res.send(true);
+});
+
 // USER API
 /**
  * signin
