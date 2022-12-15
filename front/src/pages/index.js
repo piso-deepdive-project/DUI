@@ -3,6 +3,7 @@ import Main from './Main';
 import Post from './Post';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import NotFound from './NotFound';
 
 export {
   Edit, //
@@ -10,4 +11,5 @@ export {
   Post,
   SignIn,
   SignUp,
+  NotFound,
 };

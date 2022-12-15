@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 const { SignInAPI } = require('./signin');
 // dotenv는 process.env에 키 값 형태로 환경변수를 설정하기 위해 사용하는 라이브러리
 require('dotenv').config();
@@ -39,9 +40,6 @@ const auth = (req, res, next) => {
   }
 };
 
-server.get('/', auth, (req, res) => {
-  res.send('k');
-});
 // USER API
 /**
  * signin
@@ -118,6 +116,10 @@ server.delete('/post/:id', (req, res) => {
 //     console.log(e);
 //   }
 // });
+
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 server.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
