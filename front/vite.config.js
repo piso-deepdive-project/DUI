@@ -11,4 +11,12 @@ export default defineConfig({
       '/edit': `http://localhost:${PORT}`,
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'main.bundle.js',
+        assetFileNames: 'tail.css',
+      },
+    },
+  },
 });
