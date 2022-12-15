@@ -3,8 +3,9 @@ import PostCard from './PostCard';
 import Pagination from './Pagination';
 
 class PostList extends Component {
-  render() {
-    const { posts } = this.props;
+  async render() {
+    const posts = await this.props.fetchPosts();
+
     const postCard = posts?.map(post => new PostCard({ post }).render()).join('');
 
     const pagination = new Pagination().render();

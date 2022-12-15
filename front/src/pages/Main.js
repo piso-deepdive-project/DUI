@@ -9,13 +9,13 @@ class Main extends Component {
    */
 
   async render() {
-    const posts = await this.fetchPosts();
-
     const { data: isValidUser } = await axios.get('/validUser');
     const nav = new MainNav({ isValidUser }).render();
-
-    const postsString = new Posts({ posts }).render();
-
+    const postsString = await new Posts({
+      fetchPosts: this.fetchPosts.bind(this),
+      setPostType: this.setPostType.bind(this),
+      currentPostType: this.state.currentPostType,
+    }).render();
     return `
       ${nav}
       ${postsString}
@@ -26,6 +26,10 @@ class Main extends Component {
     const { data: posts } = await axios.get('/posts');
 
     return posts;
+  }
+
+  setPostType(e) {
+    this.setState({ currentPostType: e.target.closest('li').dataset.type });
   }
 }
 export default Main;
