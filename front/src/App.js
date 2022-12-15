@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Component, render } from './common';
 import { createRoutes, findComponent } from './route';
 import {
@@ -20,49 +19,26 @@ const routes = [
 createRoutes(routes);
 
 class App extends Component {
-  render() {
-    let page;
+  currentComponet = null;
+
+  ComponentInstance = null;
+
+  /**
+   * 동일한 page Component가 호출되는 경우 새로운 Instance를 생성해 state가 변경되지 않도록 currentComponet와 그 ComponentInstacne를 기억
+   * 만약 다른 page Component가 호출되는 경우 currentComponent를 변경하고 새로운 ComponentInstance 생성
+   */
+  async render() {
     const RenderComponet = findComponent();
-    if (RenderComponet === Main) {
-      page = new Main({ ...this.state }).render(); // 로그인 되어있는지 확인해서 전달해야함, postType도 상태로 관리?
+    if (this.currentComponet !== RenderComponet) {
+      this.currentComponet = RenderComponet;
+      this.ComponentInstance = new RenderComponet();
     }
 
-    if (RenderComponet === Post) {
-      page = new Post({ ...this.state, deletePost: this.deletePost.bind(this) }).render();
-    }
-
-    if (RenderComponet === Edit) {
-      page = new Edit().render();
-    }
-
-    if (RenderComponet === SignIn) {
-      page = new SignIn().render();
-    }
-
-    if (RenderComponet === SignUp) {
-      page = new SignUp().render();
-    }
+    const page = await this.ComponentInstance.render();
 
     return `
       ${page}
     `;
-  }
-
-  async fetchPosts() {
-    const { data: posts } = await axios.get('/posts');
-
-    this.setState({ posts });
-  }
-
-  deletePost(e) {
-    const id = +e.target.closest('article').id;
-    const posts = this.state.posts.filter(post => post.id !== id);
-    axios.delete(`/post/${id}`);
-    this.setState({ posts });
-  }
-
-  addEventListener() {
-    return [{ type: 'DOMContentLoaded', selector: 'window', handler: this.fetchPosts.bind(this) }];
   }
 }
 
