@@ -1,20 +1,51 @@
+.post-list-card {
+  min-width: 800px;
+  @apply flex flex-row gap-5 p-2 mx-4 my-2 w-3/4 h-36 font-bold 
+   justify-between items-center
+  rounded-lg shadow-md;
+}
+
 @layer components {
-  .post-card {
-    @apply p-2 mx-4 my-2 font-bold 
-    flex flex-row justify-between items-center
-    rounded-lg shadow-md;
+  .post-list {
+    @apply flex flex-col justify-center items-center;
   }
 
-  .card-author {
+  .post-list-card .card-author {
     @apply font-bold;
   }
 
-  .card-date {
-    @apply text-xs text-sub align-sub
-    self-end basis-1/12;
+  .post-list-card .card-date {
+    @apply text-xs text-sub  basis-1/12;
   }
 
-  .card-description {
+  .post-list-card .card-description {
     @apply text-lg basis-8/12 text-ellipsis;
+  }
+  .post-list-card .thumbnail {
+    @apply h-full;
+  }
+  .post-list-card .thumbnail img {
+    @apply w-auto h-full;
+  }
+  /* gridCard */
+
+  .post-grid {
+    min-width: 460px;
+    @apply p-2 mx-4 my-2 font-bold 
+    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+
+  .post-grid-card {
+    @apply grid grid-rows-6 grid-cols-2 h-60  rounded-lg shadow-md overflow-auto;
+  }
+  .post-grid-card .thumbnail {
+    @apply row-start-1 row-end-7 w-4/5;
+  }
+  .post-grid-card .thumbnail img {
+    @apply object-cover h-full;
+  }
+
+  .post-grid-card .card-description {
+    @apply row-start-3 row-end-7 col-start-2;
   }
 }
