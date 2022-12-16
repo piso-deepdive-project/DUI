@@ -3,9 +3,10 @@ import PostCard from './PostCard';
 
 class PostGrid extends Component {
   async render() {
-    const posts = await this.props.fetchPosts();
+    const { fetchPosts, currentPostType } = this.props;
+    const posts = await fetchPosts();
 
-    const postCard = posts?.map(post => new PostCard({ post }).render()).join('');
+    const postCard = posts?.map(post => new PostCard({ post, currentPostType }).render()).join('');
 
     return `
     <div class="post-grid">

@@ -3,7 +3,7 @@ import { Component } from '../common';
 class PostType extends Component {
   render() {
     const { currentPostType } = this.props;
-    const selectType = currentPostType === 'list' ? 'select' : '';
+
     return `
       <ul class="post-type">
         <li data-type="list">
