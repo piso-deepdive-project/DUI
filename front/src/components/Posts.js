@@ -10,7 +10,7 @@ class Posts extends Component {
     const postType = new PostType({ setPostType, currentPostType }).render();
 
     const postForm =
-      currentPostType === 'grid'
+      currentPostType === 'list'
         ? await new PostList({ fetchPosts }).render()
         : await new PostGrid({ fetchPosts }).render();
 
