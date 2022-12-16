@@ -7,8 +7,8 @@ class NavList extends Component {
     // prettier-ignore
     return `
       <ul class="main-nav-list">
-        <li><i class="bx bx-menu"></i></li>
-        <li class='logo'>DUI</li>
+        <li><i class="bx bx-menu open-menu"></i></li>
+        <li class='logo route' data-route="/">DUI</li>
       </ul>
       
       ${
@@ -21,6 +21,12 @@ class NavList extends Component {
         </button>`
 }
     `;
+  }
+
+  addEventListener() {
+    const { openMenu } = this.props;
+
+    return [{ type: 'click', selector: '.open-menu', handler: openMenu }];
   }
 }
 

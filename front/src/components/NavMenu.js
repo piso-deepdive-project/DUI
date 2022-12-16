@@ -2,24 +2,37 @@ import { Component } from '../common';
 
 class NavMenu extends Component {
   render() {
+    const { isValidUser } = this.props;
+
     return `
-      <ul class="main-nav-list">
-        <li><i class="bx bx-menu"></i></li>
-        <li>DUI</li>
-        <li>Posts</li>
-      </ul>
-      <button class="hover:bg-primary" onclick="location.href='/edit.html'">
-        <i class="bx bx-edit-alt"></i>
-      </button>
-      <ul class="nav-menu shadow-md">
-        <h1>DUI</h1>
-        <img class="" src="./test.svg" alt="" />
-        <h2>사용자</h2>
-        <li class="text-base">메뉴 1</li>
-        <li class="text-base">메뉴 2</li>
-        <li class="text-base">메뉴 3</li>
-      </ul>
+    <div class="overlay"></div>
+    <div class="side-menu">    
+      <main>
+        ${
+          isValidUser
+            ? `
+          <div class="login">
+            <img class="profile" src="/assets/profile.png">
+            <span class="username">UserName</span>
+            <button class="start-btn route" data-route="/edit">새 글 작성하기</button>
+          </div>`
+            : `
+          <div class="logout">
+            <h1 class="side-title">DUI</h1>
+            <p class="slogan">You can make anything<br />by writing</p>
+            <p class="slogan_writer">- C.S.Lewis -</p>
+            <button class="start-btn route" data-route="/signin">DUI 시작하기</button>
+          </div>
+        `
+        }
+        
     `;
+  }
+
+  addEventListener() {
+    const { closeMenu } = this.props;
+
+    return [{ type: 'click', selector: '.overlay', handler: closeMenu }];
   }
 }
 
