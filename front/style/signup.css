@@ -15,7 +15,7 @@
 }
 
 .signup-container input {
-  @apply h-12 pl-4;
+  @apply h-12 pl-4 rounded-lg;
 }
 .signup-container input:focus {
   @apply outline-none;
@@ -26,5 +26,5 @@
 }
 
 .errorMsg {
-  @apply opacity-100 text-red-600 text-sm;
+  @apply opacity-100 text-red-600 h-2 text-sm mb-8;
 }

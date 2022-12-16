@@ -2,7 +2,7 @@
 
 .user-nav {
   min-width: 400px;
-  @apply flex  items-center p-8 py-16 text-2xl  text-primary;
+  @apply flex  items-center p-8 py-12 text-2xl  text-primary;
 }
 
 .signin-form {
