@@ -98,9 +98,10 @@ class Edit extends Component {
       return;
     }
 
-    const id = +e.target.closest('.edit').id;
+    const id = +e.target.closest('.edit').dataset.id;
 
-    await axios.patch(`post/${id}`, {
+    await axios.patch('/post', {
+      id,
       title: title.value,
       author: { author: this.user },
       tags,
@@ -114,7 +115,7 @@ class Edit extends Component {
     e.target === title ? tag.focus() : document.querySelector('.edit-post').focus();
   }
 
-  createCategoryBox(e) {
+  createTagBox(e) {
     const div = document.createElement('div');
     div.className = 'tag-box';
     div.textContent = e.target.value;
@@ -129,7 +130,7 @@ class Edit extends Component {
     }
 
     if (e.target.matches('.edit-tag') && e.keyCode === 32 && e.target.value.trim() !== '') {
-      this.createCategoryBox(e);
+      this.createTagBox(e);
     }
 
     if (e.target.matches('.edit-tag') && e.key === 'Backspace' && e.target.value.trim() === '') {
