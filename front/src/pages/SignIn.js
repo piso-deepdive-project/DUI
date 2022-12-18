@@ -70,9 +70,10 @@ class SignIn extends Component {
   async getUser(id, pwd) {
     try {
       const signinUser = await axios.post('/signin', { id, pwd });
-      console.log(signinUser.data);
       if (signinUser !== '') console.log('로그인 성공');
-      location.href = '/';
+
+      // 로그인 성공하고 뒤로가기 클릭시 로그인페이지로 이동 불가
+      window.location.replace('/');
     } catch (error) {
       console.log(error);
       this.setState({ errMsg: error.response.data.err });
