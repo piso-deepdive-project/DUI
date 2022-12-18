@@ -6,13 +6,22 @@ class MainNav extends Component {
   render() {
     const { isValidUser } = this.props;
 
-    const navList = new NavList({ isValidUser }).render();
-    const navMenu = new NavMenu().render();
+    const navList = new NavList({ isValidUser, openMenu: this.openMenu }).render();
+    const navMenu = new NavMenu({ isValidUser, closeMenu: this.closeMenu }).render();
     return `
       <nav class="main-nav">
-       ${navList}
+        ${navList}       
+        ${navMenu}
       </nav>
     `;
+  }
+
+  openMenu() {
+    document.querySelector('.main-nav').classList.add('open');
+  }
+
+  closeMenu() {
+    document.querySelector('.main-nav').classList.remove('open');
   }
 }
 

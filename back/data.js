@@ -97,8 +97,11 @@ const getPosts = () => posts;
 // const getPost = id => posts.filter(post => post.id === id);
 const getPost = id => posts.find(post => post.id === id);
 
+const getNextId = () => Math.max(...posts.map(post => post.id), 0) + 1;
+
 const addPost = post => {
-  posts = [...posts, post];
+  const newPost = { ...post, id: getNextId() };
+  posts = [...posts, newPost];
 };
 
 const updatePost = post => {
