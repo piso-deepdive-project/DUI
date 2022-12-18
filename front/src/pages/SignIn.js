@@ -7,14 +7,14 @@ const signinValid = {
     get valid() {
       return /[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,3}/i.test(this.value) && /.{6,12}/.test(this.value);
     },
-    error: '이메일 - 영문,숫자인 이메일 형식만 가능합니다.',
+    error: '이메일은 영문,숫자인 이메일 형식만 가능합니다.',
   },
   password: {
     value: '',
     get valid() {
-      return /^[A-Za-z0-9]{6,12}$/g.test(this.value);
+      return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/g.test(this.value);
     },
-    error: '비밀번호 - 영문 및 숫자 6~12자리를 입력하세요.',
+    error: '비밀번호가 다릅니다.',
   },
   get valid() {
     return this.email.valid && this.password.valid;
