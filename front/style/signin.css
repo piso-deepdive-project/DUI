@@ -17,12 +17,24 @@
 }
 
 .signin-container {
-  @apply flex flex-col;
+  @apply flex flex-col relative;
 }
 
 .signin-container input {
   @apply h-14 pl-4;
 }
+
+.signin-email-icon,
+.signin-password-icon {
+  filter: invert(100%);
+  top: 16px;
+  @apply flex justify-center items-center absolute right-5 text-2xl border w-6 h-6 rounded-full bg-gray-200 cursor-pointer;
+}
+
+.signin-password-icon {
+  top: 70px;
+}
+
 .signin-container input:focus {
   @apply outline-primary;
 }
@@ -32,7 +44,7 @@
   margin-bottom: 1px;
 }
 
-.signin-container input:nth-child(2) {
+.signin-container input:nth-child(3) {
   border-radius: 0 0 10px 10px;
 }
 

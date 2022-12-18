@@ -42,27 +42,29 @@ class SignIn extends Component {
         <h1 class="title">SIGNIN</h1>
         <span class="errorMsg">${this.state.errMsg}</span>
         <div class="signin-container">
-        <input
-          type="email"
-          name="email"
-          class="signin-userid"
-          minlength="8"
-          placeholder="이메일"
-          value="${this.state.emailValue}"
-          />
           <input
-          type="password"
-          name="password"
-          class="signin-password"
-          minlength="5"
-          placeholder="비밀번호"
+            type="email"
+            name="email"
+            class="signin-userid"
+            minlength="8"
+            placeholder="이메일"
+            value="${this.state.emailValue}"
           />
+          <i class='signin-email-icon icon hidden bx bx-x'></i>
+          <input
+            type="password"
+            name="password"
+            class="signin-password"
+            minlength="5"
+            placeholder="비밀번호"
+          />
+          <i class='signin-password-icon icon hidden bx bx-x'></i>
           <button type="submit"class="signin-btn">로그인</button>
           <div class="user-link">
-          <a href="/signup">회원가입</a>
+              <a href="/signup">회원가입</a>
+          </div>
         </div>
-        </div>
-        </form>
+      </form>
     `;
   }
 
@@ -71,7 +73,6 @@ class SignIn extends Component {
     try {
       const signinUser = await axios.post('/signin', { id, pwd });
       if (signinUser !== '') console.log('로그인 성공');
-
       // 로그인 성공하고 뒤로가기 클릭시 로그인페이지로 이동 불가
       window.location.replace('/');
     } catch (error) {
@@ -98,8 +99,8 @@ class SignIn extends Component {
   // 제대로 입력하지 않은 값이 존재하면 errorMsg가 출력된다.
   editErrorMsg() {
     if (!signinValid.email.valid) return signinValid.email.error;
-    if (!signinValid.password.valid) return signinValid.password.error;
-    if (signinValid.valid) return '';
+    if (!signinValid.password.valid && signinValid.password.value !== '') return signinValid.password.error;
+    return '';
   }
 
   validationUser(e) {
@@ -118,8 +119,21 @@ class SignIn extends Component {
     }
   }
 
+  deleteInputValue(e) {
+    e.target.previousElementSibling.value = '';
+    e.target.classList.add('hidden');
+  }
+
+  showDeleteIcon(e) {
+    e.target.nextElementSibling.classList.toggle('hidden', e.target.value === '');
+  }
+
   addEventListener() {
-    return [{ type: 'submit', selector: '.signin-form', handler: this.validationUser.bind(this) }];
+    return [
+      { type: 'submit', selector: '.signin-form', handler: this.validationUser.bind(this) },
+      { type: 'click', selector: '.signin-form .icon', handler: this.deleteInputValue },
+      { type: 'input', selector: '.signin-form input', handler: this.showDeleteIcon },
+    ];
   }
 }
 
