@@ -17,6 +17,7 @@ const {
   updatePost,
   deletePost,
 } = require('./data');
+const { decode } = require('punycode');
 
 const server = express();
 const PORT = 3000;
@@ -111,10 +112,14 @@ server.get('/posts', (req, res) => {
  * 글 가져오기
  */
 server.get('/post/:id', canEdit, (req, res) => {
+  const accessToken = req.headers.authorization || req.cookies.accessToken;
+  const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+
+  const post = getPost(+req.params.id);
   res.send({
-    isUser: false,
-    canEdit: false,
-    post: getPost(+req.params.id),
+    isUser: true,
+    canEdit: post.author.id === decoded.id,
+    post,
   });
 });
 
