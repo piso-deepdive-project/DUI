@@ -1,4 +1,5 @@
-import Component from '../common/Component';
+import { Component } from '../common';
+
 import NavList from './NavList';
 import NavMenu from './NavMenu';
 
@@ -8,6 +9,7 @@ class MainNav extends Component {
 
     const navList = new NavList({ isValidUser, openMenu: this.openMenu }).render();
     const navMenu = new NavMenu({ isValidUser, closeMenu: this.closeMenu }).render();
+
     return `
       <nav class="main-nav">
         ${navList}       

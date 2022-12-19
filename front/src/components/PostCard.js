@@ -1,21 +1,27 @@
-import Component from '../common/Component';
 import timeForToday from '../lib/formatTime';
+
+import { Component } from '../common';
 
 class PostCard extends Component {
   render() {
-    const { post, currentPostType } = this.props;
-    const { id, content, title, author, tags } = post;
+    const { post } = this.props;
+    const {
+      id, //
+      content,
+      title,
+      author,
+      tags,
+    } = post;
 
     return `
-      <div class="post-${currentPostType}-card route" data-route="/post/${id}">
-        <h3 class="card-author">${author.author}</h3>
+      <div class="post-card route" data-route="/post/${id}">
+        <h3 class="card-author">${author.name}</h3>
         <span class="card-date">${timeForToday(new Date(post.date))}</span>
         <div class="card-description">
           <h2 class="card-title">${title}</h2>
-          <div class="card-tags">${tags.map(tag => `<span class="tag-span">#${tag}</span>`).join(' ')}</div>
+          <ul class="card-tags">${tags.map(tag => `<li class="tag-span">#${tag}</li>`).join(' ')}</ul>
           <span class="card-content">${content}</span>
         </div>
-        
         <div class="thumbnail">
           <img src="/assets/thumbnail.svg" alt="" />
         </div>

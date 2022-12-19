@@ -2,7 +2,7 @@ let users = [
   {
     id: 'test123@gmail.com',
     pwd: 'utzazz12!!',
-    author: 'Uta',
+    name: 'Uta',
     posts: [0],
     likes: [],
   },
@@ -12,7 +12,7 @@ let posts = [
   {
     id: 0,
     title: 'NAS - Nas Is Like',
-    author: { id: 'test123@gmail.com', author: 'Uta' },
+    author: { id: 'test123@gmail.com', name: 'Uta' },
     tags: [],
     content: `Freedom or jail, clip's inserted, a baby's being born
     Same time a man is murdered, the beginning and end
