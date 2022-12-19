@@ -12,6 +12,8 @@ const {
   updateUser,
   deleteUser,
   isUniqueId,
+  addLike,
+  getLikes,
   getPosts,
   addPost,
   getPost,
@@ -111,6 +113,27 @@ server.delete('/user/', (req, res) => {
  */
 server.get('/posts', (req, res) => {
   res.send(getPosts());
+});
+
+server.post('/like', (req, res) => {
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    const { id: postId } = req.body;
+    addLike(decoded.id, postId);
+  } catch (e) {
+    res.status(401).send({ err: '등록되지 않은 사용자입니다.' });
+  }
+});
+
+server.get('/like', (req, res) => {
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    res.send(getLikes(decoded.id));
+  } catch (e) {
+    res.status(401).send({ err: '등록되지 않은 사용자입니다.' });
+  }
 });
 
 /**
