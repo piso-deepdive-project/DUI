@@ -126,6 +126,8 @@ class Edit extends Component {
   }
 
   keydownHandeler(e) {
+    // keydown 이벤트 발생시 한글이 두번 발생하는 문제를 막아준다.
+    if (e.isComposing) return;
     if (e.key === 'Enter' && !e.target.matches('.edit-post')) {
       e.preventDefault();
       this.moveFocus(e);
