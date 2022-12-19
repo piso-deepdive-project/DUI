@@ -148,7 +148,7 @@ class SignUp extends Component {
       password,
     } = signupValid;
 
-    await axios.post('/signup/add', {
+    await axios.post('/signup', {
       id: email.value,
       author: author.value,
       pwd: password.value,

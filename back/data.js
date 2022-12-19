@@ -1,8 +1,9 @@
 let users = [
   {
     id: 'test123@gmail.com',
-    pwd: 'utzazz12!!',
+    pwd: 'utzazz12',
     author: 'Uta',
+    posts: [0],
   },
 ];
 
@@ -10,7 +11,7 @@ let posts = [
   {
     id: 0,
     title: 'NAS - Nas Is Like',
-    author: { id: 'eastking@gmail.com', pwd: 'utzazz12!!', author: 'Nas' },
+    author: { id: 'test123@gmail.com', author: 'Uta' },
     tags: [],
     content: `Freedom or jail, clip's inserted, a baby's being born
     Same time a man is murdered, the beginning and end
@@ -88,7 +89,6 @@ const updateUser = user => {
 
 const deleteUser = id => {
   users = users.filter(_usr => _usr.id !== id);
-  console.log(users);
 };
 
 // POST
