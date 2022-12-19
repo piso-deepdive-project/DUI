@@ -1,4 +1,4 @@
-import { NotFound } from './pages';
+import { NotFound } from '../pages';
 
 let _routes;
 /**
