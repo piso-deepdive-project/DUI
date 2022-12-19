@@ -1,25 +1,8 @@
 import axios from 'axios';
+
 import { Component } from '../common';
 
-const signinValid = {
-  email: {
-    value: '',
-    get valid() {
-      return /[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,3}/i.test(this.value) && /.{6,12}/.test(this.value);
-    },
-    error: '이메일은 영문,숫자인 이메일 형식만 가능합니다.',
-  },
-  password: {
-    value: '',
-    get valid() {
-      return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/g.test(this.value);
-    },
-    error: '비밀번호가 다릅니다.',
-  },
-  get valid() {
-    return this.email.valid && this.password.valid;
-  },
-};
+import userValidation from '../lib/userValidation';
 
 class SignIn extends Component {
   state = {
@@ -60,9 +43,7 @@ class SignIn extends Component {
           />
           <i class='signin-password-icon icon hidden bx bx-x'></i>
           <button type="submit"class="signin-btn">로그인</button>
-          <div class="user-link">
-              <a href="/signup">회원가입</a>
-          </div>
+          <button type="button" class="route" data-route="/signup">회원가입</button>
         </div>
       </form>
     `;
@@ -81,41 +62,41 @@ class SignIn extends Component {
     }
   }
 
-  setSigninValid(e) {
+  setuserValidation(e) {
     // input값을 입력하고 submit 하면 해당 값이 조건에 맞는지 검사해야한다.
     [...e.target.querySelectorAll('.signin-container input')].forEach($input => {
       this[$input.name] = $input;
 
-      signinValid[$input.name].value = $input.value;
+      userValidation[$input.name].value = $input.value;
     });
   }
 
   // 제대로 입력하지 않은 값이 존재하면 email부터 차례대로 focus가 이동한다.
   moveFocus() {
-    if (!signinValid.email.valid) this.email.focus();
-    else if (!signinValid.password.valid) this.password.focus();
+    if (!userValidation.email.valid) this.email.focus();
+    else if (!userValidation.password.valid) this.password.focus();
   }
 
   // 제대로 입력하지 않은 값이 존재하면 errorMsg가 출력된다.
   editErrorMsg() {
-    if (!signinValid.email.valid) return signinValid.email.error;
-    if (!signinValid.password.valid && signinValid.password.value !== '') return signinValid.password.error;
+    if (!userValidation.email.valid) return userValidation.email.error;
+    if (!userValidation.password.valid && userValidation.password.value !== '') return userValidation.password.error;
     return '';
   }
 
   validationUser(e) {
     e.preventDefault();
 
-    this.setSigninValid(e);
+    this.setuserValidation(e);
     this.setState({
-      isValidationUser: signinValid.valid,
+      isValidationUser: userValidation.signinValid,
       errMsg: this.editErrorMsg(),
       emailValue: this.email.value,
     });
     this.moveFocus();
 
     if (this.state.isValidationUser) {
-      this.getUser(signinValid.email.value, signinValid.password.value);
+      this.getUser(userValidation.email.value, userValidation.password.value);
     }
   }
 
