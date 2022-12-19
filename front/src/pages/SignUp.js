@@ -42,7 +42,6 @@ class SignUp extends Component {
     isValidationUser: false,
     errMsgs: Array(4).fill(''),
     userInputValues: ['', '', ''],
-    canSubmit: false,
   };
 
   email = null;
@@ -56,6 +55,8 @@ class SignUp extends Component {
   signupInputs = null;
 
   render() {
+    const canSubmit = this.state?.canSubmit ?? false;
+
     return `
       <nav class="user-nav">
         <a href="/">DUI POST</a>
@@ -82,7 +83,7 @@ class SignUp extends Component {
             maxlength="5"
             value="${this.state.userInputValues[1]}"
           />
-          <button class="uniqueBtn" type="button">중복 확인</button>
+          <button class="uniqueBtn" type="button">${canSubmit ? '사용 가능한 이메일' : '중복 확인'}</button>
           <span class="errorMsg">${this.state.errMsgs[1]}</span>
           <label for="password">비밀번호</label>
           <input
@@ -101,7 +102,7 @@ class SignUp extends Component {
             minlength="6"
           />
           <span class="errorMsg">${this.state.errMsgs[3]}</span>
-          <button type="submit" class="signup-btn" ${this.state.canSubmit ? '' : 'disabled'}>회원가입</button>
+          <button type="submit" class="signup-btn" ${canSubmit ? '' : 'disabled="disabled"'}}>회원가입</button>
           <div class="user-link">
             <a href="/signin">로그인</a>
           </div>
