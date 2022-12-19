@@ -51,11 +51,11 @@ class Edit extends Component {
             class="edit-tag"
             placeholder="태그를 입력하세요"
           />
-          <div class="edit-tag-description">
-            <span>스페이스바를 입력하여 태그를 등록할 수 있습니다.</span>
-            <span>등록된 태그를 클릭하면 삭제됩니다.</span>
-          </div>
         </div>
+        <div class="edit-tag-description">
+        <span>스페이스바를 입력하여 태그를 등록할 수 있습니다.</span>
+        <span>등록된 태그를 클릭하면 삭제됩니다.</span>
+      </div>
         <textarea
           class="edit-post"
           cols="30"
@@ -64,8 +64,8 @@ class Edit extends Component {
           required
         ></textarea>
         <div class="edit-buttons">
-          <button class="edit-return">뒤로가기</button>
-          <button class="edit-add route" data-route="/">작성하기</button>
+          <button type="button" class="edit-return">뒤로가기</button>
+          <button type="button" class="edit-add route" data-route="/">작성하기</button>
         </div>
       </form>
     `;
@@ -126,13 +126,10 @@ class Edit extends Component {
   }
 
   keydownHandeler(e) {
+    // 한글이 두번 입력되는것을 방지한다.
+    if (e.isComposing || e.keyCode === 229) return;
     if (e.key === 'Enter' && !e.target.matches('.edit-post')) {
-      e.preventDefault();
       this.moveFocus(e);
-    }
-
-    if (e.target.matches('.edit-tag') && e.keyCode === 32 && e.target.value.trim() !== '') {
-      this.createTagBox(e);
     }
 
     if (e.target.matches('.edit-tag') && e.key === 'Backspace' && e.target.value.trim() === '') {
@@ -149,6 +146,8 @@ class Edit extends Component {
     } else {
       document.querySelector('.edit-tag-description').style.visibility = 'visible';
     }
+
+    if (e.target.value.slice(-1) === ' ' && e.target.value.trim() !== '') this.createTagBox(e);
   }
 
   preventSubmit(e) {
@@ -185,7 +184,7 @@ class Edit extends Component {
   addEventListener() {
     return [
       { type: 'keydown', selector: '.edit', handler: this.keydownHandeler.bind(this) },
-      { type: 'input', selector: '.tag', handler: this.inputDescription },
+      { type: 'input', selector: '.edit-tag', handler: this.inputDescription.bind(this) },
       { type: 'submit', selector: '.edit', handler: this.preventSubmit },
       { type: 'click', selector: '.edit-add', handler: this.addPost.bind(this) },
       { type: 'click', selector: '.edit-update', handler: this.updatePost.bind(this) },
