@@ -3,6 +3,7 @@ import {
   render,
   generateMatchers,
   findComponent,
+  eventHolder,
 } from './common';
 
 import {
@@ -31,6 +32,8 @@ class App extends Component {
 
   ComponentInstance = null;
 
+  $root = document.getElementById('app');
+
   /**
    * 동일한 page Component가 호출되는 경우 새로운 Instance를 생성해 state가 변경되지 않도록 currentComponet와 그 ComponentInstacne를 기억
    * 만약 다른 page Component가 호출되는 경우 currentComponent를 변경하고 새로운 ComponentInstance 생성
@@ -39,6 +42,11 @@ class App extends Component {
     const PageComponent = findComponent();
 
     if (this.currentComponet !== PageComponent) {
+      eventHolder.forEach(({ type, handler }) => {
+        this.$root.removeEventListener(type, handler);
+      });
+
+      eventHolder.length = 0;
       this.currentComponet = PageComponent;
       this.ComponentInstance = new PageComponent();
     }
