@@ -52,7 +52,7 @@ const updateDOM = (parentNode, realNode, virtualNode) => {
    * 또 요소 노드의 타입에 따라 소유하는 DOM 프로퍼티도 다르다.
    * 모든 프로퍼티를 비교해야 하지만 checked/value/selected 프로퍼티만 비교한다.
    */
-  ['checked', 'value', 'selected'].forEach(key => {
+  ['checked', 'value', 'selected', 'disabled'].forEach(key => {
     // 요소 노드의 타입에 따라 소유하는 DOM 프로퍼티가 다르다. 따라서 해당 key의 프로퍼티가 존재하는지 확인한다.
     if (realNode[key] !== undefined && virtualNode[key] !== undefined && realNode[key] !== virtualNode[key]) {
       realNode[key] = virtualNode[key];
