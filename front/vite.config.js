@@ -12,6 +12,7 @@ export default defineConfig({
       '/validUser': `http://localhost:${PORT}`,
       '/isUniqueId': `http://localhost:${PORT}`,
       '/signout': `http://localhost:${PORT}`,
+      '/like': `http://localhost:${PORT}`,
     },
   },
   build: {

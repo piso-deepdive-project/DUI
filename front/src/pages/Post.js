@@ -8,8 +8,17 @@ class Post extends Component {
 
     const { isUser: isValidUser, canEdit, post } = await this.getPost(pathId);
 
+    const likes = isValidUser ? (await axios.get('/like')).data : null;
+
     const mainNav = new MainNav({ isValidUser }).render();
-    const postDetail = new PostDetail({ post, deletePost: this.deletePost, canEdit }).render();
+    const postDetail = new PostDetail({
+      post,
+      deletePost: this.deletePost,
+      isValidUser,
+      canEdit,
+      addLike: this.addLike.bind(this),
+      likes,
+    }).render();
 
     return `
       ${mainNav}
@@ -26,6 +35,12 @@ class Post extends Component {
   deletePost(e) {
     const id = +e.target.closest('article').id;
     axios.delete(`/post/${id}`);
+  }
+
+  addLike(e) {
+    const id = +e.target.closest('article').id;
+    axios.post('/like', { id });
+    this.setState({ temp: 'ss' });
   }
 }
 

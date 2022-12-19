@@ -1,9 +1,10 @@
 let users = [
   {
     id: 'test123@gmail.com',
-    pwd: 'utzazz12',
+    pwd: 'utzazz12!!',
     author: 'Uta',
     posts: [0],
+    likes: [],
   },
 ];
 
@@ -93,11 +94,21 @@ const deleteUser = id => {
 
 const isUniqueId = id => {
   if (users.length === 0) return true;
-  return users.some(user => {
-    console.log(user, id);
-    return user.id === id;
-  });
+  return users.some(user => user.id === id);
 };
+
+// prettier-ignore
+const addLike = (userId, postId) => {
+  users = users.map(user => (user.id === userId
+    ? {
+      ...user,
+      likes: user.likes.includes(postId)
+        ? user.likes.filter(like => like !== +postId) : [postId, ...user.likes]
+    }
+    : user));
+};
+
+const getLikes = userId => users.find(user => user.id === userId).likes;
 
 // POST
 const getPosts = () => posts;
@@ -128,6 +139,8 @@ module.exports = {
   updateUser,
   deleteUser,
   isUniqueId,
+  addLike,
+  getLikes,
   getPosts,
   getPost,
   addPost,
