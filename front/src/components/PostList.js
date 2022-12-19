@@ -7,14 +7,11 @@ class PostList extends Component {
     const { fetchPosts, currentPostType } = this.props;
     const posts = await fetchPosts();
 
-    const postCard = posts?.map(post => new PostCard({ post, currentPostType }).render()).join('');
-
-    const pagination = new Pagination().render();
+    const postCards = posts?.map(post => new PostCard({ post, currentPostType }).render()).join('');
 
     return `
       <div class="post-list">
-        ${postCard}        
-        ${pagination}
+        ${postCards}      
       </div>
     `;
   }
