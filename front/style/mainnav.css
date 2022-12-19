@@ -3,7 +3,7 @@
     @apply flex flex-row justify-between items-center;
   }
   .main-nav-list {
-    @apply p-4 text-4xl
+    @apply p-4 text-5xl
     flex flex-row;
   }
   .bx-menu {
@@ -14,9 +14,13 @@
     cursor: pointer;
   }
   .logo {
-    @apply text-primary;
-    text-shadow: 2px 2px #735e6f;
     cursor: pointer;
+    background-image: url(/assets/logo.png);
+    background-position: right 50% bottom 70%;
+    background-size: 100px 100px;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
   }
   .edit-btn {
     @apply text-2xl;
@@ -72,6 +76,16 @@
     margin-left: 0;
     vertical-align: baseline;
     width: 120px;
+  }
+
+  .edit-btn {
+    @apply text-primary text-xl border-primary pt-1;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    vertical-align: baseline;
+    width: 8rem;
   }
 
   .overlay {
