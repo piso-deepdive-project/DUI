@@ -112,7 +112,12 @@ server.delete('/user/', (req, res) => {
  * 글 목록 가져오기
  */
 server.get('/posts', (req, res) => {
-  res.send(getPosts());
+  res.send(getPosts({ id: 0, pageSize: 5 }));
+});
+
+server.post('/posts', (req, res) => {
+  const { id, pageSize } = req.body;
+  res.send(getPosts({ id, pageSize }));
 });
 
 server.post('/like', (req, res) => {
