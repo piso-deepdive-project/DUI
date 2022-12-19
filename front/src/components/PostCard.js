@@ -1,5 +1,5 @@
 import Component from '../common/Component';
-import timeForToday from '../common/formatTime';
+import timeForToday from '../lib/formatTime';
 
 class PostCard extends Component {
   render() {

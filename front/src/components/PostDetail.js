@@ -1,5 +1,5 @@
 import { Component } from '../common';
-import timeForToday from '../common/formatTime';
+import timeForToday from '../lib/formatTime';
 
 class PostDetail extends Component {
   // prettier-ignore
