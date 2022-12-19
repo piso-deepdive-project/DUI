@@ -28,7 +28,6 @@ class Component {
     // this.addEventListener === undefined ? events === undefined
     const events = this.addEventListener?.();
     if (!events) return;
-
     for (const event of events) {
       /**
        * event.selector === 'window' => 이벤트 핸들러는 window에 등록된다.
@@ -47,7 +46,20 @@ class Component {
        * <button onClick={() => { console.log(1) }} onClick={() => { console.log(2) }}>Add</button>
        * => No duplicate props allowed (react/jsx-no-duplicate-props)
        */
+
+      if (event.handler.name.includes('bound')) {
+        const duplicated2 = eventHolder.find(
+          ({ type, selector }) => type === event.type && selector === event.selector
+        );
+        document.getElementById('app').removeEventListener(event.type, duplicated2?.handler);
+        const duplicatedIndex = eventHolder.findIndex(
+          ({ type, selector }) => type === event.type && selector === event.selector
+        );
+        if (duplicatedIndex >= 0) eventHolder.splice(duplicatedIndex, 1);
+      }
+
       const duplicated = eventHolder.find(({ type, selector }) => type === event.type && selector === event.selector);
+      // bind가 존재하는 이벤트라면 새롭게 갱신한다.(name 프로퍼티에 bound라는 이름이 앞에 존재한다.)
 
       if (!duplicated) {
         const { selector, handler } = event;
