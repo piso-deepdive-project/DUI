@@ -1,22 +1,12 @@
 import axios from 'axios';
+import userValidation from '../lib/userValidation';
 
 import { Component } from '../common';
 
-import userValidation from '../lib/userValidation';
-
 class SignUp extends Component {
-  email = null;
-
-  authorname = null;
-
-  password = null;
-
-  password2 = null;
-
-  signupInputs = null;
-
   render() {
     const canSubmit = this.state?.canSubmit ?? false;
+
     return `
       <nav class="user-nav">
         <a href="/">DUI POST</a>
@@ -31,6 +21,7 @@ class SignUp extends Component {
             class="signin-userid"
             minlength="8"
             value="${this.state?.email.value ?? ''}"
+            required
           />
           <span class="errorMsg">${this.state?.email.errMsg ?? ''}</span>
           <label for="authorname">이름</label>
@@ -42,25 +33,28 @@ class SignUp extends Component {
             minlength="2"
             maxlength="5"
             value="${this.state?.authorname.value ?? ''}"
+            required
           />
           <button class="uniqueBtn" type="button">${canSubmit ? '사용 가능한 이메일' : '중복 확인'}</button>
           <span class="errorMsg">${this.state?.authorname.errMsg ?? ''}</span>
-          <label for="password">비밀번호</label>
+          <label for="pwd">비밀번호</label>
           <input
-          name="password"
-            type="password"
-            class="signin-password"
+          name="pwd"
+            type="pwd"
+            class="signin-pwd"
             minlength="6"
+            required
           />
-          <span class="errorMsg">${this.state?.password.errMsg ?? ''}</span>
-          <label for="password2">비밀번호 재확인</label>
+          <span class="errorMsg">${this.state?.pwd.errMsg ?? ''}</span>
+          <label for="pwd2">비밀번호 재확인</label>
           <input
-            name="password2"
-            type="password"
-            class="signin-password2"
+            name="pwd2"
+            type="pwd"
+            class="signin-pwd2"
             minlength="6"
+            required
           />
-          <span class="errorMsg">${this.state?.password2.errMsg ?? ''}</span>
+          <span class="errorMsg">${this.state?.pwd2.errMsg ?? ''}</span>
           <button type="submit" class="signup-btn" ${canSubmit ? '' : ''}}>회원가입</button>
           <div class="user-link">
             <a href="/signin">로그인</a>
@@ -74,16 +68,8 @@ class SignUp extends Component {
   moveFocus() {
     if (!userValidation.email.valid) this.email.focus();
     else if (!userValidation.authorname.valid) this.authorname.focus();
-    else if (!userValidation.password.valid) this.password.focus();
-    else if (!userValidation.password2.valid) this.password2.focus();
-  }
-
-  editErrorMsg() {
-    return [...this.signupInputs].map($input => {
-      if ($input.value.trim() === '') return '필수 정보입니다.';
-      if (!userValidation[$input.name].valid) return userValidation[$input.name].error;
-      return '';
-    });
+    else if (!userValidation.pwd.valid) this.pwd.focus();
+    else if (!userValidation.pwd2.valid) this.pwd2.focus();
   }
 
   // 서버로부터 입력한 이메일과 이름이 존재하는지 확인하고 없다면 postUser를 호출한다.
@@ -102,13 +88,13 @@ class SignUp extends Component {
     const {
       email, //
       authorname,
-      password,
+      pwd,
     } = userValidation;
 
     await axios.post('/signup', {
       id: email.value,
       authorname: authorname.value,
-      pwd: password.value,
+      pwd: pwd.value,
     });
   }
 
@@ -116,10 +102,10 @@ class SignUp extends Component {
     e.preventDefault();
 
     // 노드객체를 기억, uservalidation에 값을 넣어준다.
-    [...e.target.querySelectorAll('.signup-container input')].forEach($input => {
-      this[$input.name] = $input;
-      userValidation[$input.name].value = $input.value.trim();
-    });
+    // [...e.target.querySelectorAll('.signup-container input')].forEach($input => {
+    //   this[$input.name] = $input;
+    //   userValidation[$input.name].value = $input.value.trim();
+    // });
 
     // this.moveFocus();
 
@@ -127,21 +113,10 @@ class SignUp extends Component {
     // 이메일 중복을 확인하고, 중복이면
     const signupForm = e.target;
     this.setState({
-      // errMsgs: this.editErrorMsg(),
-      email: {
-        value: signupForm.email.value,
-        errMsg: userValidation.email.error,
-      },
-      authorname: {
-        value: signupForm.authorname.value,
-        errMsg: userValidation.authorname.error,
-      },
-      password: {
-        errMsg: userValidation.password.error,
-      },
-      password2: {
-        errMsg: userValidation.password2.error,
-      },
+      email: userValidation.email.valid(signupForm.email.value),
+      authorname: userValidation.authorname.valid(signupForm.authorname.value),
+      pwd: userValidation.pwd.valid(signupForm.pwd.value),
+      pwd2: userValidation.pwd2.valid(signupForm.pwd2.value),
     });
   }
 
