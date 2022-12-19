@@ -11,7 +11,7 @@ function SignInAPI(server, jwt, getUser) {
 
     const accessToken = jwt.sign({ id }, process.env.JWT_SECRET_KEY, {
       // 한 시간뒤에 만료 시켜줘
-      expiresIn: '1h',
+      expiresIn: '50000',
     });
 
     // xss 예방 차원 서버에서만 설정가능
@@ -24,6 +24,11 @@ function SignInAPI(server, jwt, getUser) {
     });
 
     res.send({ id });
+  });
+
+  server.get('/signout', (req, res) => {
+    res.clearCookie('accessToken');
+    res.send('logout');
   });
 }
 

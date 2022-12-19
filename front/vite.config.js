@@ -10,6 +10,7 @@ export default defineConfig({
       '/signup': `http://localhost:${PORT}`,
       '/edit': `http://localhost:${PORT}`,
       '/validUser': `http://localhost:${PORT}`,
+      '/signout': `http://localhost:${PORT}`,
     },
   },
   build: {

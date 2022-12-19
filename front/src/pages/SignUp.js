@@ -81,6 +81,7 @@ class SignUp extends Component {
             maxlength="5"
             value="${this.state.userInputValues[1]}"
           />
+          <button class="uniqueBtn" type="button">중복 확인</button>
           <span class="errorMsg">${this.state.errMsgs[1]}</span>
           <label for="password">비밀번호</label>
           <input
@@ -140,6 +141,11 @@ class SignUp extends Component {
     if (data === '' && signupValid.valid) this.postUser();
   }
 
+  async isUniqueId(id) {
+    const { data } = await axios.post('/isUniqueId', { id });
+    if (data === '' && signupValid.valid) this.postUser();
+  }
+
   // 서버에게 새로운 회원의 데이터를 전송한다.
   async postUser() {
     const {
@@ -169,7 +175,10 @@ class SignUp extends Component {
   }
 
   addEventListener() {
-    return [{ type: 'submit', selector: '.signup-form', handler: this.validationUser.bind(this) }];
+    return [
+      { type: 'submit', selector: '.signup-form', handler: this.validationUser.bind(this) },
+      { type: 'click', selector: '.uniqueBtn', handler: this.isUniqueId.bind(this) },
+    ];
   }
 }
 

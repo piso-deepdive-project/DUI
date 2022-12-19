@@ -91,6 +91,11 @@ const deleteUser = id => {
   users = users.filter(_usr => _usr.id !== id);
 };
 
+const isUniqueId = id => {
+  if (users.length === 0) return true;
+  return users.some(user => user.id === id);
+};
+
 // POST
 const getPosts = () => posts;
 
@@ -119,6 +124,7 @@ module.exports = {
   addUser,
   updateUser,
   deleteUser,
+  isUniqueId,
   getPosts,
   getPost,
   addPost,

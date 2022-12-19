@@ -11,13 +11,13 @@ const {
   addUser,
   updateUser,
   deleteUser,
+  isUniqueId,
   getPosts,
   addPost,
   getPost,
   updatePost,
   deletePost,
 } = require('./data');
-const { decode } = require('punycode');
 
 const server = express();
 const PORT = 3000;
@@ -86,6 +86,11 @@ server.post('/signup', (req, res) => {
   res.send(addUser(req.body));
 });
 
+server.post('/isUniqueId', (req, res) => {
+  const { id } = req.body;
+  res.send(isUniqueId(+id));
+});
+
 /**
  * 회원 수정
  */
@@ -111,16 +116,23 @@ server.get('/posts', (req, res) => {
 /**
  * 글 가져오기
  */
-server.get('/post/:id', canEdit, (req, res) => {
-  const accessToken = req.headers.authorization || req.cookies.accessToken;
-  const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
-
-  const post = getPost(+req.params.id);
-  res.send({
-    isUser: true,
-    canEdit: post.author.id === decoded.id,
-    post,
-  });
+server.get('/post/:id', (req, res) => {
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    const post = getPost(+req.params.id);
+    res.send({
+      isUser: true,
+      canEdit: post.author.id === decoded.id,
+      post,
+    });
+  } catch (e) {
+    res.send({
+      isUser: false,
+      canEdit: false,
+      post: getPost(+req.params.id),
+    });
+  }
 });
 
 /**
