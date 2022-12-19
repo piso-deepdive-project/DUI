@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Component } from '../common';
-import { MainNav, PostDetail } from '../components';
+import { MainNav, PostDetail, Comment } from '../components';
 
 class Post extends Component {
   async render() {
@@ -19,10 +19,12 @@ class Post extends Component {
       addLike: this.addLike.bind(this),
       likes,
     }).render();
+    const comment = new Comment().render();
 
     return `
       ${mainNav}
       ${postDetail}
+      ${comment}
     `;
   }
 

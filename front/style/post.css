@@ -14,4 +14,31 @@
   .post-content {
     @apply text-2xl;
   }
+  .comment {
+    @apply bg-white mt-12 w-3/4 ml-auto mr-auto;
+  }
+  .comment h2 {
+    @apply text-lg mb-4;
+  }
+  .write-area {
+    @apply resize-none pt-4 px-1 pb-6 rounded w-full text-base;
+    border: 1px solid #bbb;
+    min-height: 6.125rem;
+  }
+  .wrapper {
+    @apply flex justify-end;
+  }
+  .write-btn {
+    @apply inline-flex justify-center items-center font-bold bg-primary text-white rounded h-8 text-base px-5 cursor-pointer;
+    outline: none;
+    border: none;
+  }
+  .comment-ones {
+    margin-bottom: 1.5rem;
+  }
+  .comment-title {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+  }
 }
