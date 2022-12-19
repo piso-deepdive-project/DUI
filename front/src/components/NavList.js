@@ -8,7 +8,7 @@ class NavList extends Component {
     return `
       <ul class="main-nav-list">
         <li><i class="bx bx-menu open-menu"></i></li>
-        <li class='logo route' data-route="/">DUI</li>
+        <li class='logo route' data-route="/"></li>
       </ul>
       
       ${
@@ -17,7 +17,7 @@ class NavList extends Component {
           <i class="bx bx-edit-alt"></i>
         </button>`
     : `<button class="edit-btn route" data-route="/signin">
-          Signin
+          로그인
         </button>`
 }
     `;
