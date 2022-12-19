@@ -111,7 +111,19 @@ const addLike = (userId, postId) => {
 const getLikes = userId => users.find(user => user.id === userId).likes;
 
 // POST
-const getPosts = () => posts;
+const getPosts = ({ id, pageSize }) => {
+  const _posts = [];
+  let i = id;
+  let cnt = pageSize;
+
+  while (posts[i] && cnt >= 0) {
+    _posts.push(posts[i]);
+    i += 1;
+    cnt -= 1;
+  }
+
+  return _posts;
+};
 
 // const getPost = id => posts.filter(post => post.id === id);
 const getPost = id => posts.find(post => post.id === id);
