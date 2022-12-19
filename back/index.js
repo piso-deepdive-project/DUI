@@ -42,16 +42,28 @@ const auth = (req, res, next) => {
 
 const isUser = (req, res, next) => {
   // cookie나 헤더 auth로 들어오는지 확인 jwt.rest 참조
-  const accessToken = req.headers.authorization || req.cookies.accessToken;
-
   try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
     console.log('😀 사용자 인증 성공', decoded);
     // 다음 웨어나 마지막 함수를 실행
     next();
   } catch (e) {
     console.error('😱 사용자 인증 실패..', e);
-    return res.send(true);
+    return res.send(false);
+  }
+};
+
+const canEdit = (req, res, next) => {
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    console.log('😀 사용자 인증 성공', decoded);
+
+    next();
+  } catch (e) {
+    console.error('😱 사용자 인증 실패..', e);
+    return res.send({ isUser: false, canEdit: false });
   }
 };
 
@@ -98,8 +110,12 @@ server.get('/posts', (req, res) => {
 /**
  * 글 가져오기
  */
-server.get('/post/:id', (req, res) => {
-  res.send(getPost(+req.params.id));
+server.get('/post/:id', canEdit, (req, res) => {
+  res.send({
+    isUser: false,
+    canEdit: false,
+    post: getPost(+req.params.id),
+  });
 });
 
 /**
@@ -114,7 +130,7 @@ server.post('/post', (req, res) => {
 /**
  * 글 수정하기
  */
-server.patch('/post', (req, res) => {
+server.patch('/post', canEdit, (req, res) => {
   const post = req.body;
   res.send(updatePost(post));
 });
