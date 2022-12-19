@@ -11,11 +11,10 @@ class NavList extends Component {
         <li class='logo route' data-route="/"></li>
       </ul>
       
-      ${
-  isValidUser
+      ${isValidUser
     ? `<button class="edit-btn route" data-route="/edit">
-          <i class="bx bx-edit-alt"></i>
-        </button>`
+            <i class="bx bx-edit-alt"></i>
+          </button>`
     : `<button class="edit-btn route" data-route="/signin">
           로그인
         </button>`
