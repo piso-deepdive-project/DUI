@@ -1,6 +1,6 @@
 /* signin */
 
-.user-nav {
+.user-header {
   min-width: 400px;
   @apply flex  items-center p-8 py-12 text-2xl  text-primary;
 }
@@ -25,13 +25,13 @@
 }
 
 .signin-email-icon,
-.signin-password-icon {
+.signin-pwd-icon {
   filter: invert(100%);
   top: 16px;
   @apply flex justify-center items-center absolute right-5 text-2xl border w-6 h-6 rounded-full bg-gray-200 cursor-pointer;
 }
 
-.signin-password-icon {
+.signin-pwd-icon {
   top: 70px;
 }
 
