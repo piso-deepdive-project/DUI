@@ -42,6 +42,7 @@ class SignUp extends Component {
     isValidationUser: false,
     errMsgs: Array(4).fill(''),
     userInputValues: ['', '', ''],
+    canSubmit: false,
   };
 
   email = null;
@@ -100,7 +101,7 @@ class SignUp extends Component {
             minlength="6"
           />
           <span class="errorMsg">${this.state.errMsgs[3]}</span>
-          <button type="submit" class="signup-btn">회원가입</button>
+          <button type="submit" class="signup-btn" ${this.state.canSubmit ? '' : 'disabled'}>회원가입</button>
           <div class="user-link">
             <a href="/signin">로그인</a>
           </div>
@@ -141,9 +142,9 @@ class SignUp extends Component {
     if (data === '' && signupValid.valid) this.postUser();
   }
 
-  async isUniqueId(id) {
-    const { data } = await axios.post('/isUniqueId', { id });
-    if (data === '' && signupValid.valid) this.postUser();
+  async isUniqueId(e) {
+    const { data } = await axios.post('/isUniqueId', { id: e.target.closest('form').email.value.trim() });
+    if (data) this.setState({ canSubmit: data });
   }
 
   // 서버에게 새로운 회원의 데이터를 전송한다.

@@ -93,7 +93,10 @@ const deleteUser = id => {
 
 const isUniqueId = id => {
   if (users.length === 0) return true;
-  return users.some(user => user.id === id);
+  return users.some(user => {
+    console.log(user, id);
+    return user.id === id;
+  });
 };
 
 // POST

@@ -88,7 +88,8 @@ server.post('/signup', (req, res) => {
 
 server.post('/isUniqueId', (req, res) => {
   const { id } = req.body;
-  res.send(isUniqueId(+id));
+  console.log(isUniqueId(id));
+  res.send(isUniqueId(id));
 });
 
 /**
