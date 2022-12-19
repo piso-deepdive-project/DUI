@@ -141,14 +141,13 @@ class SignUp extends Component {
 
   // 서버에게 새로운 회원의 데이터를 전송한다.
   async postUser() {
-    console.log('post');
     const {
       email, //
       author,
       password,
     } = signupValid;
 
-    await axios.post('/signup/add', {
+    await axios.post('/signup', {
       id: email.value,
       author: author.value,
       pwd: password.value,
