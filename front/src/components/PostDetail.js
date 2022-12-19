@@ -1,4 +1,5 @@
 import { Component } from '../common';
+import timeForToday from '../common/formatTime';
 
 class PostDetail extends Component {
   render() {
@@ -15,7 +16,7 @@ class PostDetail extends Component {
           <button class="post-remove route" data-route="/">삭제하기</button>` : ''}
           
         </div>
-        <span class="post-description">${author.author} · ${date}</span>
+        <span class="post-description">${author.author} · ${timeForToday(new Date(date))}</span>
         <p class="post-content">
           ${content}
         </p>
