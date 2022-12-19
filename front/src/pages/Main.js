@@ -15,7 +15,7 @@ class Main extends Component {
     const postsString = await new Posts({
       fetchPosts: this.fetchPosts.bind(this),
       setPostType: this.setPostType.bind(this),
-      currentPostType: this.state?.currentPostType,
+      currentPostType: this.state ? this.state.currentPostType : 'list',
     }).render();
 
     return `
@@ -34,4 +34,5 @@ class Main extends Component {
     this.setState({ currentPostType: e.target.closest('li').dataset.type });
   }
 }
+
 export default Main;

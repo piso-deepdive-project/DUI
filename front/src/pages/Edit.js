@@ -2,7 +2,9 @@ import axios from 'axios';
 import { Component } from '../common';
 
 class Edit extends Component {
-  user = 'Uta';
+  user = 'UtaSS';
+
+  $description = null;
 
   async render() {
     const pathId = window.location.pathname.split('/')[2];
@@ -10,11 +12,11 @@ class Edit extends Component {
     if (pathId) {
       const { data: post } = await axios.get(`/post/${+pathId}`);
       const { title, tags, content, id } = post;
-
       return `
       <form class="edit" data-id="${id}">
         <input type="text" class="edit-title" placeholder="제목을 입력하세요" required value="${title}" />
         <div class="tag">
+          ${tags.map(tag => `<span class="tag-box">${tag}</span>`).join('')}
           <input
             type="text"
             class="edit-tag"
@@ -70,17 +72,17 @@ class Edit extends Component {
   }
 
   async addPost(e) {
-    const [title, tag] = document.querySelectorAll('.edit input');
+    const title = document.querySelector('.edit-title').value;
     const content = document.querySelector('.edit-post').value;
-    const tags = tag.value.trim().split(' ');
+    const tags = [...document.querySelectorAll('.tag-box')].map($span => $span.textContent.trim());
 
-    if (title.value.trim() === '' || content.trim() === '') {
+    if (title.trim() === '' || content.trim() === '') {
       e.stopPropagation();
       return;
     }
 
     await axios.post('post', {
-      title: title.value,
+      title,
       author: { author: this.user },
       tags,
       content,
@@ -124,6 +126,8 @@ class Edit extends Component {
   }
 
   keydownHandeler(e) {
+    // keydown 이벤트 발생시 한글이 두번 발생하는 문제를 막아준다.
+    if (e.isComposing) return;
     if (e.key === 'Enter' && !e.target.matches('.edit-post')) {
       e.preventDefault();
       this.moveFocus(e);

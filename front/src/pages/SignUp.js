@@ -7,21 +7,21 @@ const signupValid = {
     get valid() {
       return /[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,3}/i.test(this.value) && /.{6,12}/.test(this.value);
     },
-    error: '이메일 - 영문,숫자인 이메일 형식만 가능합니다.',
+    error: '이메일은 영문,숫자인 이메일 형식만 가능합니다.',
   },
   author: {
     value: '',
     get valid() {
-      return /.+/g.test(this.value);
+      return /^[가-힣|a-z|A-Z|0-9|]{2,5}$/i.test(this.value);
     },
-    error: '한글/영문 또는 숫자만 가능합니다',
+    error: '한글,영문,숫자 2~5자로 구성하세요',
   },
   password: {
     value: '',
     get valid() {
-      return /^[A-Za-z0-9]{6,12}$/g.test(this.value);
+      return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/g.test(this.value);
     },
-    error: '비밀번호 - 영문 및 숫자 6~12자리를 입력하세요.',
+    error: '비밀번호는 영문,숫자,특수문자를 조합하여(하나씩포함) 6~12자로 구성하세요.',
   },
   password2: {
     value: '',
@@ -77,7 +77,8 @@ class SignUp extends Component {
             name="author"
             type="text"
             class="signin-username"
-            minlength="3"
+            minlength="2"
+            maxlength="5"
             value="${this.state.userInputValues[1]}"
           />
           <span class="errorMsg">${this.state.errMsgs[1]}</span>
@@ -141,7 +142,6 @@ class SignUp extends Component {
 
   // 서버에게 새로운 회원의 데이터를 전송한다.
   async postUser() {
-    console.log('post');
     const {
       email, //
       author,
@@ -161,7 +161,6 @@ class SignUp extends Component {
     this.setSigninValid(e);
     this.moveFocus();
     this.getUser(signupValid.email.value, signupValid.author.value);
-
     this.setState({
       isValidationUser: signupValid.valid,
       errMsgs: this.editErrorMsg(),

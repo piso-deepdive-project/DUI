@@ -7,12 +7,12 @@ import { Component } from '../common';
 class Posts extends Component {
   async render() {
     const { fetchPosts, setPostType, currentPostType } = this.props;
-    const postType = new PostType({ setPostType }).render();
+    const postType = new PostType({ setPostType, currentPostType }).render();
 
     const postForm =
-      currentPostType === 'grid'
-        ? await new PostList({ fetchPosts }).render()
-        : await new PostGrid({ fetchPosts }).render();
+      currentPostType === 'list'
+        ? await new PostList({ fetchPosts, currentPostType }).render()
+        : await new PostGrid({ fetchPosts, currentPostType }).render();
 
     return `
       ${postType}
