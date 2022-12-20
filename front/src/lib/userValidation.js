@@ -27,8 +27,7 @@ export default () => {
       valid(authorname) {
         this.value = authorname;
         this._valid = this.isValid(this.value);
-        console.log(authorname);
-        console.log(this.isValid(this.value));
+
         return {
           value: this.value,
           errMsg: authorname === '' ? userValidation.requireMsg : this._valid ? '' : this.error,
@@ -42,6 +41,7 @@ export default () => {
       value: '',
       isValid: pwd => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/g.test(pwd),
       _valid: false,
+
       valid(pwd) {
         this.value = pwd;
         this._valid = this.isValid(pwd);
@@ -57,6 +57,7 @@ export default () => {
     pwd2: {
       isValid: pwd2 => userValidation.pwd.value === pwd2,
       _valid: false,
+
       valid(pwd2) {
         this._valid = this.isValid(pwd2);
         return {
