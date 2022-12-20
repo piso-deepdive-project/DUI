@@ -1,5 +1,5 @@
 function SignInAPI(server, jwt, getUser) {
-  server.post('/signin', (req, res) => {
+  server.post('/api/signin', (req, res) => {
     const { id, pwd } = req.body;
 
     if (!pwd) return res.status(401).send({ err: '비밀번호를 입력하지 않았습니다.' });
@@ -26,7 +26,7 @@ function SignInAPI(server, jwt, getUser) {
     res.send({ id });
   });
 
-  server.get('/signout', (req, res) => {
+  server.get('/api/signout', (req, res) => {
     res.clearCookie('accessToken');
     res.send('logout');
   });
