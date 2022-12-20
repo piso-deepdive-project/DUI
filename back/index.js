@@ -168,9 +168,14 @@ server.get('/api/post/:id', (req, res) => {
  * 글 추가
  */
 server.post('/api/post', (req, res) => {
-  const post = req.body;
-  addPost(post);
-  res.send(post);
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    const post = req.body;
+    res.send(updatePost({ ...post, author: { ...decoded } }));
+  } catch (e) {
+    res.send(false);
+  }
 });
 
 /**
