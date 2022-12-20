@@ -1,36 +1,25 @@
-.post-list-card {
-  min-width: 800px;
-  @apply flex flex-row gap-5 p-2 mx-4 my-2 w-3/4 h-44 font-bold 
-   justify-between items-center
-  rounded-lg shadow-md;
-}
-
-.post-grid-card {
-  @apply grid grid-rows-6 grid-cols-2 h-60  rounded-lg shadow-md p-4;
-}
-
 @layer components {
-  .post-list {
-    @apply flex flex-col justify-center items-center ml-5;
+  .post-list .post-card {
+    min-width: 800px;
+    @apply flex flex-row gap-5 p-2 mx-4 my-2 w-3/4 h-44 font-bold 
+     justify-between items-center
+    rounded-lg shadow-md mx-auto;
   }
 
-  .post-list-card .card-author {
+  .post-list .card-author {
     @apply font-bold text-primary w-20;
   }
 
-  .post-list-card .card-title {
+  .post-list .card-title {
     @apply text-2xl font-semibold mb-5 overflow-hidden text-ellipsis whitespace-nowrap mb-0;
   }
 
-  .card-date {
-    @apply text-xs text-sub  basis-1/12;
-  }
-  .post-list-card .card-description {
+  .post-list .card-description {
     max-width: 700px;
     @apply overflow-hidden text-ellipsis  basis-8/12;
   }
 
-  .post-list-card .card-content {
+  .post-list .card-content {
     display: -webkit-box;
     line-height: 16px;
     -webkit-line-clamp: 3; /* 표시하고자 하는 라인 수 */
@@ -39,12 +28,16 @@
 
     @apply overflow-hidden text-ellipsis opacity-60 mt-4;
   }
-  .post-list-card .thumbnail {
+  .post-list .thumbnail {
     min-width: 150px;
     @apply h-full;
   }
-  .post-list-card .thumbnail img {
+  .post-list .thumbnail img {
     @apply w-auto h-full;
+  }
+
+  .card-date {
+    @apply text-xs text-sub  basis-1/12;
   }
   /* gridCard */
 
@@ -53,25 +46,32 @@
     @apply p-2 mx-4 my-2 font-bold 
     grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
   }
-  .post-grid-card .card-author {
+
+  .post-grid .post-card {
+    @apply grid grid-rows-6 grid-cols-2 h-60  rounded-lg shadow-md;
+  }
+
+  .post-grid.card-author {
     @apply text-primary text-sm;
   }
 
-  .post-grid-card .thumbnail {
+  .post-grid .thumbnail {
     @apply row-start-1 row-end-7 w-4/5;
   }
-  .post-grid-card .thumbnail img {
+
+  .post-grid .thumbnail img {
     @apply object-cover h-full;
   }
-  .post-grid-card .card-title {
+
+  .post-grid .card-title {
     @apply text-xl font-semibold overflow-hidden text-ellipsis whitespace-nowrap mb-0;
   }
 
-  .post-grid-card .card-description {
+  .post-grid .card-description {
     @apply inline-block row-start-3 row-end-7 col-start-2;
   }
 
-  .post-grid-card .card-content {
+  .post-grid .card-content {
     display: -webkit-box;
     line-height: 16px;
     -webkit-line-clamp: 4; /* 표시하고자 하는 라인 수 */
@@ -80,7 +80,7 @@
   }
 
   .card-tags {
-    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+    @apply flex flex-row gap-2 overflow-hidden text-ellipsis whitespace-nowrap;
   }
 
   .card-tags .tag-span {
