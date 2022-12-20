@@ -14,6 +14,7 @@ export default defineConfig({
       '/isUniqueId': `http://localhost:${PORT}`,
       '/signout': `http://localhost:${PORT}`,
       '/like': `http://localhost:${PORT}`,
+      '/comment': `http://localhost:${PORT}`,
     },
   },
   build: {

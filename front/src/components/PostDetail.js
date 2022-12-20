@@ -10,7 +10,7 @@ class PostDetail extends Component {
 
     const {
       id, title, author, tags, date, content
-    } = post; // author.author는 좀 이상한데 ?, post안에 content property 필요, tags는 나중에 해보기로
+    } = post;
 
     const liked = likes === null ? false : likes.includes(id);
     console.log(likes, liked, id);
@@ -25,7 +25,7 @@ class PostDetail extends Component {
         ${isValidUser ? `<button class="post-like"><i class='bx ${liked ? 'bxs' : 'bx'}-like'></i></button> ` : ''}
           
         </div>
-        <span class="post-description">${author.author} · ${timeForToday(new Date(date))}</span>
+        <span class="post-description">${author.name} · ${timeForToday(new Date(date))}</span>
         <p class="post-content">
           ${content}
         </p>
