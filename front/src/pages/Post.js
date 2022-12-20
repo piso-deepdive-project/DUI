@@ -9,7 +9,7 @@ class Post extends Component {
 
     const { isUser: isValidUser, canEdit, post } = await this.getPost(pathId);
 
-    const likes = isValidUser ? (await axios.get('/like')).data : null;
+    const likes = isValidUser ? (await axios.get('/api/like')).data : null;
 
     const mainNav = new MainNav({ isValidUser }).render();
     const postDetail = new PostDetail({
@@ -35,26 +35,26 @@ class Post extends Component {
     const comment = textarea.value;
     const postId = +window.location.pathname.split('/')[2];
 
-    axios.post('/comment', { postId, comment });
+    axios.post('/api/comment', { postId, comment });
 
     textarea.value = '';
     this.setState();
   }
 
   async getPost(id) {
-    const { data: post } = await axios.get(`/post/${id}`);
+    const { data: post } = await axios.get(`/api/post/${id}`);
 
     return post;
   }
 
   deletePost(e) {
     const id = +e.target.closest('article').id;
-    axios.delete(`/post/${id}`);
+    axios.delete(`/api/post/${id}`);
   }
 
   addLike(e) {
     const id = +e.target.closest('article').id;
-    axios.post('/like', { id });
+    axios.post('/api/like', { id });
     this.setState({ temp: 'ss' });
   }
 }
