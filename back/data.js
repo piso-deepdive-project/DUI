@@ -136,13 +136,18 @@ const addPost = post => {
 };
 
 const updatePost = post => {
-  posts = posts.map(_post => (_post.id === +post.id ? post : _post));
+  posts = posts.map(_post => (_post.id === +post.id ? { ..._post, ...post } : _post));
   return getPost(+post.id);
 };
 
 const deletePost = id => {
   posts = posts.filter(post => post.id !== id);
   return getPost(id);
+};
+
+const addComment = ({ postId, comment, author }) => {
+  const newComment = { comment, author, date: new Date() };
+  posts = posts.map(_post => (_post.id === postId ? { ..._post, comments: [..._post.comments, newComment] } : _post));
 };
 
 module.exports = {
@@ -158,4 +163,5 @@ module.exports = {
   addPost,
   updatePost,
   deletePost,
+  addComment,
 };
