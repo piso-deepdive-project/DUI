@@ -5,7 +5,7 @@ class PostDetail extends Component {
   // prettier-ignore
   render() {
     const {
-      post, canEdit, likes, isValidUser
+      post, canEdit, likes, accessUser
     } = this.props;
 
     const {
@@ -13,7 +13,6 @@ class PostDetail extends Component {
     } = post;
 
     const liked = likes === null ? false : likes.includes(id);
-    console.log(likes, liked, id);
 
     return `
       <article class="post" id="${id}">
@@ -22,7 +21,7 @@ class PostDetail extends Component {
         ${canEdit ? `<button class="post-edit route" data-route="/edit/${id}">수정하기</button>
           <button class="post-remove route" data-route="/">삭제하기</button>` : ''}
 
-        ${isValidUser ? `<button class="post-like"><i class='bx ${liked ? 'bxs' : 'bx'}-like'></i></button> ` : ''}
+        ${accessUser ? `<button class="post-like"><i class='bx ${liked ? 'bxs' : 'bx'}-like'></i></button> ` : ''}
           
         </div>
         <span class="post-description">${author.name} · ${timeForToday(new Date(date))}</span>

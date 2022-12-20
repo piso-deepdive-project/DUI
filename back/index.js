@@ -71,7 +71,7 @@ const canEdit = (req, res, next) => {
   }
 };
 
-server.get('/api/validUser', isUser, (req, res) => {
+server.get('/api/accessUser', isUser, (req, res) => {
   res.send(true);
 });
 
@@ -149,15 +149,17 @@ server.get('/api/post/:id', (req, res) => {
   try {
     const accessToken = req.headers.authorization || req.cookies.accessToken;
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
-    const post = getPost(+req.params.id);
+
+    const post = Number.isNaN(+req.params.id) ? { author: { id: '' } } : getPost(+req.params.id);
+
     res.send({
-      isUser: true,
+      accessUser: true,
       canEdit: post.author.id === decoded.id,
       post,
     });
   } catch (e) {
     res.send({
-      isUser: false,
+      accessUser: false,
       canEdit: false,
       post: getPost(+req.params.id),
     });

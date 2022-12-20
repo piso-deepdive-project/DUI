@@ -8,9 +8,9 @@ class SignUp extends Component {
 
   async render() {
     const canSubmit = this.state?.canSubmit ?? false;
-    const { data: isValidUser } = await axios.get('/api/validUser');
+    const { data: accessUser } = await axios.get('/api/accessUser');
 
-    if (isValidUser) {
+    if (accessUser) {
       window.history.pushState(null, null, '/');
       this.setState();
     }

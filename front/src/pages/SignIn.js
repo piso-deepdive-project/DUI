@@ -9,12 +9,13 @@ class SignIn extends Component {
 
   // prettier-ignore
   async render() {
-    const { data: isValidUser } = await axios.get('/api/validUser');
+    const { data: accessUser } = await axios.get('/api/accessUser');
 
-    if (isValidUser) {
+    if (accessUser) {
       window.history.pushState(null, null, '/');
       this.setState();
     }
+
     return `
       <header class="user-header">
         <div class='logo route' data-route="/"></div>

@@ -14,9 +14,9 @@ class Main extends Component {
   }
 
   async render() {
-    const { data: isValidUser } = await axios.get('/api/validUser');
+    const { data: accessUser } = await axios.get('/api/accessUser');
 
-    const mainNav = new MainNav({ isValidUser }).render();
+    const mainNav = new MainNav({ accessUser }).render();
 
     const posts = await new Posts({
       fetchPosts: this.fetchPosts.bind(this),

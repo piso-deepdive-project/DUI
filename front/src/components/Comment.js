@@ -4,14 +4,14 @@ import { Component } from '../common';
 
 class Comment extends Component {
   render() {
-    const { post, isValidUser } = this.props;
+    const { post, accessUser } = this.props;
     const { comments } = post;
 
     // prettier-ignore
     return `<div class="comment">
     <h2>${comments.length}개의 댓글</h2>
     <div>
-      ${isValidUser ? `
+      ${accessUser ? `
         <div class="comment-write">
           <textarea placeholder="댓글을 작성하세요" class="write-area"></textarea>
           <div class="wrapper">

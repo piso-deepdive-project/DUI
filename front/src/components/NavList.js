@@ -2,7 +2,7 @@ import { Component } from '../common';
 
 class NavList extends Component {
   render() {
-    const { isValidUser } = this.props;
+    const { accessUser } = this.props;
 
     // prettier-ignore
     return `
@@ -11,7 +11,7 @@ class NavList extends Component {
         <li class='logo route' data-route="/"></li>
       </ul>
       
-      ${isValidUser
+      ${accessUser
     ? `<button class="edit-btn route" data-route="/edit">
             <i class="bx bx-edit-alt"></i>
           </button>`
