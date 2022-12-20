@@ -139,12 +139,12 @@ class SignUp extends Component {
 
   // 서버로부터 입력한 이메일과 이름이 존재하는지 확인하고 없다면 postUser를 호출한다.
   async getUser(id, author) {
-    const { data } = await axios.post('/signup', { id, author });
+    const { data } = await axios.post('/api/signup', { id, author });
     if (data === '' && signupValid.valid) this.postUser();
   }
 
   async isUniqueId(e) {
-    const { data } = await axios.post('/isUniqueId', { id: e.target.closest('form').email.value.trim() });
+    const { data } = await axios.post('/api/isUniqueId', { id: e.target.closest('form').email.value.trim() });
     if (data) this.setState({ canSubmit: data });
   }
 
@@ -156,7 +156,7 @@ class SignUp extends Component {
       password,
     } = signupValid;
 
-    await axios.post('/signup', {
+    await axios.post('/api/signup', {
       id: email.value,
       author: author.value,
       pwd: password.value,
