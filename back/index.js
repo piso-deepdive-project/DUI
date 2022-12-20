@@ -71,7 +71,7 @@ const canEdit = (req, res, next) => {
   }
 };
 
-server.get('/validUser', isUser, (req, res) => {
+server.get('/api/validUser', isUser, (req, res) => {
   res.send(true);
 });
 
@@ -85,11 +85,11 @@ SignInAPI(server, jwt, getUser);
 /**
  * signup
  */
-server.post('/signup', (req, res) => {
+server.post('/api/signup', (req, res) => {
   res.send(addUser(req.body));
 });
 
-server.post('/isUniqueId', (req, res) => {
+server.post('/api/isUniqueId', (req, res) => {
   const { id } = req.body;
   res.send(!isUniqueId(id));
 });
@@ -97,14 +97,14 @@ server.post('/isUniqueId', (req, res) => {
 /**
  * 회원 수정
  */
-server.patch('/user', (req, res) => {
+server.patch('/api/user', (req, res) => {
   res.send(updateUser(req.body));
 });
 
 /**
  * 회원 삭제
  */
-server.delete('/user/', (req, res) => {
+server.delete('/api/user/', (req, res) => {
   res.send(deleteUser(req.body.id));
 });
 
@@ -112,16 +112,16 @@ server.delete('/user/', (req, res) => {
 /**
  * 글 목록 가져오기
  */
-server.get('/posts', (req, res) => {
+server.get('/api/posts', (req, res) => {
   res.send(getPosts({ id: 0, pageSize: 5 }));
 });
 
-server.post('/posts', (req, res) => {
+server.post('/api/posts', (req, res) => {
   const { id, pageSize } = req.body;
   res.send(getPosts({ id, pageSize }));
 });
 
-server.post('/like', (req, res) => {
+server.post('/api/like', (req, res) => {
   try {
     const accessToken = req.headers.authorization || req.cookies.accessToken;
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
@@ -132,7 +132,7 @@ server.post('/like', (req, res) => {
   }
 });
 
-server.get('/like', (req, res) => {
+server.get('/api/like', (req, res) => {
   try {
     const accessToken = req.headers.authorization || req.cookies.accessToken;
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
@@ -145,7 +145,7 @@ server.get('/like', (req, res) => {
 /**
  * 글 가져오기
  */
-server.get('/post/:id', (req, res) => {
+server.get('/api/post/:id', (req, res) => {
   try {
     const accessToken = req.headers.authorization || req.cookies.accessToken;
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
@@ -167,7 +167,7 @@ server.get('/post/:id', (req, res) => {
 /**
  * 글 추가
  */
-server.post('/post', (req, res) => {
+server.post('/api/post', (req, res) => {
   const post = req.body;
   addPost(post);
   res.send(post);
@@ -176,7 +176,7 @@ server.post('/post', (req, res) => {
 /**
  * 글 수정하기
  */
-server.patch('/post', canEdit, (req, res) => {
+server.patch('/api/post', canEdit, (req, res) => {
   const post = req.body;
   res.send(updatePost(post));
 });
@@ -184,7 +184,7 @@ server.patch('/post', canEdit, (req, res) => {
 /**
  * 글 삭제하기
  */
-server.delete('/post/:id', (req, res) => {
+server.delete('/api/post/:id', (req, res) => {
   res.send(deletePost(+req.params.id));
 });
 
@@ -198,7 +198,7 @@ server.delete('/post/:id', (req, res) => {
 //   }
 // });
 
-server.post('/comment', (req, res) => {
+server.post('/api/comment', (req, res) => {
   try {
     const accessToken = req.headers.authorization || req.cookies.accessToken;
     const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
