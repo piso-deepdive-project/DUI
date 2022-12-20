@@ -14,7 +14,7 @@ class Main extends Component {
   }
 
   async render() {
-    const { data: isValidUser } = await axios.get('/validUser');
+    const { data: isValidUser } = await axios.get('/api/validUser');
 
     const mainNav = new MainNav({ isValidUser }).render();
 
@@ -31,7 +31,7 @@ class Main extends Component {
   }
 
   async fetchPosts() {
-    const { data: posts } = await axios.post('/posts', { id: 0, pageSize: this.state.page });
+    const { data: posts } = await axios.post('/api/posts', { id: 0, pageSize: this.state.page });
 
     return posts;
   }
