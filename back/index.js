@@ -177,8 +177,14 @@ server.post('/api/post', (req, res) => {
  * 글 수정하기
  */
 server.patch('/api/post', canEdit, (req, res) => {
-  const post = req.body;
-  res.send(updatePost(post));
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    const post = req.body;
+    res.send(updatePost({ ...post, author: { ...decoded } }));
+  } catch (e) {
+    res.send(false);
+  }
 });
 
 /**
