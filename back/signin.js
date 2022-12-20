@@ -9,7 +9,7 @@ function SignInAPI(server, jwt, getUser) {
 
     if (!user) return res.status(401).send({ err: '등록되지 않은 사용자입니다.' });
 
-    const accessToken = jwt.sign({ id }, process.env.JWT_SECRET_KEY, {
+    const accessToken = jwt.sign({ id, name: user.name }, process.env.JWT_SECRET_KEY, {
       // 한 시간뒤에 만료 시켜줘
       expiresIn: '50000',
     });

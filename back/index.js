@@ -19,6 +19,7 @@ const {
   getPost,
   updatePost,
   deletePost,
+  addComment,
 } = require('./data');
 
 const server = express();
@@ -196,6 +197,18 @@ server.delete('/post/:id', (req, res) => {
 //     console.log(e);
 //   }
 // });
+
+server.post('/comment', (req, res) => {
+  try {
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    let newComment = req.body;
+    newComment = { ...newComment, author: decoded };
+    addComment(newComment);
+  } catch (e) {
+    res.status(401).send({ err: '등록되지 않은 사용자입니다.' });
+  }
+});
 
 server.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
