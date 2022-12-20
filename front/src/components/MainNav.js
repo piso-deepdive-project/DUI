@@ -5,10 +5,10 @@ import NavMenu from './NavMenu';
 
 class MainNav extends Component {
   render() {
-    const { isValidUser } = this.props;
+    const { accessUser } = this.props;
 
-    const navList = new NavList({ isValidUser, openMenu: this.openMenu }).render();
-    const navMenu = new NavMenu({ isValidUser, closeMenu: this.closeMenu }).render();
+    const navList = new NavList({ accessUser, openMenu: this.openMenu }).render();
+    const navMenu = new NavMenu({ accessUser, closeMenu: this.closeMenu }).render();
 
     return `
       <nav class="main-nav">

@@ -2,13 +2,13 @@ import { Component } from '../common';
 
 class NavMenu extends Component {
   render() {
-    const { isValidUser } = this.props;
+    const { accessUser } = this.props;
 
     // prettier-ignore
     return `
       <div class="overlay"></div>
       <div class="side-menu">    
-    ${isValidUser
+    ${accessUser
     ? `<div class="login">
             <img class="profile" src="/assets/profile.png">
             <span class="username">UserName</span>
