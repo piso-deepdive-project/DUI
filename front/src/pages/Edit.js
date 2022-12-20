@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Component } from '../common';
 
 class Edit extends Component {
-  user = 'UtaSS';
+  user = 'Uta';
 
   $description = null;
 
@@ -10,7 +10,9 @@ class Edit extends Component {
     const pathId = window.location.pathname.split('/')[2];
 
     if (pathId) {
-      const { data: post } = await axios.get(`/post/${+pathId}`);
+      const { data } = await axios.get(`/post/${+pathId}`);
+      const { post } = data;
+
       const { title, tags, content, id } = post;
       return `
       <form class="edit" data-id="${id}">
@@ -83,10 +85,11 @@ class Edit extends Component {
 
     await axios.post('post', {
       title,
-      author: { author: this.user },
+      author: { name: this.user },
       tags,
       content,
       date: new Date(),
+      comments: [],
     });
   }
 
@@ -105,7 +108,7 @@ class Edit extends Component {
     await axios.patch('/post', {
       id,
       title: title.value,
-      author: { author: this.user },
+      author: { name: this.user },
       tags,
       content,
       date: new Date(),

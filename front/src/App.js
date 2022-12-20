@@ -41,13 +41,17 @@ class App extends Component {
   async render() {
     const PageComponent = findComponent();
 
-    if (this.currentComponet !== PageComponent) {
+    if (this.currentComponent === Main && PageComponent !== Main) {
+      this.ComponentInstance.removeScrollEvent();
+    }
+
+    if (this.currentComponent !== PageComponent) {
       eventHolder.forEach(({ type, handler }) => {
         this.$root.removeEventListener(type, handler);
       });
 
       eventHolder.length = 0;
-      this.currentComponet = PageComponent;
+      this.currentComponent = PageComponent;
       this.ComponentInstance = new PageComponent();
     }
 
