@@ -7,9 +7,11 @@
 }
 
 .signup-container {
-  @apply flex flex-col;
+  @apply relative flex flex-col;
 }
-
+.signup-container .success {
+  @apply text-green-500;
+}
 .signup-container label {
   @apply text-sm font-semibold mb-2;
 }
@@ -29,9 +31,10 @@
 }
 
 .errorMsg {
-  @apply opacity-100 text-red-600 h-2 text-sm mb-8;
+  text-shadow: 1px 1px rgb(86, 56, 56);
+  @apply opacity-100 text-red-600 h-2 text-sm mb-8 pt-2;
 }
 
 .uniqueBtn {
-  @apply mt-2 h-12 text-2xl bg-primary rounded-md text-white;
+  @apply absolute right-10 top-5 mt-2 h-12 text-lg bg-primary rounded-md text-white;
 }

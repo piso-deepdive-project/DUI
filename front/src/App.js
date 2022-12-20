@@ -54,7 +54,6 @@ class App extends Component {
       this.currentComponent = PageComponent;
       this.ComponentInstance = new PageComponent();
     }
-
     const page = await this.ComponentInstance.render();
 
     return `
