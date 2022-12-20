@@ -5,6 +5,13 @@ import { Component } from '../common';
 class Edit extends Component {
   // prettier-ignore
   async render() {
+    const { data: isValidUser } = await axios.get('/api/validUser');
+
+    if (!isValidUser) {
+      window.history.pushState(null, null, '/');
+      this.setState();
+    }
+
     const pathId = window.location.pathname.split('/')[2];
     let setPost = null;
 
@@ -97,7 +104,7 @@ class Edit extends Component {
     const tags = [...e.target.querySelectorAll('.tag-box')].map($span => $span.textContent.trim());
 
     if (pathId) {
-      await axios.patch('/post', {
+      await axios.patch('/api/post', {
         id: +pathId,
         title,
         tags,
@@ -107,11 +114,12 @@ class Edit extends Component {
       });
       window.history.pushState(null, null, `/post/${pathId}`);
     } else {
-      await axios.post('/post', {
+      await axios.post('/api/post', {
         title,
         tags,
         author: { name: 'user' },
         content,
+        comments: [],
         date: new Date(),
       });
       window.history.pushState(null, null, '/');

@@ -6,8 +6,14 @@ import { Component } from '../common';
 class SignUp extends Component {
   userValidation = userValidation();
 
-  render() {
+  async render() {
     const canSubmit = this.state?.canSubmit ?? false;
+    const { data: isValidUser } = await axios.get('/api/validUser');
+
+    if (isValidUser) {
+      window.history.pushState(null, null, '/');
+      this.setState();
+    }
 
     return `
       <header class="user-header">
@@ -76,7 +82,7 @@ class SignUp extends Component {
 
   async isUniqueId(e) {
     const email = e.target.closest('form').email.value.trim();
-    const { data } = await axios.post('/isUniqueId', { id: email });
+    const { data } = await axios.post('/api/isUniqueId', { id: email });
     this.setState({
       ...this.state,
       canSubmit: data,
@@ -92,29 +98,18 @@ class SignUp extends Component {
       pwd,
     } = this.userValidation;
 
-    await axios.post('/signup', {
+    await axios.post('/api/signup', {
       id: email.value,
       authorname: authorname.value,
       pwd: pwd.value,
     });
 
     window.history.pushState(null, null, '/signin');
-    this.setState({});
+    this.setState();
   }
 
   validationUser(e) {
     e.preventDefault();
-
-    // 노드객체를 기억, this.uservalidation에 값을 넣어준다.
-    // [...e.target.querySelectorAll('.signup-container input')].forEach($input => {
-    //   this[$input.name] = $input;
-    //   this.userValidation[$input.name].value = $input.value.trim();
-    // });
-
-    // this.moveFocus();
-
-    // this.getUser(this.userValidation.email.value, this.userValidation.authorname.value);
-    // 이메일 중복을 확인하고, 중복이면
 
     const signupForm = e.target;
     this.setState({

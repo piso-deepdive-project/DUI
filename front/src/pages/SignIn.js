@@ -8,7 +8,13 @@ class SignIn extends Component {
   userValidation = userValidation();
 
   // prettier-ignore
-  render() {
+  async render() {
+    const { data: isValidUser } = await axios.get('/api/validUser');
+
+    if (isValidUser) {
+      window.history.pushState(null, null, '/');
+      this.setState();
+    }
     return `
       <header class="user-header">
         <div class='logo route' data-route="/"></div>
