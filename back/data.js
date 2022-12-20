@@ -74,6 +74,7 @@ let posts = [
     Live it and I write down and I watch it blow up
     Y'all know what I'm like, y'all play it your system every night`,
     date: new Date('2022-10-08'),
+    comments: [{ comment: 'test1', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
   },
 ];
 
@@ -111,7 +112,19 @@ const addLike = (userId, postId) => {
 const getLikes = userId => users.find(user => user.id === userId).likes;
 
 // POST
-const getPosts = () => posts;
+const getPosts = ({ id, pageSize }) => {
+  const _posts = [];
+  let i = id;
+  let cnt = pageSize;
+
+  while (posts[i] && cnt >= 0) {
+    _posts.push(posts[i]);
+    i += 1;
+    cnt -= 1;
+  }
+
+  return _posts;
+};
 
 // const getPost = id => posts.filter(post => post.id === id);
 const getPost = id => posts.find(post => post.id === id);
@@ -124,13 +137,18 @@ const addPost = post => {
 };
 
 const updatePost = post => {
-  posts = posts.map(_post => (_post.id === +post.id ? post : _post));
+  posts = posts.map(_post => (_post.id === +post.id ? { ..._post, ...post } : _post));
   return getPost(+post.id);
 };
 
 const deletePost = id => {
   posts = posts.filter(post => post.id !== id);
   return getPost(id);
+};
+
+const addComment = ({ postId, comment, author }) => {
+  const newComment = { comment, author, date: new Date() };
+  posts = posts.map(_post => (_post.id === postId ? { ..._post, comments: [..._post.comments, newComment] } : _post));
 };
 
 module.exports = {
@@ -146,4 +164,5 @@ module.exports = {
   addPost,
   updatePost,
   deletePost,
+  addComment,
 };

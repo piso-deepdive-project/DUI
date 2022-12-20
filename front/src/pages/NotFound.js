@@ -1,11 +1,17 @@
 import { Component } from '../common';
 
 class NotFound extends Component {
-  async render() {
-    const pathName = window.location.pathname.replace('/', '');
-
+  render() {
     return `
-      <h1>${pathName} 그런거 없어요</h1>
+    <div id="notfound">
+      <div class="notfound">
+        <div class="notfound-404">
+          <h1>404</h1>
+        </div>
+        <h2>Oops! Nothing was found</h2>
+        <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable. <span class="return-main route" data-route="/">Return to homepage</span></p>
+      </div>
+    </div>
     `;
   }
 }
