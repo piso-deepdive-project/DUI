@@ -15,10 +15,13 @@
     @apply text-2xl;
   }
   .comment {
-    @apply bg-white mt-12 w-3/4 ml-auto mr-auto;
+    @apply mt-12 w-3/4 ml-auto mr-auto;
   }
   .comment h2 {
     @apply text-lg mb-4;
+  }
+  .comment-write {
+    @apply mb-4;
   }
   .write-area {
     @apply resize-none pt-4 px-1 pb-6 rounded w-full text-base;
@@ -38,7 +41,34 @@
   }
   .comment-title {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     flex-flow: row nowrap;
+    margin-bottom: 1.5rem;
+  }
+  .comment-profile {
+    display: flex;
+    align-items: center;
+  }
+  .comment-profile img {
+    width: 3.375rem;
+    border-radius: 50%;
+  }
+  .comment-info {
+    margin-left: 1rem;
+    line-height: 1;
+  }
+  .comment-info .username {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .comment-info .date {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .comment-divider {
+    height: 0.125rem;
+    background-color: #bbb;
+    margin-bottom: 1rem;
   }
 }

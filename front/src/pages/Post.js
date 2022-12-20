@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { Component } from '../common';
 import { MainNav, PostDetail, Comment } from '../components';
 
@@ -19,13 +20,25 @@ class Post extends Component {
       addLike: this.addLike.bind(this),
       likes,
     }).render();
-    const comment = new Comment().render();
+    const comment = new Comment({ isValidUser, post, addComment: this.addComment.bind(this) }).render();
 
     return `
       ${mainNav}
       ${postDetail}
       ${comment}
     `;
+  }
+
+  addComment() {
+    const textarea = document.body.querySelector('textarea');
+
+    const comment = textarea.value;
+    const postId = +window.location.pathname.split('/')[2];
+
+    axios.post('/comment', { postId, comment });
+
+    textarea.value = '';
+    this.setState();
   }
 
   async getPost(id) {
