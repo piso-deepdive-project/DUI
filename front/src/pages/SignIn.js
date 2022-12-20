@@ -5,10 +5,6 @@ import { Component } from '../common';
 import userValidation from '../lib/userValidation';
 
 class SignIn extends Component {
-  email = null;
-
-  pwd = null;
-
   userValidation = userValidation();
 
   // prettier-ignore
@@ -64,15 +60,15 @@ class SignIn extends Component {
   validationUser(e) {
     e.preventDefault();
 
-    if (this.userValidation.signinValid) {
-      this.getUser(this.userValidation.email.value, this.userValidation.pwd.value);
-    }
-
     const signinForm = e.target;
     this.setState({
       email: this.userValidation.email.valid(signinForm.email.value),
       pwd: this.userValidation.pwd.valid(signinForm.pwd.value),
     });
+
+    if (this.userValidation.signinValid) {
+      this.getUser(this.userValidation.email.value, this.userValidation.pwd.value);
+    }
   }
 
   deleteInputValue(e) {
