@@ -10,7 +10,7 @@ class Edit extends Component {
     const pathId = window.location.pathname.split('/')[2];
 
     if (pathId) {
-      const { data } = await axios.get(`/post/${+pathId}`);
+      const { data } = await axios.get(`/api/post/${+pathId}`);
       const { post } = data;
 
       const { title, tags, content, id } = post;
@@ -83,7 +83,7 @@ class Edit extends Component {
       return;
     }
 
-    await axios.post('post', {
+    await axios.post('/api/post', {
       title,
       author: { name: this.user },
       tags,
@@ -105,7 +105,7 @@ class Edit extends Component {
 
     const id = +e.target.closest('.edit').dataset.id;
 
-    await axios.patch('/post', {
+    await axios.patch('/api/post', {
       id,
       title: title.value,
       author: { name: this.user },

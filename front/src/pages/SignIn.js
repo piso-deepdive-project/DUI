@@ -71,7 +71,7 @@ class SignIn extends Component {
   // validation이 true라면 서버에 해당 아이디 요청
   async getUser(id, pwd) {
     try {
-      const signinUser = await axios.post('/signin', { id, pwd });
+      const signinUser = await axios.post('/api/signin', { id, pwd });
       if (signinUser !== '') console.log('로그인 성공');
       // 로그인 성공하고 뒤로가기 클릭시 로그인페이지로 이동 불가
       window.location.replace('/');
