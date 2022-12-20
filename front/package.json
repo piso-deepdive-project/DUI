@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "run-p vite tailwind",
     "vite": "vite",
-    "build": "vite build",
+    "build": "npx tailwindcss -i ./style/style.css -o ./tail.css && vite build",
     "preview": "vite preview",
     "tailwind": "npx tailwindcss -i ./style/style.css -o ./tail.css --watch"
   },
