@@ -74,6 +74,7 @@ let posts = [
     Live it and I write down and I watch it blow up
     Y'all know what I'm like, y'all play it your system every night`,
     date: new Date('2022-10-08'),
+    comments: [{ comment: 'test1', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
   },
 ];
 

@@ -89,6 +89,7 @@ class Edit extends Component {
       tags,
       content,
       date: new Date(),
+      comments: [],
     });
   }
 
