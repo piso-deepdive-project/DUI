@@ -1,22 +1,25 @@
 import axios from 'axios';
+
 import { Component } from '../common';
 
 class Edit extends Component {
-  user = 'UtaSS';
-
-  $description = null;
-
   async render() {
     const pathId = window.location.pathname.split('/')[2];
 
     if (pathId) {
       const { data: post } = await axios.get(`/post/${+pathId}`);
-      const { title, tags, content, id } = post;
+      const {
+        title, //
+        tags,
+        content,
+        id,
+      } = post.post;
+
       return `
       <form class="edit" data-id="${id}">
         <input type="text" class="edit-title" placeholder="제목을 입력하세요" required value="${title}" />
         <div class="tag">
-          ${tags.map(tag => `<span class="tag-box">${tag}</span>`).join('')}
+          ${tags?.map(tag => `<span class="tag-box">${tag}</span>`).join('')}
           <input
             type="text"
             class="edit-tag"
@@ -57,15 +60,15 @@ class Edit extends Component {
         <span>등록된 태그를 클릭하면 삭제됩니다.</span>
       </div>
         <textarea
+          name="area"
           class="edit-post"
           cols="30"
           rows="10"
           placeholder="Draw Your Idea"
-          required
-        ></textarea>
+          required></textarea>
         <div class="edit-buttons">
           <button type="button" class="edit-return">뒤로가기</button>
-          <button type="button" class="edit-add route" data-route="/">작성하기</button>
+          <button type="button" class="edit-add">작성하기</button>
         </div>
       </form>
     `;
@@ -83,19 +86,21 @@ class Edit extends Component {
 
     await axios.post('post', {
       title,
-      author: { author: this.user },
       tags,
       content,
       date: new Date(),
     });
+
+    window.history.pushState(null, null, '/');
+    this.setState();
   }
 
   async updatePost(e) {
-    const [title, tag] = document.querySelectorAll('.edit input');
+    const title = document.querySelector('.edit-title').value;
     const content = document.querySelector('.edit-post').value;
-    const tags = tag.value.trim().split(' ');
+    const tags = [...document.querySelectorAll('.tag-box')].map($span => $span.textContent.trim());
 
-    if (title.value.trim() === '' || content.trim() === '') {
+    if (title.trim() === '' || content.trim() === '') {
       e.stopPropagation();
       return;
     }
@@ -105,16 +110,23 @@ class Edit extends Component {
     await axios.patch('/post', {
       id,
       title: title.value,
-      author: { author: this.user },
       tags,
       content,
       date: new Date(),
     });
+    window.history.pushState(null, null, '/');
+    this.setState();
   }
 
   moveFocus(e) {
+    const editForm = document.querySelector('.edit');
     const [title, tag] = document.querySelectorAll('.edit input');
-    e.target === title ? tag.focus() : document.querySelector('.edit-post').focus();
+
+    if (e.target === title) tag.focus();
+    else {
+      editForm.area.focus();
+      e.preventDefault();
+    }
   }
 
   createTagBox(e) {
@@ -147,6 +159,7 @@ class Edit extends Component {
       document.querySelector('.edit-tag-description').style.visibility = 'visible';
     }
 
+    // 태그인풋에서 스페이스바를 입력하면 tagBox가 만들어진다.
     if (e.target.value.slice(-1) === ' ' && e.target.value.trim() !== '') this.createTagBox(e);
   }
 
@@ -168,7 +181,7 @@ class Edit extends Component {
   }
 
   // 이전페이지로 이동
-  moveeBackPage(e) {
+  moveeBackPage() {
     window.history.back();
   }
 
