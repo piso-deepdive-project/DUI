@@ -4,10 +4,10 @@ import Pagination from './Pagination';
 
 class PostList extends Component {
   async render() {
-    const { fetchPosts, currentPostType } = this.props;
+    const { fetchPosts } = this.props;
     const posts = await fetchPosts();
 
-    const postCard = posts?.map(post => new PostCard({ post, currentPostType }).render()).join('');
+    const postCard = posts?.map(post => new PostCard({ post }).render()).join('');
 
     const pagination = new Pagination().render();
 
