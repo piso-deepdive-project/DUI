@@ -8,7 +8,7 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      page: 0,
+      page: 5,
     };
     this.addScrollEvent();
   }
@@ -31,7 +31,8 @@ class Main extends Component {
   }
 
   async fetchPosts() {
-    const { data: posts } = await axios.get(`/posts/${this.state.page}`);
+    const { data: posts } = await axios.post('/posts', { id: 0, pageSize: this.state.page });
+
     return posts;
   }
 
@@ -43,7 +44,7 @@ class Main extends Component {
     const { clientHeight, scrollTop, scrollHeight } = e.target.scrollingElement;
 
     if (clientHeight + scrollTop >= scrollHeight - 1) {
-      const page = (this.state.page += 1);
+      const page = (this.state.page += 5);
       this.setState({ page });
     }
   }
