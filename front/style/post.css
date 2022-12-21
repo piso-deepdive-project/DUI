@@ -21,36 +21,27 @@
     @apply text-lg mb-4;
   }
   .comment-write {
-    @apply mb-4;
+    @apply mb-12;
   }
   .write-area {
     @apply resize-none pt-4 px-1 pb-6 rounded w-full text-base;
     border: 1px solid #bbb;
     min-height: 6.125rem;
   }
-  .wrapper {
-    @apply flex justify-end;
-  }
   .write-btn {
-    @apply inline-flex justify-center items-center font-bold bg-primary text-white rounded h-8 text-base px-5 cursor-pointer;
+    @apply inline-flex justify-center items-center font-bold bg-primary text-white rounded h-8 text-base px-5 cursor-pointer float-right;
     outline: none;
     border: none;
   }
   .comment-ones {
     margin-bottom: 1.5rem;
   }
-  .comment-title {
+  .comment-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-flow: row nowrap;
     margin-bottom: 1.5rem;
   }
-  .comment-profile {
-    display: flex;
-    align-items: center;
-  }
-  .comment-profile img {
+  .comment-header img {
     width: 3.375rem;
     border-radius: 50%;
   }
@@ -59,8 +50,12 @@
     line-height: 1;
   }
   .comment-info .username {
+    display: block;
     font-size: 1rem;
     font-weight: bold;
+  }
+  .comment-info .date {
+    display: block;
   }
   .comment-info .date {
     margin-top: 0.5rem;

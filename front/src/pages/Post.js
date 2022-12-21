@@ -41,10 +41,11 @@ class Post extends Component {
     `;
   }
 
-  addComment() {
-    const textarea = document.body.querySelector('.write-area');
+  addComment(e) {
+    const textarea = e.target.previousElementSibling;
+
     const comment = textarea.value;
-    const postId = +window.location.pathname.split('/')[2];
+    const postId = +e.target.closest('.comment').dataset.postid;
 
     if (comment.trim() === '') return;
 
