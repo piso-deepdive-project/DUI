@@ -1,41 +1,131 @@
-# POST
+# API
 
-## DATA: USER
+- /api/... 은 RESTful API를 데이터 요청
+- /sth sth 페이지로 이동을 의미
 
-### POST /signin
+## POSTS
 
-- 로그인 요청
+### GET /api/posts
 
-### POST /signup
+> 곧 삭제 예정, 수정할 필요가 있다. 이는 POST요청으로 그냥 하면된다.
 
-- 회원가입 요청
+- 메인 페이지에서 필요한 첫 글 목록을 요청합니다.
 
-### PATCH /user
+### POST /api/posts
 
-- 회원 수정
+- 글 목록을 요청합니다. payload로는 마지막 글 아이디와 글의 개수를 지정하여 요청합니다.
 
-### DELETE /user
+#### payload
 
-- 회원 삭제
+```js
+{
+  id, // 마지막 POST ID
+  pageSize, // 로드할 POST 개수
+}
+```
 
-## DATA: POST
+## POST/:id
 
-### GET /posts
+### GET /api/post/:id
 
-- 글 목록을 요청한다
+- 수정 또는 삭제 가능여부를 검사
+- 파라미터로 전달받은 postId의 글와 수정 또는 삭제 가능여부를 전송한다.
 
-### GET /post
+### DELETE /api/post/:id
 
-- 글을 요청한다.
+- 권한이 있다면
+- 파라미터로 전달받은 postId의 글을 삭제한다.
 
-### POST /post
+## POST
 
-- 글을 등록한다.
+### POST /api/post
 
-### PATCH /post
+- payload로 새로운 post의 정보를 받아 작성자의 정보를 추가하여 posts 저장소에 저장한다.
 
-- 글을 수정한다.
+#### payload
 
-### DELETE /post/:id
+```js
+{
+}
+```
 
-- 글을 삭제한다.
+### PATCH /api/post/
+
+- 권한이 있다면
+- payload로 수정된 post의 정보를 받아 작성자의 정보를 수정하여 posts 저장소에 저장한다.
+
+#### payload
+
+```js
+{
+}
+```
+
+## LIKE
+
+### GET /api/like
+
+- 권한이 있다면
+- 토큰에 저장된 정보로 좋아요한 글의 목록을 요청한다.
+
+### POST /api/like
+
+- 권한이 있다면
+- payload로 전달받은 postId의 글을 좋아요한 글의 목록에 추가한다.
+
+## USER
+
+### POST /api/signin
+
+- id와 pwd를 payload로 요청을 보낸다.
+- 가입한 이력이 있는 id와 pwd라면 토큰을 발행하여
+- 쿠키에 저장한다.
+
+#### payload
+
+```js
+{
+  id, pwd;
+}
+```
+
+### POST /api/signup
+
+- 가입에 필요한 정보를 payload로 요청을 보낸다.
+- users 저장소에 저장한다.
+
+#### payload
+
+```js
+{
+  id, pwd;
+}
+```
+
+### GET /api/signout
+
+- 쿠키에 발행된 토큰을 clear한다.
+
+### POST /api/isuniqueid
+
+- 쿠키에 발행된 토큰을 clear한다.
+
+#### payload
+
+- 아이디의 중복여부를 응답한다.
+
+```js
+{
+  id;
+}
+```
+
+## ETC
+
+### GET /api/accessUser
+
+- 토큰이 발행중인지 확인
+
+### GET /api/comment
+
+- 새로운 댓글 등록하기
