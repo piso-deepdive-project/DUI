@@ -35,6 +35,6 @@
   @apply opacity-100 text-red-600 h-2 text-sm mb-8 pt-2;
 }
 
-.uniqueBtn {
-  @apply absolute right-10 top-5 mt-2 h-12 text-lg bg-primary rounded-md text-white;
+.unique-btn {
+  @apply absolute right-0 top-5 mt-2 h-12 text-lg bg-primary rounded-md text-white;
 }

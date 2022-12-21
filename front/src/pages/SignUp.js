@@ -35,7 +35,7 @@ class SignUp extends Component {
             value="${email?.value ?? ''}"
             required
           />
-          <button class="unique-btn" type="button">${canSubmit ? '사용 가능한 이메일' : '중복 확인'}</button>
+          <button class="unique-btn" type="button">중복 확인</button>
           <span class="error-msg ${canSubmit ? 'success' : ''}">${email?.errMsg ?? ''}</span>
           <label for="authorname">이름</label>
           <input
@@ -48,7 +48,6 @@ class SignUp extends Component {
             value="${authorname?.value ?? ''}"
             required
           />
-        
           <span class="error-msg">${authorname?.errMsg ?? ''}</span>
           <label for="pwd">비밀번호</label>
           <input
@@ -56,7 +55,7 @@ class SignUp extends Component {
             type="password"
             class="signin-pwd"
             minlength="6"
-            required?
+            required
           />
           <span class="error-msg">${pwd?.errMsg ?? ''}</span>
           <label for="pwd2">비밀번호 재확인</label>
@@ -77,20 +76,11 @@ class SignUp extends Component {
     `;
   }
 
-  // input의 값이 조건에 맞지 않다면 해당 input로 focus가 이동한다.(위에서부터 차례로)
-  moveFocus() {
-    if (!this.userSchema.email.valid) this.email.focus();
-    else if (!userSchema.authorname.valid) this.authorname.focus();
-    else if (!userSchema.pwd.valid) this.pwd.focus();
-    else if (!userSchema.pwd2.valid) this.pwd2.focus();
-  }
-
   async isUniqueId(e) {
     const email = e.target.previousElementSibling.value.trim();
-    const emailVald = this.userValidation.email.valid(email);
+    const emailVald = userSchema.email.valid(email);
     const { data } = await axios.post('/api/isUniqueId', { id: email });
-
-    const errMsg = !emailVald._valid
+    const errMsg = !emailVald.isErr
       ? emailVald.errMsg
       : data
       ? '사용가능한 아이디입니다.'
@@ -98,7 +88,7 @@ class SignUp extends Component {
 
     this.setState({
       ...this.state,
-      canSubmit: emailVald._valid ? data : false,
+      canSubmit: emailVald.isErr ? data : false,
       email: { value: email, errMsg },
     });
   }
@@ -131,6 +121,7 @@ class SignUp extends Component {
       pwd: userSchema.pwd.valid(signupForm.pwd.value),
       pwd2: userSchema.pwd2.valid(signupForm.pwd2.value),
     });
+
     if (userSchema.signupValid) this.postUser();
   }
 
@@ -143,6 +134,7 @@ class SignUp extends Component {
     return [
       { type: 'submit', selector: '.signup-form', handler: this.validationUser.bind(this) },
       { type: 'click', selector: '.unique-btn', handler: this.isUniqueId.bind(this) },
+      { type: 'input', selector: '.signup-email', handler: this.emailInput.bind(this) },
     ];
   }
 }

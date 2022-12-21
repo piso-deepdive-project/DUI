@@ -23,7 +23,7 @@ class SignIn extends Component {
       </header>
       <form class="signin-form">
         <h1 class="title">SIGNIN</h1>
-        <span class="errorMsg">${errMsg}</span>
+        <span class="error-msg">${errMsg}</span>
         <div class="signin-container">
           <input
             type="email"
