@@ -5,13 +5,7 @@ import { Component } from '../common';
 import { MainNav, Posts } from '../components';
 
 class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      page: 5,
-    };
-    this.addScrollEvent();
-  }
+  pageSize = 8;
 
   async render() {
     const { data: accessUser } = await axios.get('/api/accessUser');
@@ -31,7 +25,7 @@ class Main extends Component {
   }
 
   async fetchPosts() {
-    const { data: posts } = await axios.post('/api/posts', { id: 0, pageSize: this.state.page });
+    const { data: posts } = await axios.post('/api/posts', { id: 0, pageSize: this.pageSize });
 
     return posts;
   }
@@ -44,8 +38,8 @@ class Main extends Component {
     const { clientHeight, scrollTop, scrollHeight } = e.target.scrollingElement;
 
     if (clientHeight + scrollTop >= scrollHeight - 1) {
-      const page = (this.state.page += 5);
-      this.setState({ page });
+      this.pageSize += 6;
+      this.setState();
     }
   }
 
