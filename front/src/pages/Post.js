@@ -1,33 +1,38 @@
 import axios from 'axios';
 
 import { Component } from '../common';
+
 import { MainNav, PostDetail, Comment } from '../components';
 
 class Post extends Component {
   async render() {
-    const path = window.location.pathname;
-    const pathId = +path.split('/')[2];
+    const postpath = window.location.pathname;
+    const postId = +postpath.split('/')[2];
 
-    const { accessUser, canEdit, post } = await this.getPost(pathId);
+    const { accessUser, canEdit, post } = await this.getPost(postId);
 
     if (!post) {
       window.history.pushState(null, null, '/wrongpost');
       this.setState();
-      window.history.pushState(null, null, path);
+      window.history.pushState(null, null, postpath);
     }
 
     const likes = accessUser ? (await axios.get('/api/like')).data : null;
 
     const mainNav = new MainNav({ accessUser }).render();
     const postDetail = new PostDetail({
-      post,
-      deletePost: this.deletePost,
       accessUser,
       canEdit,
-      addLike: this.addLike.bind(this),
+      post,
       likes,
+      addLike: this.addLike.bind(this),
+      deletePost: this.deletePost,
     }).render();
-    const comment = new Comment({ accessUser, post, addComment: this.addComment.bind(this) }).render();
+    const comment = new Comment({
+      accessUser, //
+      post,
+      addComment: this.addComment.bind(this),
+    }).render();
 
     return `
       ${mainNav}
@@ -37,7 +42,7 @@ class Post extends Component {
   }
 
   addComment() {
-    const textarea = document.body.querySelector('textarea');
+    const textarea = document.body.querySelector('.write-area');
     const comment = textarea.value;
     const postId = +window.location.pathname.split('/')[2];
 
@@ -51,7 +56,6 @@ class Post extends Component {
 
   async getPost(id) {
     const { data: post } = await axios.get(`/api/post/${id}`);
-
     return post;
   }
 
@@ -63,7 +67,7 @@ class Post extends Component {
   addLike(e) {
     const id = +e.target.closest('article').id;
     axios.post('/api/like', { id });
-    this.setState({ temp: 'ss' });
+    this.setState();
   }
 }
 

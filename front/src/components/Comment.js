@@ -5,10 +5,12 @@ import { Component } from '../common';
 class Comment extends Component {
   render() {
     const { post, accessUser } = this.props;
+
     const { comments } = post;
 
     // prettier-ignore
-    return `<div class="comment">
+    return `
+  <div class="comment">
     <h2>${comments.length}개의 댓글</h2>
     <div>
       ${accessUser ? `
@@ -31,7 +33,7 @@ class Comment extends Component {
             </div>          
           </div>
           <span class="comment-content">${comment}</span>
-        </div>`).join('<hr class=comment-divider>')}               
+        </div>`).join('<hr class="comment-divider">')}               
       </section>
     </div>
   </div>    
