@@ -500,7 +500,7 @@ const posts = [
     Implementing solutions such as Edge Functions, custom rate limiting and defining your cache control headers can achieve similar levels of performance and security when using Vercel.`,
     date: new Date('2019-02-18'),
     thumbnail: 'vercel.png',
-    comments: [[{ comment: '1등이다!!', author: { name: '황수현' }, date: new Date('2022-01-01') }]],
+    comments: [{ comment: '1등이다!!', author: { name: '황수현' }, date: new Date('2022-01-01') }],
   },
   {
     id: 6,

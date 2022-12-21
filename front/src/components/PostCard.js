@@ -14,6 +14,7 @@ class PostCard extends Component {
       thumbnail,
     } = post;
 
+    // prettier-ignore
     return `
       <div class="post-card route" data-route="/post/${id}">
         <h3 class="card-author">${author.name}</h3>
@@ -24,7 +25,9 @@ class PostCard extends Component {
           <span class="card-content">${content}</span>
         </div>
         <div class="thumbnail">
-          ${thumbnail ? `<img src="/assets/${thumbnail}" alt="" />` : '<img src="/assets/thumbnail.svg" alt="" />'}
+          ${thumbnail ? `
+          <img src="/assets/${thumbnail}" alt="" />` : `
+          <img src="/assets/thumbnail${Math.floor(Math.random() * 5)}.svg" alt="" />`}
         </div>
       </div>
     `;
