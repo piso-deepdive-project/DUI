@@ -64,6 +64,7 @@ const posts = [
     Live it and I write down and I watch it blow up
     Y'all know what I'm like, y'all play it your system every night`,
     date: new Date('1999-10-08'),
+    thumbnail: 'thumbnail2.svg',
     comments: [{ comment: '1빠', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
   },
   {
@@ -526,6 +527,7 @@ const posts = [
     `,
     date: new Date('2016-09-22'),
     comments: [],
+    thumbnail: 'thumbnail3.svg',
   },
   {
     id: 7,
