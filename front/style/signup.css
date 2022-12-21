@@ -30,7 +30,7 @@
   @apply mt-2 h-12 text-2xl bg-desc rounded-md text-sub opacity-70;
 }
 
-.errorMsg {
+.error-msg {
   text-shadow: 1px 1px rgb(86, 56, 56);
   @apply opacity-100 text-red-600 h-2 text-sm mb-8 pt-2;
 }
