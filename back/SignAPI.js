@@ -1,4 +1,10 @@
-function SignInAPI(server, jwt, getUser) {
+function SignAPI({
+  server, //
+  jwt,
+  getUser,
+  addUser,
+  isUniqueId,
+}) {
   server.post('/api/signin', (req, res) => {
     const { id, pwd } = req.body;
 
@@ -11,7 +17,7 @@ function SignInAPI(server, jwt, getUser) {
 
     const accessToken = jwt.sign({ id, name: user.name }, process.env.JWT_SECRET_KEY, {
       // 한 시간뒤에 만료 시켜줘
-      expiresIn: '50000',
+      expiresIn: process.env.exp,
     });
 
     // xss 예방 차원 서버에서만 설정가능
@@ -26,12 +32,21 @@ function SignInAPI(server, jwt, getUser) {
     res.send({ id });
   });
 
+  server.post('/api/signup', (req, res) => {
+    res.send(addUser(req.body));
+  });
+
   server.get('/api/signout', (req, res) => {
     res.clearCookie('accessToken');
     res.send('logout');
   });
+
+  server.post('/api/isuniqueid', (req, res) => {
+    const { id } = req.body;
+    res.send(!isUniqueId(id));
+  });
 }
 
 module.exports = {
-  SignInAPI,
+  SignAPI,
 };
