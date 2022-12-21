@@ -1,5 +1,5 @@
 {
-  "route": [
+  "routes": [
     {
       "src": "/",
       "dest": "http://localhost:3000"
