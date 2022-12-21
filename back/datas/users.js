@@ -5,6 +5,7 @@ const users = [
     name: 'Uta',
     posts: [0],
     likes: [],
+    comments: [],
   },
   {
     id: 'test1@test.com',
