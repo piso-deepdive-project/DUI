@@ -1,3 +1,8 @@
+.post-grid {
+  min-width: 460px;
+  @apply p-2 mx-4 my-2 font-bold 
+  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
 @layer components {
   .post-type {
     @apply flex flex-row justify-end;

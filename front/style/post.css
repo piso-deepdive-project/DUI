@@ -9,7 +9,7 @@
     @apply flex justify-end -mb-6 gap-4 text-2xl text-sub;
   }
   .post-tags {
-    @apply flex flex-row gap-2;
+    @apply flex flex-row gap-2 mt-2;
   }
 
   .post-tags .tag-box {
