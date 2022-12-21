@@ -3,6 +3,10 @@
 `vanilla javascript`
 로 글을 저장하고 수정하고 삭제할 수 있는 웹 사이트 프로젝트입니다.
 
+## 사이트 이용방법
+
+- 글 목록 보기
+
 # :date: Period
 
 :calendar: 2022-12-12 ~ 2022-12-23
@@ -11,7 +15,7 @@
 
 ## [회고](./docs/retrospect/)
 
-## [트러블 슈팅](./docs/troubleshooting/)
+## [트러블 슈팅](./docs/trobuleshooting/)
 
 # Stacks Tools Library
 
