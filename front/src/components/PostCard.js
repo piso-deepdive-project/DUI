@@ -11,6 +11,7 @@ class PostCard extends Component {
       title,
       author,
       tags,
+      thumbnail,
     } = post;
 
     return `
@@ -23,7 +24,7 @@ class PostCard extends Component {
           <span class="card-content">${content}</span>
         </div>
         <div class="thumbnail">
-          <img src="/assets/thumbnail.svg" alt="" />
+          ${thumbnail ? `<img src="/assets/${thumbnail}" alt="" />` : '<img src="/assets/thumbnail.svg" alt="" />'}
         </div>
       </div>
     `;
