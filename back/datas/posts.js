@@ -2,7 +2,7 @@ const posts = [
   {
     id: 0,
     title: 'NAS - Nas Is Like',
-    author: { id: 'test123@gmail.com', name: 'Uta' },
+    author: { id: 'test123@gmail.com', name: '이웅모' },
     tags: [],
     content: `Freedom or jail, clip's inserted, a baby's being born
     Same time a man is murdered, the beginning and end
@@ -64,12 +64,12 @@ const posts = [
     Live it and I write down and I watch it blow up
     Y'all know what I'm like, y'all play it your system every night`,
     date: new Date('1999-10-08'),
-    comments: [{ comment: 'test1', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
+    comments: [{ comment: '1빠', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
   },
   {
     id: 1,
     title: 'Dr Dre - I need a doctor.',
-    author: { id: 'test1@gmail.com', name: 'test1' },
+    author: { id: 'test1@gmail.com', name: '송승학' },
     tags: [],
     content: `I'm about to lose my mind
     You've been gone for so long
@@ -165,7 +165,7 @@ const posts = [
   {
     id: 2,
     title: 'Eminem - Stan.',
-    author: { id: 'test2@gmail.com', name: 'test2' },
+    author: { id: 'test2@gmail.com', name: '장현우' },
     tags: [],
     content: `My tea's gone cold, I'm wondering why I
     Got out of bed at all
@@ -310,7 +310,7 @@ const posts = [
   {
     id: 3,
     title: '2Pac - Hit Em Up.',
-    author: { id: 'test3@gmail.com', name: 'test3' },
+    author: { id: 'test3@gmail.com', name: '황수현' },
     tags: [],
     content: `Yeah
     Ayo
@@ -426,6 +426,115 @@ const posts = [
     date: new Date('1996-06-04'),
     comments: [],
     thumbnail: 'Tupac.svg',
+  },
+  {
+    id: 4,
+    title: 'Disabled elements',
+    author: { id: 'test123@gmail.com', name: '이웅모' },
+    tags: ['html5'],
+    content: `<a href="https://html.spec.whatwg.org/multipage/semantics-other.html#disabled-elements">보러가기</a>
+    An element is said to be actually disabled if it is one of the following:
+    a button element that is disabled
+    an input element that is disabled
+    a select element that is disabled
+    a textarea element that is disabled
+    an optgroup element that has a disabled attribute
+    an option element that is disabled
+    a fieldset element that is a disabled fieldset
+    a form-associated custom element that is disabled
+    This definition is used to determine what elements are focusable and which elements match the :enabled and :disabled pseudo classes.`,
+    date: new Date('2021-12-08'),
+    comments: [{ comment: '1빠', author: { name: 'hyeon' }, date: new Date('2023-10-08') }],
+    thumbnail: 'html5.svg',
+  },
+  {
+    id: 5,
+    title: 'Can I use a proxy on top of my Vercel Deployment?',
+    author: { id: 'test1@gmail.com', name: '송승학' },
+    tags: ['vercel', 'retrospective'],
+    content: `It is possible to use an external proxy or load balancer to route requests to a Vercel Deployment. This article describes possible alternatives, downsides you need to be aware of, and general configuration.
+
+    Using a Proxy
+    Using a third party proxy (such as Cloudflare, Cloudfront, Akami or Fastly) with Vercel is not recommended and may cause unexpected downtime. If you decide to deploy your own proxy solution, it is critical that you are aware of the following complications and details:
+    
+    Global Distribution
+    Vercel implements multiple technologies as part of our Edge Network to guarantee the performance and reachability of all hosted apps. It is important to understand that using your own proxy will affect the performance of your Deployment by introducing additional latency, especially if your proxy is not globally available.
+    
+    Vercel also ensures that when global Internet infrastructure problems occur, for example, a fiber cable is cut, we can deploy mitigation strategies automatically. An example is traffic re-routing: If a region is experiencing problems, we can redirect traffic to another location without action needed from your team.
+    
+    Reliability
+    Using your own proxy can decrease the level of reliability since you are introducing a piece of infrastructure that Vercel does not manage. If a problem happens in your proxy that causes downtime, Vercel cannot deploy any mitigations and intervention by your team may be required.
+    
+    Cache Behavior
+    A third party proxy, when used with Vercel, can introduce two caching layers: one at the third party and one at Vercel. This can result in incorrect data being sent to visitors.
+    
+    When you push a new Deployment to Vercel, our platform will purge the existing cache across all of our edge regions automatically. You will need to ensure that your proxy is also respecting this behaviour, and purging its own proxy cache after each deployment. Otherwise, your users may experience stale content, data chunking, mixed assets and other unexpected behaviour.
+    
+    Firewall and DoS Protection
+    Vercel offers to all our customers a basic level of protection. If we detect an anomaly in requests coming from a single source, the IP can get banned for a period of time ranging from a few minutes to days.
+    
+    You must ensure that any traffic mitigation measures, such as DDoS protection, rate limiting or throttling are implemented within your third party proxy, to prevent this traffic from being subsequently routed to Vercel, resulting in your proxy IP addres(es) being blocked from accessing Vercel.
+    
+    For Enterprise customers, we may be able to tailor our solution and rulesets for you. If you are not yet an Enterprise customer but may benefit from this, please contact sales.
+    
+    Request Headers/Geolocation
+    Vercel allows for custom routing based on user’s geolocation and IP addresses. Using a proxy will send all traffic via the proxy. This will result in incorrect geolocation data being presented and the public IP address of your proxy being sent. We do not support the x-forwarded-for header and therefore will not be able to read this information correctly.
+    
+    Domain Verification and Certificate Provisioning
+    Vercel automatically provisions SSL certificates and checks to make sure that any custom domain are configured correctly. Using a proxy can impact this traffic. This may result in incorrect domain configuration alerts and prevent our Let’s Encrypt SSL certificates from being provisioned.
+    
+    To allow this traffic to pass correctly, you must ensure your proxy does not block or automatically redirect traffic on the following HTTP wildcard path:
+    
+    http://<YOUR_DOMAIN>/.well-known/acme-challenge/*
+    
+    You must also ensure that the HOST header is correctly forwarded, otherwise the request will also fail. Certain proxy providers such as Cloudflare automatically configure these rules for you, but creating additional rules may block this. See here for how to configure Cloudflare with Vercel.
+    
+    Support
+    Using a proxy introduces complications to your project or deployment that are unrelated to the Vercel platform and therefore we cannot recommend or provide support for issues when using a proxy. All Vercel projects get assigned a vercel.app domain which should be used for troubleshooting to identify and rule out any proxy related problems.
+    
+    Per our Support Terms, it may be necessary for the team to require you to disable or reconfigure your proxy before we can assist further.
+    
+    Conclusion
+    Using a proxy with Vercel can cause unexpected issues for your website and every effort should be made to avoid using a proxy with Vercel.
+    
+    Implementing solutions such as Edge Functions, custom rate limiting and defining your cache control headers can achieve similar levels of performance and security when using Vercel.`,
+    date: new Date('2019-02-18'),
+    thumbnail: 'vercel.png',
+    comments: [[{ comment: '1등이다!!', author: { name: '황수현' }, date: new Date('2022-01-01') }]],
+  },
+  {
+    id: 6,
+    title: '하상욱',
+    author: { id: 'test2@gmail.com', name: '장현우' },
+    tags: [],
+    content: `
+      <h3 class="bg-primary">말도 안돼</h3>
+      <p>겨우 수요일</p>
+      <h3 class="text-2xl">너인줄 알았는데</h3>
+      <p>
+        너라면 좋았을 걸
+        ... <금요일 같은 목요일>
+      </p>
+      <h3 class="text-2xl">다시 돌아간다면 행복할 수 있을까?</h3>
+      <p>토요일</p>
+      <h3 class="text-2xl">점점 커지는 너의 빈자리</h3>
+      <p>탈모</p>
+      <h3 class="text-2xl">이게 뭐라고 이리 힘들까</h3>
+      <p>메뉴선택</p>
+      <h3 class="text-2xl">잘못된 선택 뒤늦은 후회</h3>
+      <p>내 앞자리만 안내림</p>
+    `,
+    date: new Date('2016-09-22'),
+    comments: [],
+  },
+  {
+    id: 7,
+    title: '2Pac - Hit Em Up.',
+    author: { id: 'test3@gmail.com', name: '황수현' },
+    tags: [],
+    content: '',
+    date: new Date('1996-06-04'),
+    comments: [],
   },
 ];
 
