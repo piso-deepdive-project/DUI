@@ -27,7 +27,7 @@ class PostCard extends Component {
         <div class="thumbnail">
           ${thumbnail ? `
           <img src="/assets/${thumbnail}" alt="" />` : `
-          <img src="/assets/thumbnail${Math.floor(Math.random() * 5)}.svg" alt="" />`}
+          <img src="/assets/thumbnail0.svg" alt="" />`}
         </div>
       </div>
     `;
