@@ -63,7 +63,7 @@ const posts = [
     I'm a poor man's dream, a thug poet
     Live it and I write down and I watch it blow up
     Y'all know what I'm like, y'all play it your system every night`,
-    date: new Date('2022-10-08'),
+    date: new Date('1999-10-08'),
     comments: [{ comment: 'test1', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
   },
   {
@@ -158,6 +158,9 @@ const posts = [
     I need a doctor, call me a doctor
     I need a doctor, doctor
     To bring me back to life`,
+    date: new Date('2011-02-02'),
+    comments: [],
+    thumbnail: 'dr-dre.svg',
   },
   {
     id: 2,
@@ -300,6 +303,9 @@ const posts = [
     And in the car they found a tape, but they didn't say who it was to
     Come to think about, his name was, it was you
     Damn!`,
+    date: new Date('2000-08-22'),
+    comments: [],
+    thumbnail: 'eminem.svg',
   },
   {
     id: 3,
@@ -417,6 +423,9 @@ const posts = [
     Go
     Yo
     Y'all gotta keep this shit real`,
+    date: new Date('1996-06-04'),
+    comments: [],
+    thumbnail: 'Tupac.svg',
   },
 ];
 
