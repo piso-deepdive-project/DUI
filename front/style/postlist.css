@@ -15,4 +15,12 @@
   .post-list {
     @apply p-2;
   }
+
+  .text-main {
+    @apply cursor-pointer;
+  }
+
+  .bx-grid-alt {
+    @apply cursor-pointer;
+  }
 }
