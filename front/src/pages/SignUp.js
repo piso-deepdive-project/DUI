@@ -51,7 +51,7 @@ class SignUp extends Component {
           <span class="error-msg">${authorname?.errMsg ?? ''}</span>
           <label for="pwd">비밀번호</label>
           <input
-          name="pwd"
+            name="pwd"
             type="password"
             class="signin-pwd"
             minlength="6"
@@ -98,13 +98,7 @@ class SignUp extends Component {
   }
 
   // 서버에게 새로운 회원의 데이터를 전송한다.
-  async addUser() {
-    const {
-      email, //
-      authorname,
-      pwd,
-    } = userSchema;
-
+  async addUser({ email, authorname, pwd }) {
     await axios.post('/api/signup', {
       id: email.value,
       authorname: authorname.value,
@@ -126,12 +120,12 @@ class SignUp extends Component {
       confirmPwd: userSchema.confirmPwd.valid(signupForm.pwd.value, signupForm.confirmPwd.value),
     });
 
-    if (userSchema.signupValid) this.addUser();
+    if (userSchema.signupValid) this.addUser(signupForm);
   }
 
-  emailHandler() {
+  emailHandler(e) {
     if (!this.state?.canSubmit) return;
-    this.setState({ email: { value: userSchema.email.value, errMsg: userSchema.email.errMsg }, canSubmit: false });
+    this.setState({ email: { value: e.target.value, errMsg: userSchema.email.errMsg }, canSubmit: false });
   }
 
   addEventListener() {
