@@ -30,6 +30,7 @@ class SignUp extends Component {
           <input
             name="email"
             type="email"
+            class="signup-email"
             minlength="8"
             value="${email?.value ?? ''}"
             required
@@ -85,12 +86,20 @@ class SignUp extends Component {
   }
 
   async isUniqueId(e) {
-    const email = e.target.closest('form').email.value.trim();
+    const email = e.target.previousElementSibling.value.trim();
+    const emailVald = this.userValidation.email.valid(email);
     const { data } = await axios.post('/api/isUniqueId', { id: email });
+
+    const errMsg = !emailVald._valid
+      ? emailVald.errMsg
+      : data
+      ? '사용가능한 아이디입니다.'
+      : '이미 존재하는 아이디입니다.';
+
     this.setState({
       ...this.state,
-      canSubmit: data,
-      email: { value: email, errMsg: data ? '사용가능한 아이디입니다.' : '이미 존재하는 아이디입니다.' },
+      canSubmit: emailVald._valid ? data : false,
+      email: { value: email, errMsg },
     });
   }
 
@@ -123,6 +132,11 @@ class SignUp extends Component {
       pwd2: userSchema.pwd2.valid(signupForm.pwd2.value),
     });
     if (userSchema.signupValid) this.postUser();
+  }
+
+  emailInput(e) {
+    if (!this.state?.canSubmit) return;
+    this.setState({ email: { value: e.target.value, errMsg: this.state.email.errMsg }, canSubmit: false });
   }
 
   addEventListener() {
