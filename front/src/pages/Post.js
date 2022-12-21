@@ -31,9 +31,10 @@ class Post extends Component {
 
   addComment() {
     const textarea = document.body.querySelector('textarea');
-
     const comment = textarea.value;
     const postId = +window.location.pathname.split('/')[2];
+
+    if (comment.trim() === '') return;
 
     axios.post('/api/comment', { postId, comment });
 
