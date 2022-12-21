@@ -45,9 +45,10 @@ class SignIn extends Component {
           />
           <i class='signin-pwd-icon icon hidden bx bx-x'></i>
           <button type="submit"class="signin-btn">로그인</button>
-          <button type="button" class="route" data-route="/signup">회원가입</button>
         </div>
-      </form>
+        <button type="button" class="user-link route" data-route="/signup">회원가입</button>
+        </form>
+
     `;
   }
 

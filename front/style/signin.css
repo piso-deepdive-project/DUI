@@ -9,7 +9,7 @@
   width: 600px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  @apply flex flex-col m-auto py-4 px-8  border-solid h-96;
+  @apply flex flex-col m-auto py-4 px-8  border-solid;
 }
 
 .signin-form .title {
@@ -52,6 +52,12 @@
   @apply mt-10 h-12 text-2xl bg-primary rounded-md text-white;
 }
 
+.signin-container::after {
+  content: '';
+  height: 1px;
+  @apply bg-black  w-72 my-2 mx-auto opacity-20;
+}
+
 .user-link {
-  @apply mt-3 text-sub;
+  @apply h-12 text-2xl bg-sub rounded-md text-white;
 }

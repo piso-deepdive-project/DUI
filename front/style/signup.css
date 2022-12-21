@@ -1,5 +1,6 @@
 /* signup */
 .signup-form {
+  min-width: 560px;
   @apply flex flex-col m-auto py-4 px-8 max-w-2xl;
 }
 .signup-form .title {
@@ -23,11 +24,16 @@
   @apply outline-none;
 }
 
-.signup-btn {
-  @apply mt-2 h-12 text-2xl bg-primary rounded-md text-white;
+.signup-email {
+  @apply w-10/12;
 }
+
+.signup-btn {
+  @apply my-4 h-12 text-2xl  bg-primary rounded-md text-white;
+}
+
 .signup-btn:disabled {
-  @apply mt-2 h-12 text-2xl bg-desc rounded-md text-sub opacity-70;
+  @apply my-4 h-12 text-2xl bg-desc rounded-md text-sub opacity-70;
 }
 
 .error-msg {
@@ -36,5 +42,5 @@
 }
 
 .unique-btn {
-  @apply absolute right-0 top-5 mt-2 h-12 text-lg bg-primary rounded-md text-white;
+  @apply absolute right-1 top-7  h-12 px-2  bg-primary rounded-md text-white;
 }
