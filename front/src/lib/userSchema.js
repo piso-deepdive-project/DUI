@@ -38,12 +38,10 @@ const userSchema = {
   },
 
   pwd: {
-    value: '',
     isValid: pwd => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,12}$/g.test(pwd),
     _valid: false,
 
     valid(pwd) {
-      this.value = pwd;
       this._valid = this.isValid(pwd);
 
       return {
@@ -55,14 +53,14 @@ const userSchema = {
     error: '비밀번호는 영문,숫자,특수문자를 조합하여(하나씩포함) 6~12자로 구성하세요.',
   },
 
-  pwd2: {
-    isValid: pwd2 => userSchema.pwd.value === pwd2,
+  confirmPwd: {
+    isValid: (pwd, confirmPwd) => pwd === confirmPwd,
     _valid: false,
 
-    valid(pwd2) {
-      this._valid = this.isValid(pwd2);
+    valid(pwd, confirmPwd) {
+      this._valid = this.isValid(pwd, confirmPwd);
       return {
-        errMsg: pwd2 === '' ? userSchema.requireMsg : this._valid ? '' : this.error,
+        errMsg: confirmPwd === '' ? userSchema.requireMsg : this._valid ? '' : this.error,
       };
     },
 
@@ -70,7 +68,9 @@ const userSchema = {
   },
 
   get signupValid() {
-    return userSchema.email._valid && userSchema.authorname._valid && userSchema.pwd._valid && userSchema.pwd2._valid;
+    return (
+      userSchema.email._valid && userSchema.authorname._valid && userSchema.pwd._valid && userSchema.confirmPwd._valid
+    );
   },
 
   get signinValid() {

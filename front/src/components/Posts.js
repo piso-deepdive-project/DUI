@@ -1,23 +1,32 @@
 import { Component } from '../common';
 
-import PostType from './PostType';
-import PostList from './PostList';
-import PostGrid from './PostGrid';
+import PostCard from './PostCard';
 
 class Posts extends Component {
   async render() {
-    const { fetchPosts, setPostType, currentPostType } = this.props;
+    const { fetchPosts, currentPostType } = this.props;
 
-    const postType = new PostType({ setPostType, currentPostType }).render();
-    const postList =
-      currentPostType === 'grid'
-        ? await new PostGrid({ fetchPosts }).render()
-        : await new PostList({ fetchPosts }).render();
+    const posts = await fetchPosts();
+
+    const postCards = posts?.map(post => new PostCard({ post }).render()).join('');
 
     return `
-      ${postType}
-      ${postList}
+      <ul class="post-type">
+        <li data-type="list">
+          <i class="bx bx-list-ul  bx-lg bg-txt text-main ${currentPostType === 'list' ? 'select' : ''}"></i>
+        </li>
+        <li data-type="grid">
+          <i class="bx bx-grid-alt bx-lg ${currentPostType === 'grid' ? 'select' : ''}"></i>
+        </li>
+      </ul>
+      <div class="post-${currentPostType}">
+        ${postCards}
+      </div>
     `;
+  }
+
+  addEventListener() {
+    return [{ type: 'click', selector: '.post-type li', handler: this.props.setPostType }];
   }
 }
 

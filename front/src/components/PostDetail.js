@@ -18,12 +18,12 @@ class PostDetail extends Component {
       <article class="post" id="${id}">
         <h1 class="post-title">${title}</h1>
         <div class="post-buttons">
-        ${canEdit ? `<button class="post-edit route" data-route="/edit/${id}">수정하기</button>
+        ${canEdit ? `
+          <button class="post-edit route" data-route="/edit/${id}">수정하기</button>
           <button class="post-remove route" data-route="/">삭제하기</button>` : ''}
-
-        ${accessUser ? `<button class="post-like"><i class='bx ${liked ? 'bxs' : 'bx'}-like'></i></button> ` : ''}
-          
+        ${accessUser ? `<button class="post-like"><i class='bx ${liked ? 'bxs' : 'bx'}-like'></i></button>` : ''}
         </div>
+        <div class="post-tags">${tags.join(' ')}</div>
         <span class="post-description">${author.name} · ${timeForToday(new Date(date))}</span>
         <p class="post-content">
           ${content}
