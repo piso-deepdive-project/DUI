@@ -41,6 +41,10 @@ class App extends Component {
   async render() {
     const PageComponent = findComponent();
 
+    if (this.currentComponent === Main && PageComponent !== Main) {
+      this.ComponentInstance.removeScrollEvent();
+    }
+
     if (this.currentComponent !== PageComponent) {
       eventHolder.forEach(({ type, handler }) => {
         this.$root.removeEventListener(type, handler);
@@ -49,10 +53,6 @@ class App extends Component {
       eventHolder.length = 0;
       this.currentComponent = PageComponent;
       this.ComponentInstance = new PageComponent();
-    }
-
-    if (this.currentComponent === Main && PageComponent !== Main) {
-      this.ComponentInstance.removeScrollEvent();
     }
 
     if (PageComponent === Main) {
@@ -82,7 +82,6 @@ window.addEventListener('click', e => {
 });
 
 window.addEventListener('popstate', () => {
-  console.log('[popstate]', window.location.pathname);
   render();
 });
 
