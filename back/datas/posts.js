@@ -66,6 +66,358 @@ const posts = [
     date: new Date('2022-10-08'),
     comments: [{ comment: 'test1', author: { name: 'hyeon' }, date: new Date('2022-10-08') }],
   },
+  {
+    id: 1,
+    title: 'Dr Dre - I need a doctor.',
+    author: { id: 'test1@gmail.com', name: 'test1' },
+    tags: [],
+    content: `I'm about to lose my mind
+    You've been gone for so long
+    I'm runnin' out of time
+    I need a doctor, call me a doctor
+    I need a doctor, doctor
+    To bring me back to life
+    I told the world, one day I would pay it back
+    Say it on tape, and lay it, record it
+    So that one day I could play it back
+    But I don't even know if I believe it when I'm sayin' that
+    Doubts startin' to creep in, every day it's just so grey and black
+    Hope, I just need a ray of that
+    'Cause no one sees my vision when I play it for 'em
+    They just say it's wack, but they don't know what dope is
+    And I don't know if I was awake or asleep when I wrote this
+    All I know is, you came to me when I was at my lowest
+    You picked me up, breathed new life in me, I owe my life to you
+    But for the life of me, I don't see why you don't see like I do
+    But it just dawned on me you lost a son, demons fightin' you
+    It's dark, let me turn on the lights
+    And brighten me and enlighten you
+    I don't think you realise what you mean to me
+    Not the slightest clue, 'cause me and you were like a crew
+    I was like your sidekick, you gon' either wanna fight
+    When I get off this fuckin' mic, or you gon' hug me
+    But I'm outta options, there's nothin' else I can do 'cause
+    I'm about to lose my mind
+    You've been gone for so long
+    I'm runnin' out of time
+    I need a doctor, call me a doctor
+    I need a doctor, doctor
+    To bring me back to life
+    It hurts when I see you struggle, you come to me with ideas
+    You say they're just pieces, so I'm puzzled
+    'Cause the shit I hear is crazy
+    But you're either gettin' lazy
+    Or you don't believe in you no more
+    Seems like your own opinions, not one you can form
+    Can't make a decision, you keep questionin' yourself
+    Second guessin' and it's almost like you're beggin' for my help
+    Like I'm your leader, you're supposed to fuckin' be my mentor
+    I can endure no more, I demand you remember who you are
+    It was you who believed in me when everyone was tellin' you
+    Don't sign me, everyone at the fuckin' label, let's tell the truth!
+    You risked your career for me, I know it as well as you
+    Nobody wanted to fuck with the white boy
+    Dre, I'm cryin' in this booth
+    You saved my life, now maybe it's my turn to save yours
+    But I can never repay you, what you did for me is way more
+    But I ain't givin' up faith
+    And you ain't givin' up on me, get up, Dre!
+    I'm dyin', I need you, come back for fuck's sake!
+    I'm about to lose my mind
+    You've been gone for so long
+    I'm runnin' out of time
+    I need a doctor, call me a doctor
+    I need a doctor, doctor
+    To bring me back to life
+    Bring me back to life
+    Bring me back to life
+    (I need a doctor, doctor to bring me back to life)
+    It literally feels like a lifetime ago
+    But I still remember the shit like it was just yesterday though
+    You walked in, yellow jump suit, whole room, cracked jokes
+    Once you got inside the booth, told you, mic smoke
+    Went through friends, some of them I put on, but they just left
+    They said they was ridin' to the death
+    But where the fuck are they now, now that I need them?
+    I don't see none of them, all I see is Slim
+    Fuck all you fair-weather friends! All I need is him
+    Fuckin' backstabbers!
+    When the chips were down you just laughed at us
+    Now you 'bout to feel the fuckin' wrath of Aftermath, faggots!
+    You gon' see us in our lab jackets
+    And ask us where the fuck we been?
+    You can kiss my indecisive ass crack, maggots!
+    And the cracker's ass, little cracker jack beat
+    Makin' wack math, backwards producers, I'm back, bastards!
+    One more CD and then I'm packin' up my bags, and as
+    I'm leavin', I'll guarantee they'll scream
+    "Dre, don't leave us like that, man!" 'cause
+    I'm about to lose my mind
+    You've been gone for so long
+    I'm runnin' out of time
+    I need a doctor, call me a doctor
+    I need a doctor, doctor
+    To bring me back to life`,
+  },
+  {
+    id: 2,
+    title: 'Eminem - Stan.',
+    author: { id: 'test2@gmail.com', name: 'test2' },
+    tags: [],
+    content: `My tea's gone cold, I'm wondering why I
+    Got out of bed at all
+    The morning rain clouds up my window
+    And I can't see at all
+    And even if I could it'll all be gray
+    But your picture on my wall
+    It reminds me, that it's not so bad
+    It's not so bad
+    My tea's gone cold, I'm wondering why I
+    Got out of bed at all
+    The morning rain clouds up my window (window)
+    And I can't see at all
+    And even if I could it'll all be gray
+    But your picture on my wall
+    It reminds me, that it's not so bad
+    It's not so bad
+    Dear Slim, I wrote you but you still ain't callin'
+    I left my cell, my pager, and my home phone at the bottom
+    I sent two letters back in autumn, you must not've got 'em
+    There probably was a problem at the post office or somethin'
+    Sometimes I scribble addresses too sloppy when I jot 'em
+    But anyways, fuck it, what's been up, man? How's your daughter?
+    My girlfriend's pregnant too, I'm 'bout to be a father
+    If I have a daughter, guess what I'ma call her?
+    I'ma name her Bonnie
+    I read about your uncle Ronnie too, I'm sorry
+    I had a friend kill himself over some bitch who didn't want him
+    I know you probably hear this every day, but I'm your biggest fan
+    I even got the underground shit that you did with Skam
+    I got a room full of your posters and your pictures, man
+    I like the shit you did with Rawkus too, that shit was phat
+    Anyways, I hope you get this, man, hit me back
+    Just to chat, truly yours, your biggest fan
+    This is Stan
+    My tea's gone cold, I'm wondering why I
+    Got out of bed at all
+    The morning rain clouds up my window (window)
+    And I can't see at all
+    And even if I could it'll all be gray
+    But your picture on my wall
+    It reminds me, that it's not so bad
+    It's not so bad
+    Dear Slim, you still ain't called or wrote, I hope you have a chance
+    I ain't mad, I just think it's fucked up you don't answer fans
+    If you didn't wanna talk to me outside your concert
+    You didn't have to, but you could've signed an autograph for Matthew
+    That's my little brother, man, he's only six years old
+    We waited in the blistering cold for you
+    For four hours and you just said, "No"
+    That's pretty shitty, man, you're like his fuckin' idol
+    He wants to be just like you, man, he likes you more than I do
+    I ain't that mad though, I just don't like bein' lied to
+    Remember when we met in Denver, you said if I'd write you you would write back
+    See, I'm just like you in a way
+    I never knew my father neither
+    He used to always cheat on my mom and beat her
+    I can relate to what you're saying in your songs
+    So when I have a shitty day, I drift away and put 'em on
+    'Cause I don't really got shit else, so that shit helps when I'm depressed
+    I even got a tattoo of your name across the chest
+    Sometimes I even cut myself to see how much it bleeds
+    It's like adrenaline, the pain is such a sudden rush for me
+    See, everything you say is real, and I respect you 'cause you tell it
+    My girlfriend's jealous 'cause I talk about you 24/7
+    But she don't know you like I know you Slim, no one does
+    She don't know what it was like for people like us growin' up, you gotta call me, man
+    I'll be the biggest fan you'll ever lose
+    Sincerely yours, Stan
+    P.S. we should be together too
+    My tea's gone cold, I'm wondering why I
+    Got out of bed at all
+    The morning rain clouds up my window (window)
+    And I can't see at all
+    And even if I could it'll all be gray
+    But your picture on my wall
+    It reminds me, that it's not so bad
+    It's not so bad
+    Dear Mr. I'm Too Good To Call Or Write My Fans
+    This will be the last package I ever send your ass
+    It's been six months and still no word, I don't deserve it?
+    I know you got my last two letters, I wrote the addresses on 'em perfect
+    So this is my cassette I'm sending you, I hope you hear it
+    I'm in the car right now, I'm doing ninety on the freeway
+    Hey Slim, I drank a fifth of vodka
+    You dare me to drive?
+    You know the song by Phil Collins, "In the Air of the Night"
+    About that guy who could have saved that other guy from drowning
+    But didn't, then Phil saw it all, then at a a show he found him?
+    That's kinda how this is, you coulda rescued me from drowning
+    Now it's too late, I'm on a thousand downers now, I'm drowsy
+    And all I wanted was a lousy letter or a call
+    I hope you know I ripped all of your pictures off the wall
+    I love you Slim, we coulda been together, think about it
+    You ruined it now, I hope you can't sleep and you dream about it
+    And when you dream I hope you can't sleep and you scream about it
+    I hope your conscience eats at you and you can't breathe without me
+    See Slim, shut up bitch, I'm tryna talk
+    Hey Slim, that's my girlfriend screamin' in the trunk
+    But I didn't slit her throat, I just tied her up, see I ain't like you
+    'Cause if she suffocates, she'll suffer more, and then she'll die too
+    Well, gotta go, I'm almost at the bridge now
+    Oh shit, I forgot, how am I supposed to send this shit out?
+    My tea's gone cold, I'm wondering why I
+    Got out of bed at all
+    The morning rain clouds up my window (window)
+    And I can't see at all
+    And even if I could it'll all be gray
+    But your picture on my wall
+    It reminds me, that it's not so bad
+    It's not so bad
+    Dear Stan, I meant to write you sooner but I just been busy
+    You said your girlfriend's pregnant now, how far along is she?
+    Look, I'm really flattered you would call your daughter that
+    And here's an autograph for your brother
+    I wrote it on a Starter cap
+    I'm sorry I didn't see you at the show, I must've missed you
+    Don't think I did that shit intentionally just to diss you
+    But what's this shit you said about you like to cut your wrists too?
+    I say that shit just clownin', dawg, come on, how fucked up is you?
+    You got some issues, Stan, I think you need some counseling
+    To help your ass from bouncing off the walls when you get down some
+    And what's this shit about us meant to be together?
+    That type of shit'll make me not want us to meet each other
+    I really think you and your girlfriend need each other
+    Or maybe you just need to treat her better
+    I hope you get to read this letter, I just hope it reaches you in time
+    Before you hurt yourself, I think that you'll be doin' just fine
+    If you relax a little, I'm glad I inspire you but Stan
+    Why are you so mad? Try to understand, that I do want you as a fan
+    I just don't want you to do some crazy shit
+    I seen this one shit on the news a couple weeks ago that made me sick
+    Some dude was drunk and drove his car over a bridge
+    And had his girlfriend in the trunk, and she was pregnant with his kid
+    And in the car they found a tape, but they didn't say who it was to
+    Come to think about, his name was, it was you
+    Damn!`,
+  },
+  {
+    id: 3,
+    title: '2Pac - Hit Em Up.',
+    author: { id: 'test3@gmail.com', name: 'test3' },
+    tags: [],
+    content: `Yeah
+    Ayo
+    I think y'all gonna like this next song
+    When this song drops, I want all the West coast people to give up some love when this song come up
+    Y'all about to go crazy
+    They try to ban this song
+    They don't wanna play my song
+    But they want to play Fat Boy all goddamn day
+    Come on, come on (take money)
+    Come on, come on (take money)
+    What's up niggas
+    First off, fuck your bitch and the click you claim
+    Westside when we ride come equipped with game
+    You claim to be a player but I fucked your wife
+    We bust on Bad Boy niggaz fucked for life
+    Plus Puffy tryin' ta see me weak hearts I rip
+    Biggie Smalls and Junior M.A.F.I.A. Some mark-ass bitches
+    We keep on comin' while we runnin' for yo' jewels
+    Steady gunnin, keep on bustin at them fools, you know the rules
+    Lil' Ceaser, go ask ya homie how I leave ya
+    Cut your young ass up, leave you in pieces, now be deceased
+    Lil' Kim, don't fuck around with real G's
+    Quick to snatch yo' ugly ass off the streets, so fuck peace
+    I let them niggaz know it's on for life
+    So let the Westside ride tonight
+    Bad Boy murdered on wax and killed
+    Fuck wit' me and get yo' caps peeled, you know, see
+    Grab ya glocks, when you see Tupac
+    Call the cops, when you see Tupac, uh
+    Who shot me, but ya punks didn't finish
+    Now ya bout to feel the wrath of a menace
+    Nigga, we hit em' up
+    Yes, yo, Outlaw to this mutherfucker (take money)
+    West Coast, what's up? (take money)
+    What's up
+    Get out the way yo, get out the way yo
+    Biggie Smalls just got shot
+    Little Moo, pass the mac, and let me hit him in his back
+    Frank White need to get spanked right, for settin' traps
+    Little accident murderers, and I ain't never heard-a ya
+    Poisinous gats attack when I'm servin' ya
+    Spank ya shank ya whole style when I gank
+    Guard your rank, 'cause I'ma slam your ass in the paint
+    Puffy weaker than the fuckin' block I'm runnin through nigga
+    And I'm smokin' Junior M.A.F.I.A. in front of you nigga
+    With the ready power tuckin' my Guess under my Eddie Bauer
+    Ya clout petty sour, I get packages every hour to hit 'em up
+    Oh
+    Call the cops, when you see Tupac
+    Who shot me, but ya punks didn't finish
+    Now ya bout to feel the wrath of a menace
+    Nigga, I hit em' up
+    Peep how we do it, keep it real, it's penitentiary steel
+    This ain't no freestyle battle
+    All you niggaz gettin killed with ya mouths open
+    Tryin' to come up offa me, you in the clouds hopin'
+    Smokin dope it's like a sherm high niggaz think they learned to fly
+    But they burn motherfucker, you deserve to die
+    Talkin' bout you gettin' money but it's funny to me
+    All you niggaz livin' bummy, why you fuckin' with me?
+    I'm a self made millionaire
+    Thug livin' out a prison, pistols in the air
+    Biggie, remember when I used to let you sleep on the couch
+    And beg a bitch to let you sleep in the house
+    Now it's all about Versace, you copied my style
+    Five shots couldn't drop me, I took it and smiled
+    Now I'm bout to set the record straight
+    With my A.K. I'm still the thug that you love to hate
+    Motherfucker, I hit 'em up
+    I'm from N-E-W Jers'
+    Where plenty of murders occurs
+    No points or commas, we bring drama to all you herbs
+    Now go check the scenario
+    Little Ceas' I'll bring you fake G's to your knees
+    Copping pleas in de Janeiro
+    Little Kim, is you coked up or doped up?
+    Get your little Junior Whopper click smoked up
+    What the fuck, is you stupid?
+    I take money, crash and mash through Brooklyn
+    With my click looting, shooting and polluting your block
+    With a 15-shot cocked Glock to your knot
+    Outlaw MAFIA clique moving up another notch
+    And your pop stars popped and get mopped and dropped
+    And all your fake ass East coast props
+    Brainstormed and locked
+    You's a, beat biter
+    A Pac style taker
+    I'll tell you to your face you ain't shit but a faker
+    Softer than Alize with a chaser
+    About to get murdered for the paper
+    E.d.i Amin approach the scene of the caper
+    Like a loc, with Little Ceas' in a choke
+    Gun totin' smoke. We ain't no motherfucking joke
+    nigga, better be known
+    We approaching in the wide open, gun smoking
+    No need for hoping, it's a battle lost
+    I got em crossed as soon as the funk is bopping off
+    Nigga, I hit em up
+    Oh oh
+    Hah
+    yeah
+    We hit 'em up
+    Grab ya glocks, when you see Tupac
+    Come on with the next shit
+    Who shot me, but ya punks didn't finish
+    Now ya bout to feel the wrath of a menace
+    Nigga, we hit em' up
+    That's right
+    Go
+    Yo
+    Y'all gotta keep this shit real`,
+  },
 ];
 
 module.exports = {
