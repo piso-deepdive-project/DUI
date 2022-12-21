@@ -79,7 +79,7 @@ class SignIn extends Component {
       return;
     }
 
-    this.getUser(userSchema.email.value, userSchema.pwd.value);
+    this.getUser(signinForm.email.value, signinForm.pwd.value);
   }
 
   resetInput(e) {

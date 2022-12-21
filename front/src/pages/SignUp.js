@@ -17,7 +17,7 @@ class SignUp extends Component {
     const email = this.state?.email;
     const authorname = this.state?.authorname;
     const pwd = this.state?.pwd;
-    const pwd2 = this.state?.pwd2;
+    const confirmPwd = this.state?.confirmPwd;
 
     return `
       <header class="user-header">
@@ -58,48 +58,52 @@ class SignUp extends Component {
             required
           />
           <span class="error-msg">${pwd?.errMsg ?? ''}</span>
-          <label for="pwd2">비밀번호 재확인</label>
+          <label for="confirmPwd">비밀번호 재확인</label>
           <input
-            name="pwd2"
+            name="confirmPwd"
             type="password"
-            class="signin-pwd2"
+            class="signin-confirmPwd"
             minlength="6"
             required
           />
-          <span class="error-msg">${pwd2?.errMsg ?? ''}</span>
+          <span class="error-msg">${confirmPwd?.errMsg ?? ''}</span>
           <button type="submit" class="signup-btn" ${canSubmit ? '' : 'disabled="disabled"'}}>회원가입</button>
-          <div class="user-link">
-            <a href="/signin">로그인</a>
-          </div>
+          <button type="button" class="user-link route" data-route="/signin">로그인</button>
         </div>
       </form>
     `;
   }
 
   async isUniqueId(e) {
-    const email = e.target.previousElementSibling.value.trim();
-    const emailVald = userSchema.email.valid(email);
-    const { data } = await axios.post('/api/isUniqueId', { id: email });
-    const errMsg = !emailVald.isErr
-      ? emailVald.errMsg
-      : data
-      ? '사용가능한 아이디입니다.'
-      : '이미 존재하는 아이디입니다.';
+    const emailValid = userSchema.email.valid(e.target.closest('.signup-form').email.value.trim());
+    const { value, isErr: isOk } = emailValid;
+
+    if (!isOk) {
+      this.setState({
+        ...this.state,
+        canSubmit: false,
+        email: { value, errMsg: emailValid.errMsg },
+      });
+      return;
+    }
+
+    const { data: isUnique } = await axios.post('/api/isUniqueId', { id: emailValid.value });
+    const errMsg = isUnique ? '사용가능한 아이디입니다.' : '이미 존재하는 아이디입니다.';
 
     this.setState({
       ...this.state,
-      canSubmit: emailVald.isErr ? data : false,
-      email: { value: email, errMsg },
+      canSubmit: isUnique,
+      email: { value, errMsg },
     });
   }
 
   // 서버에게 새로운 회원의 데이터를 전송한다.
-  async postUser() {
+  async addUser() {
     const {
       email, //
       authorname,
       pwd,
-    } = this.userSchema;
+    } = userSchema;
 
     await axios.post('/api/signup', {
       id: email.value,
@@ -119,22 +123,22 @@ class SignUp extends Component {
       email: userSchema.email.valid(signupForm.email.value),
       authorname: userSchema.authorname.valid(signupForm.authorname.value),
       pwd: userSchema.pwd.valid(signupForm.pwd.value),
-      pwd2: userSchema.pwd2.valid(signupForm.pwd2.value),
+      confirmPwd: userSchema.confirmPwd.valid(signupForm.pwd.value, signupForm.confirmPwd.value),
     });
 
-    if (userSchema.signupValid) this.postUser();
+    if (userSchema.signupValid) this.addUser();
   }
 
-  emailInput(e) {
+  emailHandler() {
     if (!this.state?.canSubmit) return;
-    this.setState({ email: { value: e.target.value, errMsg: this.state.email.errMsg }, canSubmit: false });
+    this.setState({ email: { value: userSchema.email.value, errMsg: userSchema.email.errMsg }, canSubmit: false });
   }
 
   addEventListener() {
     return [
       { type: 'submit', selector: '.signup-form', handler: this.validationUser.bind(this) },
       { type: 'click', selector: '.unique-btn', handler: this.isUniqueId.bind(this) },
-      { type: 'input', selector: '.signup-email', handler: this.emailInput.bind(this) },
+      { type: 'input', selector: '.signup-email', handler: this.emailHandler.bind(this) },
     ];
   }
 }
