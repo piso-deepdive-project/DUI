@@ -9,6 +9,7 @@ export default defineConfig({
     },
   },
   build: {
+    sourcemap: true,
     rollupOptions: {
       output: {
         entryFileNames: 'main.bundle.js',

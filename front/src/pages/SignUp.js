@@ -1,11 +1,10 @@
 import axios from 'axios';
-import userValidation from '../lib/userValidation';
+
+import userSchema from '../lib/userSchema';
 
 import { Component } from '../common';
 
 class SignUp extends Component {
-  userValidation = userValidation();
-
   async render() {
     const canSubmit = this.state?.canSubmit ?? false;
     const { data: accessUser } = await axios.get('/api/accessUser');
@@ -14,6 +13,11 @@ class SignUp extends Component {
       window.history.pushState(null, null, '/');
       this.setState();
     }
+
+    const email = this.state?.email;
+    const authorname = this.state?.authorname;
+    const pwd = this.state?.pwd;
+    const pwd2 = this.state?.pwd2;
 
     return `
       <header class="user-header">
@@ -27,11 +31,11 @@ class SignUp extends Component {
             name="email"
             type="email"
             minlength="8"
-            value="${this.state?.email?.value ?? ''}"
+            value="${email?.value ?? ''}"
             required
           />
-          <button class="uniqueBtn" type="button">${canSubmit ? '사용 가능한 이메일' : '중복 확인'}</button>
-          <span class="errorMsg ${canSubmit ? 'success' : ''}">${this.state?.email?.errMsg ?? ''}</span>
+          <button class="unique-btn" type="button">${canSubmit ? '사용 가능한 이메일' : '중복 확인'}</button>
+          <span class="error-msg ${canSubmit ? 'success' : ''}">${email?.errMsg ?? ''}</span>
           <label for="authorname">이름</label>
           <input
             id="authorname"
@@ -40,11 +44,11 @@ class SignUp extends Component {
             class="signin-username"
             minlength="2"
             maxlength="5"
-            value="${this.state?.authorname?.value ?? ''}"
+            value="${authorname?.value ?? ''}"
             required
           />
         
-          <span class="errorMsg">${this.state?.authorname?.errMsg ?? ''}</span>
+          <span class="error-msg">${authorname?.errMsg ?? ''}</span>
           <label for="pwd">비밀번호</label>
           <input
           name="pwd"
@@ -53,7 +57,7 @@ class SignUp extends Component {
             minlength="6"
             required?
           />
-          <span class="errorMsg">${this.state?.pwd?.errMsg ?? ''}</span>
+          <span class="error-msg">${pwd?.errMsg ?? ''}</span>
           <label for="pwd2">비밀번호 재확인</label>
           <input
             name="pwd2"
@@ -62,7 +66,7 @@ class SignUp extends Component {
             minlength="6"
             required
           />
-          <span class="errorMsg">${this.state?.pwd2?.errMsg ?? ''}</span>
+          <span class="error-msg">${pwd2?.errMsg ?? ''}</span>
           <button type="submit" class="signup-btn" ${canSubmit ? '' : 'disabled="disabled"'}}>회원가입</button>
           <div class="user-link">
             <a href="/signin">로그인</a>
@@ -74,10 +78,10 @@ class SignUp extends Component {
 
   // input의 값이 조건에 맞지 않다면 해당 input로 focus가 이동한다.(위에서부터 차례로)
   moveFocus() {
-    if (!this.userValidation.email.valid) this.email.focus();
-    else if (!this.userValidation.authorname.valid) this.authorname.focus();
-    else if (!this.userValidation.pwd.valid) this.pwd.focus();
-    else if (!this.userValidation.pwd2.valid) this.pwd2.focus();
+    if (!this.userSchema.email.valid) this.email.focus();
+    else if (!userSchema.authorname.valid) this.authorname.focus();
+    else if (!userSchema.pwd.valid) this.pwd.focus();
+    else if (!userSchema.pwd2.valid) this.pwd2.focus();
   }
 
   async isUniqueId(e) {
@@ -96,7 +100,7 @@ class SignUp extends Component {
       email, //
       authorname,
       pwd,
-    } = this.userValidation;
+    } = this.userSchema;
 
     await axios.post('/api/signup', {
       id: email.value,
@@ -113,18 +117,18 @@ class SignUp extends Component {
 
     const signupForm = e.target;
     this.setState({
-      email: this.userValidation.email.valid(signupForm.email.value),
-      authorname: this.userValidation.authorname.valid(signupForm.authorname.value),
-      pwd: this.userValidation.pwd.valid(signupForm.pwd.value),
-      pwd2: this.userValidation.pwd2.valid(signupForm.pwd2.value),
+      email: userSchema.email.valid(signupForm.email.value),
+      authorname: userSchema.authorname.valid(signupForm.authorname.value),
+      pwd: userSchema.pwd.valid(signupForm.pwd.value),
+      pwd2: userSchema.pwd2.valid(signupForm.pwd2.value),
     });
-    if (this.userValidation.signupValid) this.postUser();
+    if (userSchema.signupValid) this.postUser();
   }
 
   addEventListener() {
     return [
       { type: 'submit', selector: '.signup-form', handler: this.validationUser.bind(this) },
-      { type: 'click', selector: '.uniqueBtn', handler: this.isUniqueId.bind(this) },
+      { type: 'click', selector: '.unique-btn', handler: this.isUniqueId.bind(this) },
     ];
   }
 }
