@@ -14,7 +14,7 @@
     @apply flex items-center flex-wrap bg-white overflow-x-auto  whitespace-nowrap mt-8;
   }
 
-  .tag-box {
+  .edit .tag-box {
     @apply flex justify-center items-center bg-primary text-sm text-white m-1 h-14 py-1 px-3 rounded-md cursor-pointer;
   }
 
