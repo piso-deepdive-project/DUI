@@ -5,9 +5,16 @@ import { MainNav, PostDetail, Comment } from '../components';
 
 class Post extends Component {
   async render() {
-    const pathId = +window.location.pathname.split('/')[2];
+    const path = window.location.pathname;
+    const pathId = +path.split('/')[2];
 
     const { accessUser, canEdit, post } = await this.getPost(pathId);
+
+    if (!post) {
+      window.history.pushState(null, null, '/wrongpost');
+      this.setState();
+      window.history.pushState(null, null, path);
+    }
 
     const likes = accessUser ? (await axios.get('/api/like')).data : null;
 
