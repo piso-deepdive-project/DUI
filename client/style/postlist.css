@@ -5,7 +5,7 @@
 }
 @layer components {
   .post-type {
-    @apply flex flex-row justify-end;
+    @apply flex flex-row justify-end pr-4;
   }
   .select {
     @apply text-primary
