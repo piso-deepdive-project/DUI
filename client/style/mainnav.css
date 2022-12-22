@@ -4,7 +4,7 @@
   }
   .main-nav-list {
     @apply p-4 text-4xl
-    flex flex-row ml-24;
+    flex flex-row;
   }
   .main-nav-list li {
     display: flex;
