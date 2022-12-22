@@ -29,14 +29,14 @@ var Zt=Object.defineProperty;var Gt=(e,t,n)=>t in e?Zt(e,t,{enumerable:!0,config
           ${t?'<button class="edit-update">수정하기</button>':'<button class="edit-add">작성하기</button>'}
         </div>
       </form>`}moveFocus(t){const n=t.target.closest("form");t.target===n.title?n.tag.focus():n.area.focus()}createTagBox(t){const n=document.createElement("div");n.className="tag-box",n.textContent=t.value.trim(),t.parentNode.insertBefore(n,t),t.value=""}keydownHandeler(t){t.isComposing||t.keyCode===229||(t.key==="Enter"&&!t.target.matches(".edit-post")&&(this.moveFocus(t),t.preventDefault()),t.target.matches(".edit-tag")&&t.key==="Backspace"&&t.target.value.trim()===""&&t.target.previousElementSibling.remove())}editingtagHandler(t){const n=t.target,s=n.value.trim()!==""||n.previousElementSibling!==null;this.toggleInvisible(n,s);const r=t.target.value;r.slice(-1)===" "&&r.trim()!==""&&this.createTagBox(t.target)}async submitPost(t){t.preventDefault();const n=window.location.pathname.split("/")[2],s=t.target,r=s.title.value,i=s.area.value,o=[...s.querySelectorAll(".tag-box")].map(c=>c.textContent.trim());n?await E.patch("/api/post",{id:+n,title:r,tags:o,content:i,date:new Date}):await E.post("/api/post",{title:r,tags:o,content:i,comments:[],date:new Date}),window.history.pushState(null,null,n?`/post/${n}`:"/"),this.setState()}deleteTag(t){t.target.parentNode.querySelector(".edit-tag").focus(),t.target.matches(".tag-box")&&t.target.remove()}tagfocusInHandler(t){this.toggleInvisible(t.target,!1)}tagfocusOutHandler(t){this.toggleInvisible(t.target,!0)}goPreviousPage(){window.history.back()}addEventListener(){return[{type:"keydown",selector:".edit",handler:this.keydownHandeler.bind(this)},{type:"input",selector:".edit-tag",handler:this.editingtagHandler.bind(this)},{type:"submit",selector:".edit",handler:this.submitPost.bind(this)},{type:"click",selector:".tag",handler:this.deleteTag},{type:"click",selector:".edit-return",handler:this.goPreviousPage},{type:"focusin",selector:".edit-tag",handler:this.tagfocusInHandler.bind(this)},{type:"focusout",selector:".edit-tag",handler:this.tagfocusOutHandler.bind(this)}]}}class hn extends v{render(){const{accessUser:t}=this.props;return`
-      <ul class="main-nav-list">
+      <ul class="main-nav-list ml-24">
         <li><i class="bx bx-menu open-menu"></i></li>
         <li class='logo route' data-route="/"></li>
       </ul>
       
-      ${t?`<button class="edit-btn route" data-route="/edit">
+      ${t?`<button class="edit-btn route mr-24" data-route="/edit">
             <i class="bx bx-edit-alt"></i>
-          </button>`:`<button class="edit-btn route" data-route="/signin">
+          </button>`:`<button class="edit-btn route mr-24" data-route="/signin">
           로그인
         </button>`}
     `}addEventListener(){const{openMenu:t}=this.props;return[{type:"click",selector:".open-menu",handler:t}]}}class mn extends v{render(){const{accessUser:t}=this.props;return`
@@ -72,7 +72,7 @@ var Zt=Object.defineProperty;var Gt=(e,t,n)=>t in e?Zt(e,t,{enumerable:!0,config
         </div>
       </div>
     `}}class bn extends v{async render(){const{fetchPosts:t,currentPostType:n}=this.props,s=await t(),r=s==null?void 0:s.map(i=>new gn({post:i}).render()).join("");return`
-      <ul class="post-type">
+      <ul class="post-type pr-24">
         <li data-type="list">
           <i class="bx bx-list-ul  bx-lg bg-txt text-main ${n==="list"?"select":""}"></i>
         </li>
