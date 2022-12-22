@@ -2,7 +2,7 @@ const posts = [
   {
     id: 0,
     title: 'NAS - Nas Is Like',
-    author: { id: 'test123@gmail.com', name: '이웅모' },
+    author: { id: 'test123@gmail.com', name: '홍길동' },
     tags: [],
     content: `Freedom or jail, clip's inserted, a baby's being born
     Same time a man is murdered, the beginning and end
@@ -431,7 +431,7 @@ const posts = [
   {
     id: 4,
     title: 'Disabled elements',
-    author: { id: 'test123@gmail.com', name: '이웅모' },
+    author: { id: 'test123@gmail.com', name: '홍길동' },
     tags: ['html5'],
     content: `<a href="https://html.spec.whatwg.org/multipage/semantics-other.html#disabled-elements">보러가기</a>
     An element is said to be actually disabled if it is one of the following:

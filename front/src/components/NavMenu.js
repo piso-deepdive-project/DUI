@@ -13,6 +13,7 @@ class NavMenu extends Component {
             <img class="profile" src="/assets/profile.png">
             <span class="username">UserName</span>
             <button class="start-btn route" data-route="/edit">새 글 작성하기</button>
+            <button class="signout-btn" >로그아웃</button>
           </div>`
 
     : `<div class="logout">
@@ -24,9 +25,12 @@ class NavMenu extends Component {
   }
 
   addEventListener() {
-    const { closeMenu } = this.props;
+    const { closeMenu, signout } = this.props;
 
-    return [{ type: 'click', selector: '.overlay', handler: closeMenu }];
+    return [
+      { type: 'click', selector: '.overlay', handler: closeMenu },
+      { type: 'click', selector: '.signout-btn', handler: signout },
+    ];
   }
 }
 
