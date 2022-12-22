@@ -1,9 +1,10 @@
 /* signup */
 .signup-form {
   min-width: 560px;
-  @apply flex flex-col m-auto py-4 px-8 max-w-2xl;
+  @apply flex flex-col m-auto  px-8 max-w-2xl;
 }
 .signup-form .title {
+  text-shadow: 1px 1px rgb(86, 56, 56);
   @apply text-4xl text-center text-primary mb-12;
 }
 
@@ -34,6 +35,11 @@
 
 .signup-btn:disabled {
   @apply my-4 h-12 text-2xl bg-desc rounded-md text-sub opacity-70;
+}
+
+.signup-form .user-link {
+  left: 400px;
+  @apply text-base opacity-40 relative bottom-1 text-start w-52;
 }
 
 .error-msg {

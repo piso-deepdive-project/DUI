@@ -2,7 +2,7 @@
 
 .user-header {
   min-width: 400px;
-  @apply flex  items-center p-8 py-12 text-2xl  text-primary;
+  @apply flex  items-center p-8 py-8 text-2xl  text-primary;
 }
 
 .signin-form {
@@ -13,6 +13,7 @@
 }
 
 .signin-form .title {
+  text-shadow: 1px 1px rgb(86, 56, 56);
   @apply text-4xl text-center text-primary mb-12;
 }
 
@@ -52,12 +53,7 @@
   @apply mt-10 h-12 text-2xl bg-primary rounded-md text-white;
 }
 
-.signin-container::after {
-  content: '';
-  height: 1px;
-  @apply bg-black  w-72 my-2 mx-auto opacity-20;
-}
-
-.user-link {
-  @apply h-12 text-2xl bg-sub rounded-md text-white;
+.signin-form .user-link {
+  left: 315px;
+  @apply text-base opacity-40 relative w-60 top-3 text-start;
 }

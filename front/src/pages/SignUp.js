@@ -24,7 +24,7 @@ class SignUp extends Component {
         <div class='logo route' data-route="/"></div>
       </header>
       <form class="signup-form">
-        <h1 class="title">SIGNUP</h1>
+        <h1 class="title">회원가입</h1>
         <div class="signup-container">
         <label for="email">이메일</label>
           <input
@@ -68,7 +68,7 @@ class SignUp extends Component {
           />
           <span class="error-msg">${confirmPwd?.errMsg ?? ''}</span>
           <button type="submit" class="signup-btn" ${canSubmit ? '' : 'disabled="disabled"'}}>회원가입</button>
-          <button type="button" class="user-link route" data-route="/signin">로그인</button>
+          <button type="button" class="user-link route" data-route="/signin">아이디가 있으신가요? 로그인</button>
         </div>
       </form>
     `;
