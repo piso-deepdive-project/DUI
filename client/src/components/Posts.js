@@ -11,7 +11,7 @@ class Posts extends Component {
     const postCards = posts?.map(post => new PostCard({ post }).render()).join('');
 
     return `
-      <ul class="post-type">
+      <ul class="post-type ${currentPostType === 'list' ? 'pr-48' : 'pr-4'}">
         <li data-type="list">
           <i class="bx bx-list-ul  bx-lg bg-txt text-main ${currentPostType === 'list' ? 'select' : ''}"></i>
         </li>
