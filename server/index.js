@@ -174,15 +174,6 @@ server
     }
   });
 
-server.get('/api/test', (_, res) => {
-  const temp = 'tmptmp';
-  res.send({
-    jwt: process.env.JWT_SECRET_KEY,
-    port: process.env.PORT,
-    temp,
-  });
-});
-
 server.get('*', (_, res) => {
   res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 });
