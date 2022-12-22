@@ -101,8 +101,10 @@ class SignUp extends Component {
   async addUser({ email, authorname, pwd }) {
     await axios.post('/api/signup', {
       id: email.value,
-      authorname: authorname.value,
+      name: authorname.value,
       pwd: pwd.value,
+      posts: [],
+      likes: [],
     });
 
     window.history.pushState(null, null, '/signin');
