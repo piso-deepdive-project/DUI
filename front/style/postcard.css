@@ -14,7 +14,7 @@
   }
 
   .post-list .card-title {
-    @apply text-2xl font-semibold mb-5 overflow-hidden text-ellipsis whitespace-nowrap mb-0;
+    @apply text-2xl font-semibold mb-0 ml-3  overflow-hidden text-ellipsis whitespace-nowrap;
   }
 
   .post-list .card-description {

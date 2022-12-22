@@ -22,7 +22,7 @@ class SignIn extends Component {
         <div class='logo route' data-route="/"></div>
       </header>
       <form class="signin-form">
-        <h1 class="title">SIGNIN</h1>
+        <h1 class="title">로그인</h1>
         <span class="error-msg">${errMsg}</span>
         <div class="signin-container">
           <input
@@ -46,7 +46,7 @@ class SignIn extends Component {
           <i class='signin-pwd-icon icon hidden bx bx-x'></i>
           <button type="submit"class="signin-btn">로그인</button>
         </div>
-        <button type="button" class="user-link route" data-route="/signup">회원가입</button>
+        <button type="button" class="user-link route" data-route="/signup">아이디가 없으신가요? 회원가입</button>
         </form>
 
     `;
