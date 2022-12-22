@@ -4,9 +4,13 @@
 
 ![list](./assets/list.gif)
 
+</br>
+
 ## Grid로 글 목록 보기
 
 ![grid](./assets/grid.gif)
+
+</br>
 
 ## 로그인
 
@@ -26,6 +30,8 @@
 
 ![signout](./assets/signout.gif)
 
+</br>
+
 ## 회원가입
 
 ### 회원가입 페이지로 이동하기
@@ -41,6 +47,8 @@
 ![signup-email](./assets/signup-email.png)
 ![signup-fail](./assets/signup-fail.png)
 
+</br>
+
 ## 글 보기
 
 ### 로그인안한 상태라면
@@ -50,6 +58,8 @@
 ### 로그인한 상태라면
 
 ![watch-post-signin](./assets/watch-post-signin.gif)
+
+</br>
 
 ## 글 편집
 
@@ -64,6 +74,8 @@
 ### 글 수정하기
 
 ![update-post](./assets/update-post.gif)
+
+</br>
 
 ## 댓글
 
