@@ -6,7 +6,9 @@
 ## 사이트 이용방법
 
 - [글 목록 보기](./docs/lib/page.md#list로-글-목록-보기)
-- [로그인]
+- [로그인](./docs/lib/page.md#로그인)
+- [회원가입](./docs/lib/page.md#회원가입)
+- [글 보기](./docs/lib/page.md#글-보기)
 
 # :date: Period
 
