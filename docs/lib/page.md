@@ -50,3 +50,23 @@
 ### 로그인한 상태라면
 
 ![watch-post-signin](./assets/watch-post-signin.gif)
+
+## 글 편집
+
+### 글 작성하기
+
+![write-post](./assets/write-post.gif)
+
+### 글 삭제하기
+
+![delete-post](./assets/delete-post.gif)
+
+### 글 수정하기
+
+![update-post](./assets/update-post.gif)
+
+## 댓글
+
+### 댓글 작성하기
+
+![write-comment](./assets/write-comment.gif)

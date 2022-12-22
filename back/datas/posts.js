@@ -70,7 +70,7 @@ const posts = [
   {
     id: 1,
     title: 'Dr Dre - I need a doctor.',
-    author: { id: 'test1@gmail.com', name: '송승학' },
+    author: { id: 'test1@test.com', name: '송승학' },
     tags: [],
     content: `I'm about to lose my mind
     You've been gone for so long
@@ -166,7 +166,7 @@ const posts = [
   {
     id: 2,
     title: 'Eminem - Stan.',
-    author: { id: 'test2@gmail.com', name: '장현우' },
+    author: { id: 'test2@test.com', name: '장현우' },
     tags: [],
     content: `My tea's gone cold, I'm wondering why I
     Got out of bed at all
@@ -311,7 +311,7 @@ const posts = [
   {
     id: 3,
     title: '2Pac - Hit Em Up.',
-    author: { id: 'test3@gmail.com', name: '황수현' },
+    author: { id: 'test3@test.com', name: '황수현' },
     tags: [],
     content: `Yeah
     Ayo
@@ -431,7 +431,7 @@ const posts = [
   {
     id: 4,
     title: 'Disabled elements',
-    author: { id: 'test123@gmail.com', name: '홍길동' },
+    author: { id: 'test123@test.com', name: '홍길동' },
     tags: ['html5'],
     content: `<a href="https://html.spec.whatwg.org/multipage/semantics-other.html#disabled-elements">보러가기</a>
     An element is said to be actually disabled if it is one of the following:
@@ -451,7 +451,7 @@ const posts = [
   {
     id: 5,
     title: 'Can I use a proxy on top of my Vercel Deployment?',
-    author: { id: 'test1@gmail.com', name: '송승학' },
+    author: { id: 'test1@test.com', name: '송승학' },
     tags: ['vercel', 'retrospective'],
     content: `It is possible to use an external proxy or load balancer to route requests to a Vercel Deployment. This article describes possible alternatives, downsides you need to be aware of, and general configuration.
 
@@ -506,7 +506,7 @@ const posts = [
   {
     id: 6,
     title: '하상욱',
-    author: { id: 'test2@gmail.com', name: '장현우' },
+    author: { id: 'test2@test.com', name: '장현우' },
     tags: [],
     content: `
       <h3 class="bg-primary">말도 안돼</h3>
@@ -532,7 +532,7 @@ const posts = [
   {
     id: 7,
     title: '2Pac - Hit Em Up.',
-    author: { id: 'test3@gmail.com', name: '황수현' },
+    author: { id: 'test3@test.com', name: '황수현' },
     tags: [],
     content: '',
     date: new Date('1996-06-04'),
@@ -541,7 +541,7 @@ const posts = [
   {
     id: 8,
     title: '트위터 봤는데...',
-    author: { id: 'test1@gmail.com', name: '송승학' },
+    author: { id: 'test1@test.com', name: '송승학' },
     tags: ['유투브', '트위터'],
     content: `'
     트위터에서 호X맨 왈
@@ -557,7 +557,7 @@ const posts = [
   {
     id: 9,
     title: '인프런 회고를 읽어볼까...',
-    author: { id: 'test1@gmail.com', name: '송승학' },
+    author: { id: 'test1@test.com', name: '송승학' },
     tags: ['인프콘', '트위터'],
     content: `바야흐로 개발자 회고 시즌이다.
 
@@ -575,7 +575,7 @@ const posts = [
   {
     id: 10,
     title: '나라면...???',
-    author: { id: 'test1@gmail.com', name: '송승학' },
+    author: { id: 'test1@test.com', name: '송승학' },
     tags: [],
     content: `
       지금 CSS 그룹에서 논쟁중이란다. 기존의 CSS는 중첩이 허용되지 않았는데, 이제 허용케 만드는가 싶다. 이게 가능하면 다른 css 프레임워크 왠지 많이 안쓸 것 같아..
@@ -625,7 +625,7 @@ const posts = [
   {
     id: 11,
     title: 'jQuery는 꾸준히 성장세라는 것을 알고 있나요?',
-    author: { id: 'test1@gmail.com', name: '송승학' },
+    author: { id: 'test1@test.com', name: '송승학' },
     tags: [],
     content: '진짜??   https://npmtrends.com/jquery  올라가고 있긴하네',
     date: new Date('2022-12-22'),
