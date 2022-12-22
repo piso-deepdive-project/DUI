@@ -55,7 +55,7 @@ const post = {
   getPost: id => posts.find(post => post.id === id),
   addPost: post => {
     const newPost = { ...post, id: getNextId() };
-    posts = [...posts, newPost];
+    posts = [newPost, ...posts];
   },
   updatePost: post => {
     posts = posts.map(_post => (_post.id === +post.id ? { ..._post, ...post } : _post));
