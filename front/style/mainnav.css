@@ -73,6 +73,8 @@
 
   .start-btn,
   .signout-btn {
+    @apply mx-auto;
+    display: block;
     background-color: #fff;
     border: 1px solid #00c3bd;
     border-radius: 16px;
@@ -80,8 +82,6 @@
     font-size: 13px;
     height: 32px;
     margin-top: 1rem;
-    margin-left: 0;
-    vertical-align: baseline;
     width: 120px;
   }
 

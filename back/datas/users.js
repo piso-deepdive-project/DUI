@@ -10,7 +10,7 @@ const users = [
     id: 'test1@test.com',
     pwd: 'aaa123!!',
     name: '송승학',
-    posts: [1, 5],
+    posts: [1, 5, 8, 9, 10, 11],
     likes: [],
   },
   {

@@ -1,7 +1,7 @@
 @layer components {
   .post-list .post-card {
     min-width: 800px;
-    @apply flex flex-row gap-5 p-2 mx-auto bg-slate-200 my-6 w-3/4 h-44 font-bold 
+    @apply flex flex-row gap-5 px-4 py-2 mx-auto bg-slate-200 my-6 w-3/4 h-44 font-bold 
      justify-between items-center rounded-lg shadow-md transition-transform duration-300 cursor-pointer;
   }
 
@@ -10,7 +10,7 @@
   }
 
   .post-list .card-author {
-    @apply font-bold text-primary w-20;
+    @apply font-bold text-primary w-20 text-xl;
   }
 
   .post-list .card-title {
@@ -45,7 +45,7 @@
   /* gridCard */
 
   .post-grid .post-card {
-    @apply grid grid-rows-6 grid-cols-2 h-60 bg-slate-200  rounded-lg shadow-md transition-transform duration-300 cursor-pointer;
+    @apply grid grid-rows-6 grid-cols-2 h-60 bg-slate-200 px-2 py-4  rounded-lg shadow-md transition-transform duration-300 cursor-pointer;
   }
 
   .post-grid .post-card:hover {
@@ -53,7 +53,7 @@
   }
 
   .post-grid .card-author {
-    @apply text-primary text-sm;
+    @apply text-primary text-lg;
   }
 
   .post-grid .thumbnail {
