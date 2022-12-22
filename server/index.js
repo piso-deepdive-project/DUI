@@ -175,7 +175,7 @@ server
   });
 
 server.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile('index.html', { root: path.join(__dirname, 'public') });
 });
 
 const { PORT } = process.env;
