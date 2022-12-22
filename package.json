@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-s client dist server",
-    "client": "cd front  && npm run build",
-    "dist": "rm -rf back/public && mv front/dist back/public",
-    "server": "cd back && npx nodemon"
+    "client": "cd client  && npm run build",
+    "dist": "rm -rf server/public && mv client/dist server/public",
+    "server": "cd server && npx nodemon"
   },
   "repository": {
     "type": "git",
