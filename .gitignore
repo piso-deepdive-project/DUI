@@ -2,12 +2,12 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,windows,node
 
 /node_modules
-/back/node_modules
-/front/node_modules
+/server/node_modules
+/client/node_modules
 
 /package-lock.json
-/back/package-lock.json
-/front/package-lock.json
+/server/package-lock.json
+/client/package-lock.json
 
 /back/.env
 
