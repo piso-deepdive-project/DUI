@@ -1,6 +1,8 @@
 let { users } = require('./datas/users');
 let { posts } = require('./datas/posts');
 
+posts = posts.sort((postA, postB) => postB.date - postA.date);
+
 // USER
 
 const user = {

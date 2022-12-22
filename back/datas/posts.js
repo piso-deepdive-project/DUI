@@ -538,6 +538,99 @@ const posts = [
     date: new Date('1996-06-04'),
     comments: [],
   },
+  {
+    id: 8,
+    title: '트위터 봤는데...',
+    author: { id: 'test1@gmail.com', name: '송승학' },
+    tags: ['유투브', '트위터'],
+    content: `'
+    트위터에서 호X맨 왈
+    '네, 그런데 유튜브 뮤직이 음악 스트리밍 서비스로서 좋다고 생각하지는 않습니다. 음질도 음질이지만 대체로 앨범이 잘 정리되어 있지 않습니다. 익명의 사람들이 올린 음악, 뮤직비디오도 섞여 있는 경우가 많습니다. 그런데 자꾸 손이 갑니다. (그런데 이게 결국 좋은 서비스..?)'
+    
+    나는 개인적으로 좋다고 생각하는데..ㅋㅋㅋ 앨범은 꼭 정리되어있을 필요가 없다랄까..
+    방정리는 개개인이 다르다 느끼니까요..
+    `,
+    date: new Date('2022-12-22'),
+    thumbnail: 'thumbnail1.png',
+    comments: [],
+  },
+  {
+    id: 9,
+    title: '인프런 회고를 읽어볼까...',
+    author: { id: 'test1@gmail.com', name: '송승학' },
+    tags: ['인프콘', '트위터'],
+    content: `바야흐로 개발자 회고 시즌이다.
+
+    매 년 개발자 분들의 회고를 읽으며 많은 힘을 얻어가곤 하는데, 인프콘에서 발표까지 하신 Ryan님의 회고는 유난히 기분이 좋다.
+    
+    스타트업, 육아, 이민등 내용이 엄청나다. 읽는 것 만으로 Ryan님의 에너지가 느껴진다.
+    
+    -----
+    나도 회사 다니면서 회고를 작성하고 싶다. 내용보면 꼭 개발만이 내용이 있는 것 까진 않던데, 인프런 사람들은 어떻게 쓰려나
+    `,
+    date: new Date('2022-12-22'),
+    thumbnail: 'thumbnail1.png',
+    comments: [],
+  },
+  {
+    id: 10,
+    title: '나라면...???',
+    author: { id: 'test1@gmail.com', name: '송승학' },
+    tags: [],
+    content: `
+      지금 CSS 그룹에서 논쟁중이란다. 기존의 CSS는 중첩이 허용되지 않았는데, 이제 허용케 만드는가 싶다. 이게 가능하면 다른 css 프레임워크 왠지 많이 안쓸 것 같아..
+
+    A 안
+    article{
+      font-family: avenir;
+
+      & aside{
+        font-size: 1rem
+      }
+    }
+
+    B 안
+    @nest article{
+      &{
+        font-family: avenir;
+      }
+
+      aside{
+        font-size: 1rem
+      }
+    }
+
+    C 안
+    article{
+      font-family: avenir;
+
+      & aside{
+        font-size: 1rem
+      }
+    }
+
+    나는 A랑 B랑 적절히 섞었으면 좋겠는데,,,
+    음 근데 이렇게 쓰면 개발자들은 싫어하겠지,,?ㅋㅋㅋ
+    @nest article{
+      font-family: avenir;
+
+      & aside{
+        font-size: 1rem
+      }
+    }
+    `,
+    date: new Date('2022-12-22'),
+    comments: [],
+  },
+  {
+    id: 11,
+    title: 'jQuery는 꾸준히 성장세라는 것을 알고 있나요?',
+    author: { id: 'test1@gmail.com', name: '송승학' },
+    tags: [],
+    content: '진짜??   https://npmtrends.com/jquery  올라가고 있긴하네',
+    date: new Date('2022-12-22'),
+    comments: [],
+  },
 ];
 
 module.exports = {
