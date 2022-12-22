@@ -5,6 +5,8 @@
 
 ## 사이트 이용방법
 
+### 직접 보고 싶다면.. [:paperclip:]('https://dui-phi.vercel.app/');
+
 - [글 목록 보기](./docs/lib/page.md#list로-글-목록-보기)
 - [로그인](./docs/lib/page.md#로그인)
 - [회원가입](./docs/lib/page.md#회원가입)
