@@ -51,7 +51,10 @@ $ npm start
 
 ## [회고](./docs/retrospect/)
 
-## [트러블 슈팅](./docs/trobuleshooting/)
+## 트러블 슈팅
+
+- [Express static](./docs/trobuleshooting/01-express-static.md)
+- [Vercel static](./docs/trobuleshooting/02.vercel-express-static.md)
 
 # 프로젝트에서 집중하고자 했던 점
 
