@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Component } from '../common';
 
 import NavList from './NavList';
@@ -8,7 +9,7 @@ class MainNav extends Component {
     const { accessUser } = this.props;
 
     const navList = new NavList({ accessUser, openMenu: this.openMenu }).render();
-    const navMenu = new NavMenu({ accessUser, closeMenu: this.closeMenu }).render();
+    const navMenu = new NavMenu({ accessUser, closeMenu: this.closeMenu, signout: this.signout.bind(this) }).render();
 
     return `
       <nav class="main-nav">
@@ -24,6 +25,12 @@ class MainNav extends Component {
 
   closeMenu() {
     document.querySelector('.main-nav').classList.remove('open');
+  }
+
+  signout() {
+    axios.get('/api/signout/');
+    window.history.pushState(null, null, '/');
+    this.setState();
   }
 }
 

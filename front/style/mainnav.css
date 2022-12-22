@@ -71,7 +71,8 @@
     text-align: center;
   }
 
-  .start-btn {
+  .start-btn,
+  .signout-btn {
     background-color: #fff;
     border: 1px solid #00c3bd;
     border-radius: 16px;

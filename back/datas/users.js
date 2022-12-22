@@ -2,7 +2,7 @@ const users = [
   {
     id: 'test123@gmail.com',
     pwd: 'utzazz12!!',
-    name: '이웅모',
+    name: '홍길동',
     posts: [0, 4],
     likes: [],
   },
