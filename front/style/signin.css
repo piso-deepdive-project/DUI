@@ -9,6 +9,9 @@
   width: 600px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  -webkit-box-shadow: 7px 4px 36px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 4px 36px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 4px 36px -22px rgba(0, 0, 0, 0.75);
   @apply flex flex-col m-auto py-4 px-8  border-solid;
 }
 

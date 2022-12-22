@@ -10,7 +10,6 @@ class Edit extends Component {
   // prettier-ignore
   async render() {
     const postId = window.location.pathname.split('/')[2];
-    console.log(postId);
 
     const { data } = await axios.get(`/api/post/${+postId}`);
 
@@ -137,7 +136,7 @@ class Edit extends Component {
   }
 
   deleteTag(e) {
-    e.target.querySelector('.edit-tag').focus();
+    e.target.parentNode.querySelector('.edit-tag').focus();
     if (e.target.matches('.tag-box')) e.target.remove();
   }
 
