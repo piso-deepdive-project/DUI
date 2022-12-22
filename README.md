@@ -9,16 +9,12 @@
 - [로그인](./docs/lib/page.md#로그인)
 - [회원가입](./docs/lib/page.md#회원가입)
 - [글 보기](./docs/lib/page.md#글-보기)
+- [글 편집](./docs/lib/page.md#글-편집)
+- [댓글](./docs/lib/page.md#댓글)
 
 # :date: Period
 
 :calendar: 2022-12-12 ~ 2022-12-23
-
-# :school: Retrospective & TroblueShooting
-
-## [회고](./docs/retrospect/)
-
-## [트러블 슈팅](./docs/trobuleshooting/)
 
 # Stacks Tools Library
 
@@ -48,6 +44,12 @@ $ npm i
 ```shell
 $ npm start
 ```
+
+# :school: Retrospective & TroblueShooting
+
+## [회고](./docs/retrospect/)
+
+## [트러블 슈팅](./docs/trobuleshooting/)
 
 # 프로젝트에서 집중하고자 했던 점
 
