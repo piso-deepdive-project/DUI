@@ -11,7 +11,6 @@ class NavMenu extends Component {
     ${accessUser
     ? `<div class="login">
             <img class="profile" src="/assets/profile.png">
-            <span class="username">UserName</span>
             <button class="start-btn route" data-route="/edit">새 글 작성하기</button>
             <button class="signout-btn" >로그아웃</button>
           </div>`
