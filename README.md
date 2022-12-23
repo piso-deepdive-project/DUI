@@ -9,6 +9,8 @@
 
 - [Use Case](./docs/usecase.md)
 - [요구사항 UI 분석](./docs/requirement.md)
+- [API 명세](/docs/lib/API.md)
+- [컴포넌트 설명](/docs/lib/components)
 
 ## 사이트 이용방법
 
