@@ -8,6 +8,6 @@
 
 - 사이드 메뉴를 토글하기 위한 openMenu와 closeMenu handler를 만들어 하위 컴포넌트로 전달한다..
 
-  ![Alt Text](../assets/components/navlist.PNG)
+  ![Alt Text](../assets/components/navlist.png)
 
-  ![Alt Text](../assets/components/navmenu.PNG)
+  ![Alt Text](../assets/components/navmenu.png)
