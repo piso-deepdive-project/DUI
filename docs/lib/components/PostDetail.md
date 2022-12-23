@@ -9,3 +9,7 @@
 - 수정하기 기능은 선택된 post의 id를 통해 edit/:id 페이지로 이동해 구현한다.
 
 - 삭제하기 기능은 Post 페이지 컴포넌트로 부터 deletePost 핸들러를 전달받아 삭제하기 버튼에 대한 클릭 이벤트로 구현한다.
+
+</br>
+
+![postDetail](../assets/components/postDetail.png)

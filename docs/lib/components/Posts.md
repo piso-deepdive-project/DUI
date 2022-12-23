@@ -7,3 +7,11 @@
 
 - posts.map을 사용하여 하위 컴포넌트인 PostCard를 새로 생성한다.
 - posttype의 아이콘을 클릭시 해당 타입으로 postCard의 스타일을 변경한다.
+
+## List Type
+
+![listPosts](../assets/components/listPosts.png)
+
+## Grid Type
+
+![gridPosts](../assets/components/gridPosts.png)
