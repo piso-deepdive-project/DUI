@@ -6,16 +6,34 @@
 로 글을 저장하고 수정하고 삭제할 수 있는 웹 사이트 프로젝트입니다.
 
 - [글 목록 보기](./docs/lib/page.md#list로-글-목록-보기)
-  ![grid](./docs/lib/assets/grid.gif)
+
+---
+
+![grid](./docs/lib/assets/grid.gif)
+
 - [로그인](./docs/lib/page.md#로그인)
-  ![signout](./docs/lib/assets/signout.gif)
+
+---
+
+![signout](./docs/lib/assets/signout.gif)
+
+---
+
 - [회원가입](./docs/lib/page.md#회원가입)
-  ![signup](./docs/lib/assets/signup.gif)
+
+---
+
+![signup](./docs/lib/assets/signup.gif)
+
 - [글 보기](./docs/lib/page.md#글-보기)
 - [글 편집](./docs/lib/page.md#글-편집)
 - [댓글](./docs/lib/page.md#댓글)
 
 ## 프로젝트 기획
+
+![intro](./docs/intro.png)
+
+---
 
 - [Use Case](./docs/usecase.md)
 - [요구사항 UI 분석](./docs/requirement.md)
