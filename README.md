@@ -5,6 +5,16 @@
 `vanilla javascript`
 로 글을 저장하고 수정하고 삭제할 수 있는 웹 사이트 프로젝트입니다.
 
+- [글 목록 보기](./docs/lib/page.md#list로-글-목록-보기)
+  ![grid](./docs/lib/assets/grid.gif)
+- [로그인](./docs/lib/page.md#로그인)
+  ![signout](./docs/lib/assets/signout.gif)
+- [회원가입](./docs/lib/page.md#회원가입)
+  ![signup](./docs/lib/assets/signup.gif)
+- [글 보기](./docs/lib/page.md#글-보기)
+- [글 편집](./docs/lib/page.md#글-편집)
+- [댓글](./docs/lib/page.md#댓글)
+
 ## 프로젝트 기획
 
 - [Use Case](./docs/usecase.md)
@@ -14,19 +24,6 @@
 
 ## 사이트 이용방법
 
-### 직접 보고 싶다면.. :paperclip: [바로가기]('https://dui-p8yf5uybo-pisodev77.vercel.app/')
-
-- [글 목록 보기](./docs/lib/page.md#list로-글-목록-보기)
-- [로그인](./docs/lib/page.md#로그인)
-- [회원가입](./docs/lib/page.md#회원가입)
-- [글 보기](./docs/lib/page.md#글-보기)
-- [글 편집](./docs/lib/page.md#글-편집)
-- [댓글](./docs/lib/page.md#댓글)
-
-# :date: Period
-
-:calendar: 2022-12-12 ~ 2022-12-23
-
 # Stacks Tools Library
 
 ![HTML5](https://img.shields.io/badge/-HTML5-F05032?style=for-the-badge&logo=html5&logoColor=ffffff)
@@ -34,6 +31,10 @@
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=ffffff)
 ![Tailwind](https://img.shields.io/badge/-Tailwindcss-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=ffffff)
 ![Vite](https://img.shields.io/badge/-vite-FFD22A?style=for-the-badge&logo=vite&logoColor=ffffff)
+
+# :date: Period
+
+:calendar: 2022-12-12 ~ 2022-12-23
 
 # People
 
