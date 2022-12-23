@@ -3,6 +3,11 @@
 `vanilla javascript`
 로 글을 저장하고 수정하고 삭제할 수 있는 웹 사이트 프로젝트입니다.
 
+## 프로젝트 기획
+
+- [Use Case](./docs/usecase.md)
+- [요구사항 UI 분석](./docs/requirement.md)
+
 ## 사이트 이용방법
 
 ### 직접 보고 싶다면.. :paperclip: [바로가기]('https://dui-p8yf5uybo-pisodev77.vercel.app/')
@@ -51,7 +56,10 @@ $ npm start
 
 ## [회고](./docs/retrospect/)
 
-## [트러블 슈팅](./docs/trobuleshooting/)
+## 트러블 슈팅
+
+- [Express static](./docs/trobuleshooting/01-express-static.md)
+- [Vercel static](./docs/trobuleshooting/02.vercel-express-static.md)
 
 # 프로젝트에서 집중하고자 했던 점
 
