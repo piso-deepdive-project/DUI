@@ -1,5 +1,7 @@
 # Introduction
 
+> DUI; Draw yoUr Idea, 나만의 생각을 작성하고 공유할 수 있는 블로그 입니다.
+
 `vanilla javascript`
 로 글을 저장하고 수정하고 삭제할 수 있는 웹 사이트 프로젝트입니다.
 
