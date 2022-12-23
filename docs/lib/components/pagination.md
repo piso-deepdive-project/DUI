@@ -23,3 +23,5 @@
     }
 
   ```
+
+  ![Alt Text](../assets/components/infinite%20scroll.gif)
