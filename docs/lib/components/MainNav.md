@@ -7,3 +7,7 @@
 - 로그인한 유저와 비로그인 유저마다 다른 기능을 해야하므로 유저가 로그인 했는지를 하위 컴포넌트에 props로 전달한다.
 
 - 사이드 메뉴를 토글하기 위한 openMenu와 closeMenu handler를 만들어 하위 컴포넌트로 전달한다..
+
+  ![Alt Text](../assets/components/navlist.PNG)
+
+  ![Alt Text](../assets/components/navmenu.PNG)
